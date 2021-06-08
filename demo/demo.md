@@ -219,8 +219,8 @@ This example illustrates a list of Design tokens with the swatch styling applied
 
 <div class="exampleWrapper">
   <auro-tokens-list swatch componentData='[
-    { "tokenvalue": "1.5", "token": "auro-size-lg" },
-    { "tokenvalue": "#01426a", "token": "auro-color-brand-midnight-400" }
+    { "tokenvalue": "#cde6ff", "token": "auro-color-brand-atlas-100" },
+    { "tokenvalue": "#6bb7fb", "token": "auro-color-brand-atlas-200" }
   ]'></auro-tokens-list>
 </div>
 
@@ -228,10 +228,10 @@ This example illustrates a list of Design tokens with the swatch styling applied
   <span slot="trigger">See code</span>
 
   ```html
-    <auro-tokens-list swatch componentData='[
-    { "tokenvalue": "1.5", "token": "auro-size-lg" },
-    { "tokenvalue": "#01426a", "token": "auro-color-brand-midnight-400" }
-    ]'></auro-tokens-list>
+  <auro-tokens-list swatch componentData='[
+    { "tokenvalue": "#cde6ff", "token": "auro-color-brand-atlas-100" },
+    { "tokenvalue": "#6bb7fb", "token": "auro-color-brand-atlas-200" }
+  ]'></auro-tokens-list>
   ```
 </auro-accordion>
 
