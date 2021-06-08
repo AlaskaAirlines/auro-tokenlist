@@ -30,16 +30,20 @@ Any update to the Auro Design Tokens will be immediately reflected with browsers
 
 ### Define dependency in project component
 
-Defining the component dependency within each component that is using the `<auro-swatch>` component.
+Defining the component dependency within each component that is using the `<auro-swatch-list>`, `<auro-color-avatar>` or `<auro-tokens-list>` component.
 
 ```javascript
-import "@aurolabs/auro-swatch";
+import "@aurolabs/auro-swatch/dist/auro-swatch-list";
+import "@aurolabs/auro-swatch/dist/auro-color-avatar";
+import "@aurolabs/auro-swatch/dist/auro-tokens-list";
 ```
 
 **Reference component in HTML**
 
 ```html
-<auro-swatch>Hello World</auro-swatch>
+<auro-swatch-list>Hello World</auro-swatch-list>
+<auro-color-avatar>Hello World</auro-color-avatar>
+<auro-token-list>Hello World</auro-token-list>
 ```
 
 ## Install bundled assets from CDN
@@ -58,20 +62,85 @@ Since the legacy bundle includes many polyfills that are not needed by modern br
 <script src="https://unpkg.com/@alaskaairux/auro-swatch@latest/dist/auro-swatch__bundled.es5.js" nomodule></script>
 ```
 
-## auro-swatch use cases
+## auro-swatch-list use cases
 
-The `<auro-swatch>` element should be used in situations where users may:
+The `<auro-swatch-list>` element should be used in situations where users may:
 
-* ...
-* ...
-* ...
+* Need to illustrate a Design Token color and its related data
+* Display data in table format
+* Displays CSS custom property name
+* Displays Sass variable name
+* Describes color usage and WCAG rating
+* Displays color in circular inkwell
+* Displays color HEX or RGBA value
 
 ## API Code Examples
 
 Default auro-swatch
 
 ```html
-<auro-swatch>Hello World</auro-swatch>
+<auro-swatch-list componentData='[
+  { "backgroundcolor": "#0074c8", "colorname": "color-brand-atlas-100", "wcag": "AAA", "usage": "Notification color on light backgrounds" },
+  { "backgroundcolor": "#0074c8", "colorname": "color-brand-atlas-200", "wcag": "AAA", "usage": "Notification color on light backgrounds" }
+  ]'></auro-swatch-list>
+```
+
+```html
+<auro-swatch-list ondark componentData='[
+  { "backgroundcolor": "#0074c8", "colorname": "color-brand-atlas-100", "wcag": "AAA", "usage": "Notification color on light backgrounds" },
+  { "backgroundcolor": "#0074c8", "colorname": "color-brand-atlas-200", "wcag": "AAA", "usage": "Notification color on light backgrounds" }
+  ]'></auro-swatch-list>
+```
+
+## auro-color-avatar use cases
+
+The `<auro-color-avatar>` element should be used in situations where users may:
+
+* Need to illustrate a Design Token color and its related data
+* Use illustrative avatar to display color listing
+* Need to illustrate between text, border, alert, interactive or icon uses
+
+## API Code Examples
+
+Default auro-swatch
+
+
+```html
+<auro-color-avatar avatartype="font" colorname="color-text-primary-on-light"></auro-color-avatar>
+<auro-color-avatar avatartype="font" ondark colorname="color-text-primary-on-dark"></auro-color-avatar>
+```
+
+```html
+<auro-color-avatar avatartype="border" colorname="color-border-error-on-light"></auro-color-avatar>
+<auro-color-avatar avatartype="border" ondark colorname="color-border-error-on-dark"></auro-color-avatar>
+```
+
+```html
+<auro-color-avatar avatartype="alert" colorname="color-alert-success-on-light"></auro-color-avatar>
+<auro-color-avatar avatartype="alert" ondark colorname="color-alert-success-on-dark"></auro-color-avatar>
+```
+
+## auro-tokens-list use cases
+
+The `<auro-token-list>` element should be used in situations where users may:
+
+* Display table of design token name and value
+* Display alternate table of deprecated tokens with optional new reference token name
+
+## API Code Examples
+
+Default auro-swatch
+
+```html
+<auro-tokens-list componentData='[
+  { "tokenvalue": "480px", "token": "breakpoint-width-narrow" }
+]'></auro-tokens-list>
+```
+
+```html
+<auro-tokens-list deprecated componentData='[
+  { "tokenvalue": "480px", "token": "breakpoint-width-narrow", "reference": "breakpoint-sm" }
+]'></auro-tokens-list>
 ```
 
 ## Development

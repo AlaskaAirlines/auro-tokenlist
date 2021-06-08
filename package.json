@@ -18,19 +18,19 @@
   "main": "index.js",
   "license": "Apache-2.0",
   "dependencies": {
-    "lit-element": "^2.4.0",
-    "chalk": "^4.1.1"
+    "chalk": "^4.1.1",
+    "lit-element": "^2.4.0"
   },
   "peerDependencies": {
     "@alaskaairux/design-tokens": "^3.2.1",
-    "@alaskaairux/webcorestylesheets": "^3.2.0",
     "@alaskaairux/icons": "^4.6.0",
+    "@alaskaairux/webcorestylesheets": "^3.2.0",
     "@webcomponents/webcomponentsjs": "^2.5.0",
     "focus-visible": "^5.2.0"
   },
   "devDependencies": {
-    "@alaskaairux/icons": "^4.6.0",
     "@alaskaairux/design-tokens": "^3.2.1",
+    "@alaskaairux/icons": "^4.6.0",
     "@alaskaairux/webcorestylesheets": "^3.2.0",
     "@babel/core": "^7.13.16",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
@@ -94,7 +94,7 @@
   ],
   "scripts": {
     "build": "npm run ciBuild",
-    "apiBuild": "wca analyze 'src/auro-swatch.js' --outFiles docs/api.md",
+    "apiBuild": "wca analyze 'src/auro-*.js' --outFiles docs/api.md",
     "bundler": "rollup -c",
     "bundle:test": "rollup -c -w",
     "postinstall": "node packageScripts/postinstall.js",
