@@ -1,6 +1,6 @@
 # Swatch
 
-`<auro-swatch>` is a [HTML custom element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) for the purpose of ...
+`<auro-color-avatar>`, `<auro-swatch-list>` and `<auro-tokens-list>` are [HTML custom element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) for the purpose of illustrating Design Tokens and their related data.
 
 ## UI development browser support
 
@@ -41,9 +41,11 @@ import "@aurolabs/auro-swatch/dist/auro-tokens-list";
 **Reference component in HTML**
 
 ```html
-<auro-swatch-list>Hello World</auro-swatch-list>
-<auro-color-avatar>Hello World</auro-color-avatar>
-<auro-token-list>Hello World</auro-token-list>
+<auro-color-avatar avatartype="font" colorname="color-text-primary-on-light"></auro-color-avatar>
+
+<auro-swatch-list componentData='[{ "backgroundcolor": "#cde6ff", "colorname": "auro-color-brand-atlas-100", "wcag": "AAA", "usage": "Notification color on light backgrounds" }]'></auro-swatch-list>
+
+<auro-tokens-list componentData='[{ "tokenvalue": "480px", "token": "breakpoint-width-narrow" }]'></auro-tokens-list>
 ```
 
 ## Install bundled assets from CDN
@@ -62,36 +64,6 @@ Since the legacy bundle includes many polyfills that are not needed by modern br
 <script src="https://unpkg.com/@alaskaairux/auro-swatch@latest/dist/auro-swatch__bundled.es5.js" nomodule></script>
 ```
 
-## auro-swatch-list use cases
-
-The `<auro-swatch-list>` element should be used in situations where users may:
-
-* Need to illustrate a Design Token color and its related data
-* Display data in table format
-* Displays CSS custom property name
-* Displays Sass variable name
-* Describes color usage and WCAG rating
-* Displays color in circular inkwell
-* Displays color HEX or RGBA value
-
-## API Code Examples
-
-Default auro-swatch
-
-```html
-<auro-swatch-list componentData='[
-  { "backgroundcolor": "#0074c8", "colorname": "color-brand-atlas-100", "wcag": "AAA", "usage": "Notification color on light backgrounds" },
-  { "backgroundcolor": "#0074c8", "colorname": "color-brand-atlas-200", "wcag": "AAA", "usage": "Notification color on light backgrounds" }
-  ]'></auro-swatch-list>
-```
-
-```html
-<auro-swatch-list ondark componentData='[
-  { "backgroundcolor": "#0074c8", "colorname": "color-brand-atlas-100", "wcag": "AAA", "usage": "Notification color on light backgrounds" },
-  { "backgroundcolor": "#0074c8", "colorname": "color-brand-atlas-200", "wcag": "AAA", "usage": "Notification color on light backgrounds" }
-  ]'></auro-swatch-list>
-```
-
 ## auro-color-avatar use cases
 
 The `<auro-color-avatar>` element should be used in situations where users may:
@@ -101,9 +73,6 @@ The `<auro-color-avatar>` element should be used in situations where users may:
 * Need to illustrate between text, border, alert, interactive or icon uses
 
 ## API Code Examples
-
-Default auro-swatch
-
 
 ```html
 <auro-color-avatar avatartype="font" colorname="color-text-primary-on-light"></auro-color-avatar>
@@ -119,6 +88,33 @@ Default auro-swatch
 <auro-color-avatar avatartype="alert" colorname="color-alert-success-on-light"></auro-color-avatar>
 <auro-color-avatar avatartype="alert" ondark colorname="color-alert-success-on-dark"></auro-color-avatar>
 ```
+## auro-swatch-list use cases
+
+The `<auro-swatch-list>` element should be used in situations where users may:
+
+* Need to illustrate a Design Token color and its related data
+* Display data in table format
+* Displays CSS custom property name
+* Displays Sass variable name
+* Describes color usage and WCAG rating
+* Displays color in circular inkwell
+* Displays color HEX or RGBA value
+
+## API Code Examples
+
+```html
+<auro-swatch-list componentData='[
+  { "backgroundcolor": "#0074c8", "colorname": "color-brand-atlas-100", "wcag": "AAA", "usage": "Notification color on light backgrounds" },
+  { "backgroundcolor": "#0074c8", "colorname": "color-brand-atlas-200", "wcag": "AAA", "usage": "Notification color on light backgrounds" }
+  ]'></auro-swatch-list>
+```
+
+```html
+<auro-swatch-list ondark componentData='[
+  { "backgroundcolor": "#0074c8", "colorname": "color-brand-atlas-100", "wcag": "AAA", "usage": "Notification color on light backgrounds" },
+  { "backgroundcolor": "#0074c8", "colorname": "color-brand-atlas-200", "wcag": "AAA", "usage": "Notification color on light backgrounds" }
+  ]'></auro-swatch-list>
+```
 
 ## auro-tokens-list use cases
 
@@ -128,8 +124,6 @@ The `<auro-token-list>` element should be used in situations where users may:
 * Display alternate table of deprecated tokens with optional new reference token name
 
 ## API Code Examples
-
-Default auro-swatch
 
 ```html
 <auro-tokens-list componentData='[

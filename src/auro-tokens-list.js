@@ -63,14 +63,14 @@ class AuroTokensList extends LitElement {
   currentToken(reference) {
     if (reference === 'n/a') {
       return reference;
-    } 
-    if (reference.startsWith("auro")){
+    }
+    if (reference.startsWith("auro")) {
       return `var(--${reference})`;
     }
     if (reference) {
-  
       return `var(--auro-${reference})`;
     }
+
     return ''
   }
 
@@ -112,9 +112,9 @@ class AuroTokensList extends LitElement {
             <td class="noWrap">
               ${this.currentToken(index.reference)}
             </td>
-      ${this.version
-      ? html`<td class="noWrap">${index.version}</td>`
-      : html``}
+          ${this.version
+    ? html` <td class="noWrap">${index.version}</td>`
+    : html``}
             <td class="noWrap">${index.tokenvalue}</td>
           </tr>
         `)}
@@ -140,15 +140,13 @@ class AuroTokensList extends LitElement {
               ${index.tokenvalue}${this.size(index.token)}
             </td>
             <td>
-            ${ this.swatch || this.circle ?
-              html`
-              <div
+            ${this.swatch || this.circle
+    ? html`     <div
                 class="${classMap(classes)}"
                 style="background-color: ${varName(index.token, 'css')}">
               </div>
-            `:
-            html ``
-            }
+        `
+    : html``}
             </td>
           </tr>
         `)}

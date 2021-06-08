@@ -53,51 +53,46 @@ class AuroColorAvatar extends LitElement {
     return html`
       <div class="avatarWrapper">
         ${this.avatartype
-          ? html``
-          : html`
+    ? html``
+    : html`
           <div class="avatar avatar--color" style="background-color: ${varName(this.colorname, 'css')}"></div>
-          `}
+        `}
 
-          ${this.avatartype === 'alert'
-          ? html`
-            <div class="avatar">
-              <div class="alertBox icon" style="border-color: ${varName(this.colorname, 'css')}"></div>
-            </div>
+        ${this.avatartype === 'alert'
+    ? html`
+          <div class="avatar">
+            <div class="alertBox icon" style="border-color: ${varName(this.colorname, 'css')}"></div>
+          </div>
+        `
+    : html``}
+        ${this.avatartype === 'ui'
+    ? html`
+          <div class="avatar">
+            <div class="uiBox icon" style="background-color: ${varName(this.colorname, 'css')}"></div>
+          </div>
           `
-          : html``}
-
-          ${this.avatartype === 'ui'
-          ? html`
-            <div class="avatar">
-              <div class="uiBox icon" style="background-color: ${varName(this.colorname, 'css')}"></div>
-            </div>
-          `
-          : html``}
-
-          ${this.avatartype === 'border'
-          ? html`
-            <div class="avatar">
-              <div class="icon" style="background-color: ${varName(this.colorname, 'css')}"></div>
-            </div>
-          `
-          : html``}
-
+    : html``}
+        ${this.avatartype === 'border'
+    ? html`
+          <div class="avatar">
+            <div class="icon" style="background-color: ${varName(this.colorname, 'css')}"></div>
+          </div>
+      `
+    : html``}
         ${this.avatartype === 'font'
-          ? html`
-            <div class="avatar" style="color: ${varName(this.colorname, 'css')}">
-              Aa
-            </div>
+    ? html`
+          <div class="avatar" style="color: ${varName(this.colorname, 'css')}">
+            Aa
+          </div>
           `
-          : html``}
-
+    : html``}
         ${this.avatartype === 'icon'
-          ? html`
-
+    ? html`
           <div class="avatar" style="color: ${varName(this.colorname, 'css')}">
               ${this.generateIconHtml(locationFilled.svg)}
             </div>
           `
-          : html``}
+    : html``}
       </div>
       <div class="contentWrapper">
         <p class="avatarToken">${this.colorname}</p>
