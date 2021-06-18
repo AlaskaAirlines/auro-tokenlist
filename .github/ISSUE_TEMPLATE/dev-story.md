@@ -1,8 +1,8 @@
 ---
 name: Development Story
-about: Crate a new user story to address the development process
+about: Create a new user story to address the development process
 title: 'auro-swatch; develop [feature]'
-labels: 'Status: Proposal'
+labels: 'Status: Proposal, not-reviewed'
 ---
 
 # User story

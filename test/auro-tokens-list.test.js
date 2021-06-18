@@ -1,5 +1,4 @@
 import { fixture, html, expect } from '@open-wc/testing';
-import sinon from 'sinon';
 import '../src/auro-tokens-list.js';
 
 describe('auro-tokens-list is defined', () => {

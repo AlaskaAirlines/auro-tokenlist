@@ -4,11 +4,11 @@
 // ---------------------------------------------------------------------
 
 // Import Auro tokens
-@import "./node_modules/@alaskaairux/design-tokens/dist/tokens/SCSSVariables";
-@import "./node_modules/@alaskaairux/design-tokens/dist/tokens/SassCustomProperties";
+@import './../node_modules/@alaskaairux/design-tokens/dist/tokens/SCSSVariables';
+@import './../node_modules/@alaskaairux/design-tokens/dist/tokens/SassCustomProperties';
 
-@import "./node_modules/@alaskaairux/webcorestylesheets/dist/breakpoints";
-@import "./node_modules/@alaskaairux/webcorestylesheets/dist/core";
+@import './../node_modules/@alaskaairux/webcorestylesheets/dist/breakpoints';
+@import './../node_modules/@alaskaairux/webcorestylesheets/dist/core';
 
 .varList {
   line-height: var(--auro-unitless-scale-200);
@@ -25,19 +25,10 @@
   }
 }
 
-.tableListing-standard {
-  th,
-  td {
-    &:nth-child(odd) {
-      width: 50%;
-    }
-  }
-}
-
 .tableListing {
   width: 100%;
-  border-collapse: collapse;
   margin-bottom: var(--auro-size-xxl);
+  border-collapse: collapse;
 
   tbody {
     font-size: var(--auro-text-body-size-sm);
@@ -59,12 +50,22 @@
   }
 }
 
+.tableListing-standard {
+  th,
+  td {
+    &:nth-child(odd) {
+      width: 50%;
+    }
+  }
+}
+
 .tableRow {
   &:nth-child(even) {
     background-color: var(--auro-color-base-gray-100);
   }
 }
 
+/* stylelint-disable declaration-no-important */
 .noPadding {
   padding-right: 0 !important;
 }
@@ -76,15 +77,15 @@
 .swatch {
   width: 100px;
   height: 15px;
+  margin: 0 auto;
   outline: 1px solid var(--auro-color-base-neutral-400);
   outline-offset: 4px;
-  margin: 0 auto;
 }
 
 .swatch--circle {
   width: 40px;
   height: 40px;
-  border-radius: 50%;
   margin: 0 auto;
+  border-radius: 50%;
   outline: none;
 }

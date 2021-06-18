@@ -4,12 +4,13 @@
 // ---------------------------------------------------------------------
 
 // Import Auro tokens
-@import "./node_modules/@alaskaairux/design-tokens/dist/tokens/SCSSVariables";
-@import "./node_modules/@alaskaairux/design-tokens/dist/tokens/SassCustomProperties";
+@import './node_modules/@alaskaairux/design-tokens/dist/tokens/SCSSVariables';
+@import './node_modules/@alaskaairux/design-tokens/dist/tokens/SassCustomProperties';
 
-@import "./node_modules/@alaskaairux/webcorestylesheets/dist/breakpoints";
-@import "./node_modules/@alaskaairux/webcorestylesheets/dist/core";
+@import './node_modules/@alaskaairux/webcorestylesheets/dist/breakpoints';
+@import './node_modules/@alaskaairux/webcorestylesheets/dist/core';
 
+/* stylelint-disable selector-max-combinators, no-descending-specificity, declaration-no-important, selector-max-compound-selectors */
 :host {
   > * {
     --size-icon-square-lg: 3rem;
@@ -34,7 +35,7 @@
   }
 
   .uiBox {
-    &::after {
+    &:after {
       background-color: var(--auro-color-background-darker);
     }
   }
@@ -53,72 +54,70 @@ p {
 }
 
 .avatar {
-  border-radius: 50%;
+  position: relative;
+  display: flex;
   width: 5rem;
   height: 5rem;
-
-  position: relative;
-  background-color: var(--auro-color-background-lighter);
-  display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  background-color: var(--auro-color-background-lighter);
+  border-radius: 50%;
   clip-path: circle(2.5rem at center);
   font-size: var(--auro-size-xl);
 
-  &::before {
+  &:before {
     position: absolute;
-    content: '';
+    z-index: 100;
     width: calc(5rem - 2px);
     height: calc(5rem - 2px);
-    border-radius: 50%;
     border: 1px solid var(--auro-color-border-primary-on-light);
-    z-index: 100;
+    border-radius: 50%;
+    content: '';
   }
 }
 
 .icon {
-  height: var(--auro-size-xs);
   width: 80%;
-  border-radius: var(--auro-size-xxs);
+  height: var(--auro-size-xs);
   margin-right: -40%;
+  border-radius: var(--auro-size-xxs);
 }
 
 .uiBox,
 .alertBox {
-  height: 40px;
   position: relative;
+  height: 40px;
   background-color: inherit;
 
   // inset image
-  &::after {
+  &:after {
     position: absolute;
-    content: "";
-
-    height: var(--auro-size-xs);
-    width: 80%;
-    background-color: var(--auro-color-background-lighter);
-    border-radius: var(--auro-size-xxs);
     top: calc(50% - var(--auro-size-xxs));
     left: 40%;
+    width: 80%;
+    height: var(--auro-size-xs);
+    background-color: var(--auro-color-background-lighter);
+    border-radius: var(--auro-size-xxs);
+    content: '';
   }
 }
 
 .alertBox {
-  background-color: white;
   height: 30px;
   border-width: 1px 0 1px var(--auro-size-xxs);
   border-style: solid;
+  background-color: var(--auro-color-base-white);
 
   // inset image
-  &::after {
-    height: var(--auro-size-sm);
+  &:after {
+    top: calc(50% - var(--auro-size-xs));
+    left: 15%;
     width: var(--auro-size-sm);
-    background-color: inherit;
-    border-radius: 50%;
+    height: var(--auro-size-sm);
     border-width: 1px;
     border-style: solid;
     border-color: inherit;
-    top: calc(50% - var(--auro-size-xs));
-    left: 15%;
+    background-color: inherit;
+    border-radius: 50%;
   }
 }
