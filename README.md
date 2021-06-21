@@ -9,11 +9,11 @@ For the most up to date information on [UI development browser support](https://
 ## Install
 
 [![Build Status](https://img.shields.io/github/workflow/status/AlaskaAirlines/auro-swatch/Test%20and%20publish?branch=master&style=for-the-badge)](https://github.com/AlaskaAirlines/auro-swatch/actions?query=workflow%3A%22test+and+publish%22)
-[![See it on NPM!](https://img.shields.io/npm/v/@aurodesignsystem/auro-swatch?style=for-the-badge&color=orange)](https://www.npmjs.com/package/@aurodesignsystem/auro-swatch)
-[![License](https://img.shields.io/npm/l/@aurodesignsystem/auro-swatch?color=blue&style=for-the-badge)](https://www.apache.org/licenses/LICENSE-2.0)
+[![See it on NPM!](https://img.shields.io/npm/v/@aurolabs/auro-swatch?style=for-the-badge&color=orange)](https://www.npmjs.com/package/@aurolabs/auro-swatch)
+[![License](https://img.shields.io/npm/l/@aurolabs/auro-swatch?color=blue&style=for-the-badge)](https://www.apache.org/licenses/LICENSE-2.0)
 
 ```shell
-$ npm i @aurodesignsystem/auro-swatch
+$ npm i @aurolabs/auro-swatch
 ```
 
 Installing as a direct, dev or peer dependency is up to the user installing the package. If you are unsure as to what type of dependency you should use, consider reading this [stack overflow](https://stackoverflow.com/questions/18875674/whats-the-difference-between-dependencies-devdependencies-and-peerdependencies) answer.

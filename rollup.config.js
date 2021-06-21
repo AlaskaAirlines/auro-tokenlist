@@ -27,7 +27,9 @@ const getSharedPlugins = (isLegacy) => [
 
 const modernConfig = {
   input: {
-    ['auro-swatch__bundled']: './src/auro-swatch.js',
+    ['auro-color-avatar__bundled']: './src/auro-color-avatar.js',
+    ['auro-tokens-list__bundled']: './src/auro-tokens-list.js',
+    ['auro-swatch-list__bundled']: './src/auro-swatch-list.js',
   },
   output: {
     format: 'esm',
@@ -53,13 +55,4 @@ const modernConfig = {
   ]
 };
 
-const auroSwatchConfig = {
-  input: 'src/es5.js',
-  output: {
-    format: 'iife',
-    file: 'dist/auro-swatch__bundled.es5.js'
-  },
-  plugins: getSharedPlugins(true)
-};
-
-export default [modernConfig, auroSwatchConfig];
+export default [modernConfig];
