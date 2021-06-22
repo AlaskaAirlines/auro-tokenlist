@@ -3,12 +3,10 @@
 
 // ---------------------------------------------------------------------
 
-// If use litElement base class
 import { html, css, LitElement } from "lit-element";
-// Import touch detection lib
 import "focus-visible/dist/focus-visible.min.js";
 import styleCss from "./style-color-avatar-css.js";
-import locationFilled from '@alaskaairux/icons/dist/icons/interface/location-filled_es6.js';
+import '@alaskaairux/auro-icon/dist/auro-icon';
 import { varName } from "./util.js";
 
 /**
@@ -28,18 +26,6 @@ class AuroColorAvatar extends LitElement {
       avatartype:   { type: String },
       colorname:    { type: String }
     };
-  }
-
-  /**
-   * @private Internal function to generate the HTML for the icon to use
-   * @param {string} svgContent - The imported svg icon
-   * @returns {TemplateResult} - The html template for the icon
-   */
-  generateIconHtml(svgContent) {
-    const dom = new DOMParser().parseFromString(svgContent, 'text/html'),
-      svg = dom.body.firstChild;
-
-    return html`${svg}`;
   }
 
   static get styles() {
@@ -88,9 +74,9 @@ class AuroColorAvatar extends LitElement {
     : html``}
         ${this.avatartype === 'icon'
     ? html`
-          <div class="avatar" style="color: ${varName(this.colorname, 'css')}">
-              ${this.generateIconHtml(locationFilled.svg)}
-            </div>
+          <div class="avatar">
+            <auro-icon category="interface" name="location-filled" customColor style="color: ${varName(this.colorname, 'css')}"></auro-icon>
+          </div>
           `
     : html``}
       </div>

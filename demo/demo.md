@@ -1,8 +1,6 @@
-
 # Auro-Swatch
 
 Auro supports three Design Token display and illustration components - `auro-color-avatar`, `auro-swatch-list` and `auro-tokens-list`. Both the `auro-color-avatar` and the `auro-swatch-list` provide users with a way to illustrate Design token colors and their related data. The `auro-tokens-list` provides a way to display a table of design token name and values or a table of deprecated tokens with optional new reference token names.
-
 ## auro-color-avatar use cases
 
 The `<auro-color-avatar>` element should be used in situations where users may:
@@ -138,10 +136,10 @@ This example illustrates the standard swatch list table.
 
 <div class="exampleWrapper">
   <auro-swatch-list componentData='[
-    { "backgroundcolor": "#cde6ff", "colorname": "auro-color-brand-atlas-100", "wcag": "AAA", "usage": "Notification color on light backgrounds" },
-    { "backgroundcolor": "#6bb7fb", "colorname": "auro-color-brand-atlas-200", "wcag": "AAA", "usage": "Notification color on light backgrounds" },
-    { "backgroundcolor": "#2492eb", "colorname": "auro-color-brand-atlas-300", "wcag": "AAA", "usage": "Notification color on light backgrounds" },
-    { "backgroundcolor": "#0074cb", "colorname": "auro-color-brand-atlas-400", "wcag": "AAA", "usage": "Notification color on light backgrounds" }
+    { "backgroundcolor": "#6bb7fb", "colorname": "auro-color-brand-atlas-200", "usage": "Notification color on light backgrounds" },
+    { "backgroundcolor": "#2492eb", "colorname": "auro-color-brand-atlas-300", "usage": "Notification color on light backgrounds" },
+    { "backgroundcolor": "#0074cb", "colorname": "auro-color-brand-atlas-400", "usage": "Notification color on light backgrounds" },
+    { "backgroundcolor": "#054687", "colorname": "auro-color-brand-atlas-500", "usage": "Notification color on light backgrounds" }
   ]'></auro-swatch-list>
 </div>
 
@@ -150,10 +148,10 @@ This example illustrates the standard swatch list table.
 
   ```html
     <auro-swatch-list componentData='[
-      { "backgroundcolor": "#cde6ff", "colorname": "auro-color-brand-atlas-100", "wcag": "AAA", "usage": "Notification color on light backgrounds" },
-      { "backgroundcolor": "#6bb7fb", "colorname": "auro-color-brand-atlas-200", "wcag": "AAA", "usage": "Notification color on light backgrounds" },
-      { "backgroundcolor": "#2492eb", "colorname": "auro-color-brand-atlas-300", "wcag": "AAA", "usage": "Notification color on light backgrounds" },
-      { "backgroundcolor": "#0074cb", "colorname": "auro-color-brand-atlas-400", "wcag": "AAA", "usage": "Notification color on light backgrounds" }
+      { "backgroundcolor": "#6bb7fb", "colorname": "auro-color-brand-atlas-200", "usage": "Notification color on light backgrounds" },
+      { "backgroundcolor": "#2492eb", "colorname": "auro-color-brand-atlas-300", "usage": "Notification color on light backgrounds" },
+      { "backgroundcolor": "#0074cb", "colorname": "auro-color-brand-atlas-400", "usage": "Notification color on light backgrounds" },
+      { "backgroundcolor": "#054687", "colorname": "auro-color-brand-atlas-500", "usage": "Notification color on light backgrounds" }
     ]'></auro-swatch-list>
   ```
 </auro-accordion>
@@ -164,11 +162,11 @@ This example illustrates the swatch list table ondark
 
 <div class="exampleWrapper">
   <auro-swatch-list ondark componentData='[
-    { "backgroundcolor": "#cde6ff", "colorname": "auro-color-brand-atlas-100", "wcag": "AAA", "usage": "Notification color on light backgrounds" },
-    { "backgroundcolor": "#6bb7fb", "colorname": "auro-color-brand-atlas-200", "wcag": "AAA", "usage": "Notification color on light backgrounds" },
-    { "backgroundcolor": "#2492eb", "colorname": "auro-color-brand-atlas-300", "wcag": "AAA", "usage": "Notification color on light backgrounds" },
-    { "backgroundcolor": "#0074cb", "colorname": "auro-color-brand-atlas-400", "wcag": "AAA", "usage": "Notification color on light backgrounds" }
-    ]'></auro-swatch-list>
+    { "backgroundcolor": "#6bb7fb", "colorname": "auro-color-brand-atlas-200", "usage": "Notification color on light backgrounds" },
+    { "backgroundcolor": "#2492eb", "colorname": "auro-color-brand-atlas-300", "usage": "Notification color on light backgrounds" },
+    { "backgroundcolor": "#0074cb", "colorname": "auro-color-brand-atlas-400", "usage": "Notification color on light backgrounds" },
+    { "backgroundcolor": "#054687", "colorname": "auro-color-brand-atlas-500", "usage": "Notification color on light backgrounds" }
+  ]'></auro-swatch-list>
 </div>
 
 <auro-accordion lowProfile justifyRight>
@@ -176,11 +174,11 @@ This example illustrates the swatch list table ondark
 
   ```html
     <auro-swatch-list ondark componentData='[
-      { "backgroundcolor": "#cde6ff", "colorname": "auro-color-brand-atlas-100", "wcag": "AAA", "usage": "Notification color on light backgrounds" },
-      { "backgroundcolor": "#6bb7fb", "colorname": "auro-color-brand-atlas-200", "wcag": "AAA", "usage": "Notification color on light backgrounds" },
-      { "backgroundcolor": "#2492eb", "colorname": "auro-color-brand-atlas-300", "wcag": "AAA", "usage": "Notification color on light backgrounds" },
-      { "backgroundcolor": "#0074cb", "colorname": "auro-color-brand-atlas-400", "wcag": "AAA", "usage": "Notification color on light backgrounds" }
-      ]'></auro-swatch-list>
+      { "backgroundcolor": "#6bb7fb", "colorname": "auro-color-brand-atlas-200", "usage": "Notification color on light backgrounds" },
+      { "backgroundcolor": "#2492eb", "colorname": "auro-color-brand-atlas-300", "usage": "Notification color on light backgrounds" },
+      { "backgroundcolor": "#0074cb", "colorname": "auro-color-brand-atlas-400", "usage": "Notification color on light backgrounds" },
+      { "backgroundcolor": "#054687", "colorname": "auro-color-brand-atlas-500", "usage": "Notification color on light backgrounds" }
+    ]'></auro-swatch-list>
   ```
 </auro-accordion>
 

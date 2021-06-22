@@ -24,6 +24,8 @@
     "@alaskaairux/design-tokens": "^3.3.0",
     "@alaskaairux/icons": "^4.7.0",
     "@alaskaairux/webcorestylesheets": "^3.4.0",
+    "@alaskaairux/auro-popover": "^2.1.2",
+    "@alaskaairux/auro-icon": "^3.1.0",
     "@webcomponents/webcomponentsjs": "^2.5.0",
     "focus-visible": "^5.2.0"
   },

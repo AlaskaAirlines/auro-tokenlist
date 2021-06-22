@@ -1,4 +1,5 @@
-import { fixture, html, expect } from '@open-wc/testing';
+import { fixture, html, expect, waitUntil } from '@open-wc/testing';
+import { aTimeout } from '@open-wc/testing-helpers';
 import '../src/auro-color-avatar.js';
 
 describe('auro-color-avatar is defined', () => {
@@ -67,7 +68,6 @@ describe('auro-color-avatar is defined', () => {
       <auro-color-avatar avatartype="font" colorname="auro-color-text-primary-on-light">Aa</auro-color-avatar>
     `);
     const avatar = el.shadowRoot.querySelector(".avatar");
-
     await expect(avatar).to.have.attribute("style", "color: var(--auro-color-text-primary-on-light)")
     await expect(avatar).to.contain.text("Aa");
   });
@@ -76,10 +76,9 @@ describe('auro-color-avatar is defined', () => {
     const el = await fixture(html`
       <auro-color-avatar avatartype="icon" colorname='auro-color-ui-default-on-light'></auro-color-avatar>
     `);
-    const avatar = el.shadowRoot.querySelector(".avatar");
-
-    await expect(avatar).to.have.attribute("style", "color: var(--auro-color-ui-default-on-light)")
-    await expect(avatar).to.contain("svg");
+    const avatarIcon = el.shadowRoot.querySelector("auro-icon");
+    await expect(avatarIcon).to.have.attribute("style", "color: var(--auro-color-ui-default-on-light)");
+    await expect(avatarIcon).to.have.attribute("name", "location-filled");
   });
 });
 

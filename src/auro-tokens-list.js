@@ -2,14 +2,10 @@
 // See LICENSE in the project root for license information.
 
 // ---------------------------------------------------------------------
-
-// If use litElement base class
-// import { LitElement, html, css } from "lit-element";
 import { LitElement, html, css } from "lit-element";
 import { classMap } from 'lit-html/directives/class-map';
 import { varName } from "./util.js";
 
-// Import touch detection lib
 import "focus-visible/dist/focus-visible.min.js";
 import styleCss from "./style-tokens-list-css.js";
 
@@ -32,7 +28,7 @@ class AuroTokensList extends LitElement {
       componentData:    { type: Array },
       deprecated:       { type: Boolean },
       version:          { type: Boolean },
-      swatch:           { type: Boolean},
+      swatch:           { type: Boolean}, // type="swatch"
       circle:           { type: Boolean}
     };
   }
@@ -80,11 +76,11 @@ class AuroTokensList extends LitElement {
   `;
   }
 
-  // function that renders the HTML and CSS into  the scope of the component
+  // function that renders the HTML and CSS into the scope of the component
   render() {
 
     const classes = {
-      'swatch': this.swatch,
+      'swatch': this.swatch ,
       'swatch--circle': this.circle
     }
 

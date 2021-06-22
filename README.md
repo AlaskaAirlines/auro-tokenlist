@@ -141,3 +141,40 @@ Bundled assets are only generated in the remote and not merged back to this repo
 To deploy a demo version of the component for review, run `npm run demo:build` to create a `./build` directory that can be pushed to any static server.
 
 <small>Built from WC-Generator v3.5.3</small>
+
+### Useful Function For later:
+
+In the event that rgba values are passed in and need to be converted to hex values to hit the wcag api(currently 6/2021 the WCAG api doesn't not accept 8 char hex values) then this function may prove useful for converting rgb/rgba values to hex.
+
+```
+  /**
+   * @private internal function
+   * @param {string} rgb(a) value string ex "rgba(0,22,23,0.5)"
+   * @returns {string} 7-8 char hex value ex "#00161780"
+   */
+
+  rgbaToHex(rgbaString) { 
+    // remove whitespace
+    rgbaString = rgbaString.replace(/\+/g,''); 
+    // find indices of parentheses
+    const valuesStart = rgbaString.indexOf('(')+1;
+    const valuesEnd = rgbaString.indexOf(')');
+    // pull rgb(a) values out into an array and convert them to decimal
+    let rgba =  rgbaString.substring(valuesStart, valuesEnd).split(',').map(x=>+x); 
+    if(rgba.length == 4) {
+      rgba[3]=Math.round(rgba[3] * 255);
+    }
+    rgba = rgba.map(x => {
+      // convert to hex;
+      x = x.toString(16); 
+      // add 0 to single char values
+      if (x.length==1) {
+        x = "0" + x; 
+      }
+      // update array
+      return x; 
+    })
+
+    return "#" + rgba.join('');
+  }
+```
