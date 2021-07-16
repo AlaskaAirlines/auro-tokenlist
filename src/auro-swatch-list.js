@@ -70,6 +70,34 @@ class AuroSwatchList extends LitElement {
     return {"ratio": "n/a", "AA":"fail","AALarge":"fail","AAA":"fail","AAALarge":"fail"};
   }
 
+  wcagValidation(wcag) {
+    let result = [];
+
+    // normal result
+    let nLabel = 'FAIL';
+
+    if (wcag.AAA === 'pass') {
+      nLabel = 'AAA';
+    } else if (wcag.AA === 'pass') {
+      nLabel = 'AA';
+    }
+
+    result.push({ 'type': 'normal', 'label': nLabel });
+
+    // large result
+    let lLabel = 'FAIL';
+
+    if (wcag.AAALarge === 'pass') {
+      lLabel = 'AAA';
+    } else if (wcag.AALarge === 'pass') {
+      lLabel = 'AA';
+    }
+
+    result.push({ 'type': 'Large', 'label': lLabel });
+
+    return result;
+  }
+
 // function that renders the HTML and CSS into  the scope of the component
 render() {
   return html`
@@ -115,91 +143,20 @@ render() {
             <td class="center">${index.wcag?.ratio ?? ""}</td>
             <td class="noPadding">
               <div class="wcagRatings">
-            ${index.wcag?.AAA === "pass" ? 
-              html 
-              `
-              <div class="wcagRating wcagPass">
-                <auro-icon 
-                emphasis
-                ondark
-                category="interface" name="checkmark-lg"></auro-icon>
-                <div class="wcagText">
-                  <div class= "wcagHeader">AAA</div>
-                  <div class= "wcagType">normal</div>
-                </div>
-              </div>
-              `
-              :index.wcag?.AA === "pass" ?
-              html 
-              `
-              <div class="wcagRating wcagPass">
-                <auro-icon 
-                emphasis
-                ondark
-                category="interface" name="checkmark-lg"></auro-icon>
-                <div class="wcagText">
-                  <div class= "wcagHeader">AA</div>
-                  <div class= "wcagType">normal</div>
-                </div>
-              </div>
-              `
-              : html
-              `
-              <div class="wcagRating wcagFail">
-                <auro-icon 
-                emphasis
-                ondark
-                category="interface" name="x-lg"></auro-icon>
-                <div class="wcagText">
-                  <div class= "wcagHeader">FAIL</div>
-                  <div class= "wcagType">normal</div>
-                </div>
-              </div>
-              `
-              }
-              ${
-                index.wcag?.AAALarge === "pass" ?
-              html 
-              `
-              <div class="wcagRating wcagPass">
-                <auro-icon 
-                emphasis
-                ondark
-                category="interface" name="checkmark-lg"></auro-icon>
-                <div class="wcagText">
-                  <div class= "wcagHeader">AAA</div>
-                  <div class= "wcagType">Large</div>
-                </div>
-              </div>
-              `
-                : index.wcag?.AALarge === "pass" ?
-              html 
-              `
-              <div class="wcagRating wcagPass">
-                <auro-icon 
-                emphasis
-                ondark
-                category="interface" name="checkmark-lg"></auro-icon>
-                <div class="wcagText">
-                  <div class= "wcagHeader">AA</div>
-                  <div class= "wcagType">Large</div>
-                </div>
-              </div>
-              `
-              : html
-              `
-              <div class="wcagRating wcagFail">
-                <auro-icon 
-                emphasis
-                ondark
-                category="interface" name="x-lg"></auro-icon>
-                <div class="wcagText">
-                  <div class= "wcagHeader">FAIL</div>
-                  <div class= "wcagType">Large</div>
-                </div>
-              </div>
-              `
-              }
+                ${index.wcag ? this.wcagValidation(index.wcag).map(item => html
+                  `<div class="wcagRating ${item.label === 'FAIL' ? 'wcagFail' : 'wcagPass'}">
+                    <auro-icon
+                      emphasis
+                      ondark
+                      category="interface"
+                      name="${item.label === 'FAIL' ? 'x-lg' : 'checkmark-lg'}"></auro-icon>
+                    <div class="wcagText">
+                      <div class= "wcagHeader">${item.label}</div>
+                      <div class= "wcagType">${item.type}</div>
+                    </div>
+                  </div>`)
+                  : undefined
+                }
               </div>
             </td>
           </tr>
