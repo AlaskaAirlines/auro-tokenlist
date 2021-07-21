@@ -20,17 +20,12 @@ auro-color-avatar provides users a way to illustrate Design Token colors and the
 
 auro-swatch-list provides users a way to illustrate Design Token colors and their related data and usage in a table.
 
-## Attributes
-
-| Attribute | Type      | Description                             |
-|-----------|-----------|-----------------------------------------|
-| `ondark`  | `Boolean` | Defines if color state is to be on-dark |
-
 ## Properties
 
-| Property        | Attribute       | Type    | Description                                      |
-|-----------------|-----------------|---------|--------------------------------------------------|
-| `componentData` | `componentData` | `Array` | Pass in `backgroundcolor`, `colorname`, `wcag` & `usage` |
+| Property        | Attribute       | Type      | Description                                      |
+|-----------------|-----------------|-----------|--------------------------------------------------|
+| `componentData` | `componentData` | `Array`   | Pass in `backgroundcolor`, `colorname` & `usage` |
+| `ondark`        | `ondark`        | `Boolean` | Defines if color state is to be on-dark          |
 
 
 # auro-tokens-list

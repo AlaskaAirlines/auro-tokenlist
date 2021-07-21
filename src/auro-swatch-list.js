@@ -31,21 +31,22 @@ class AuroSwatchList extends LitElement {
       ${styleCss}
     `;
   }
+
   // Lifecycle function currently in use to load wcag ratings from webaim.org
   // re-uses or creates wcag object for each item for backwards compatibility
   async firstUpdated() {
     const auroDarkestBackground = getComputedStyle(document.documentElement).getPropertyValue('--auro-color-background-darkest');
     const backgroundColor = this.ondark ? auroDarkestBackground.substring(1) : "#FFFFFF";
     const dataWithWCAG = await Promise.all(this.componentData.map( async (index) => {
+      index.wcag = undefined; // empty out any existing 'wcag' value input by the user (for backwards compatibility).
       const itemWCAG = await this.fetchWCAG(index.backgroundcolor, backgroundColor);
       if(itemWCAG) {
-        index.wcag ??= {};
         index.wcag = itemWCAG;
       }
       return index;
     }));
 
-    if(dataWithWCAG){
+    if(dataWithWCAG) {
       this.componentData = dataWithWCAG;
     }
   }
@@ -57,43 +58,58 @@ class AuroSwatchList extends LitElement {
    * @returns {object} wcag value object ready to be appended to the componentData
    */
   async fetchWCAG(colorValue, backgroundColor) {
-    if (colorValue.startsWith('#') && backgroundColor.startsWith('#')) {
+    const hexRegex = /#(?:[0-9A-Fa-f]{3}){1,2}\b/;
+    const rgbaRegex = /rgba\(\s*(-?\d+|-?\d*\.\d+(?=%))(%?)\s*,\s*(-?\d+|-?\d*\.\d+(?=%))(\2)\s*,\s*(-?\d+|-?\d*\.\d+(?=%))(\2)\s*,\s*(-?\d+|-?\d*.\d+)\s*\)/;
+
+    // Automatically fail contrast ratio for rgba colors.
+    if (colorValue.match(rgbaRegex)) {
+      return {"ratio": "n/a", "AA":"fail","AALarge":"fail","AAA":"fail","AAALarge":"fail"};
+    } 
+    else if (colorValue.match(hexRegex) && backgroundColor.match(hexRegex)) {
       const hashlessColor = colorValue.substring(1);
       const hashlessBackgroundColor = backgroundColor.substring(1);
-      const wcag = await cacheFetch(`https://webaim.org/resources/contrastchecker/?fcolor=${hashlessColor}&bcolor=${hashlessBackgroundColor}&api`);
-      if (wcag) {
-        const parsedWCAG = JSON.parse(wcag);
-        parsedWCAG.ratio += ":1";
-        return parsedWCAG;
-      }
+      try {
+        const wcag = await cacheFetch(`https://webaim.org/resources/contrastchecker/?fcolor=${hashlessColor}&bcolor=${hashlessBackgroundColor}&api`);
+        if (wcag) {
+          const parsedWCAG = JSON.parse(wcag);
+          parsedWCAG.ratio += ":1";
+          return parsedWCAG;
+        } 
+      } catch(e){};
     }
-    return {"ratio": "n/a", "AA":"fail","AALarge":"fail","AAA":"fail","AAALarge":"fail"};
+    // default return for invalid color values
+    return undefined;
   }
 
-  wcagValidation(wcag) {
+ /**
+   * @private function to calculate display details for wcag rating icons
+   * @param {object} wcag value object containing fields with fields 'ratio', 'AA', 'AALarge', 'AAA', 'AAALarge'
+   * @returns {object} array of display details to build wcag pass/fail icons in the UI
+   */
+  validateRatings(wcag) {
     let result = [];
 
-    // normal result
-    let nLabel = 'FAIL';
+    // normal text rating result
+    let normalLabel = 'FAIL';
 
     if (wcag.AAA === 'pass') {
-      nLabel = 'AAA';
+      normalLabel = 'AAA';
     } else if (wcag.AA === 'pass') {
-      nLabel = 'AA';
+      normalLabel = 'AA';
     }
 
-    result.push({ 'type': 'normal', 'label': nLabel });
+    result.push({ 'type': 'normal', 'label': normalLabel });
 
-    // large result
-    let lLabel = 'FAIL';
+    // large text rating result
+    let largeLabel = 'FAIL';
 
     if (wcag.AAALarge === 'pass') {
-      lLabel = 'AAA';
+      largeLabel = 'AAA';
     } else if (wcag.AALarge === 'pass') {
-      lLabel = 'AA';
+      largeLabel = 'AA';
     }
 
-    result.push({ 'type': 'Large', 'label': lLabel });
+    result.push({ 'type': 'Large', 'label': largeLabel });
 
     return result;
   }
@@ -143,7 +159,7 @@ render() {
             <td class="center">${index.wcag?.ratio ?? ""}</td>
             <td class="noPadding">
               <div class="wcagRatings">
-                ${index.wcag ? this.wcagValidation(index.wcag).map(item => html
+                ${index.wcag ? this.validateRatings(index.wcag).map(item => html
                   `<div class="wcagRating ${item.label === 'FAIL' ? 'wcagFail' : 'wcagPass'}">
                     <auro-icon
                       emphasis
