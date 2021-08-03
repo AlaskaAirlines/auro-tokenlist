@@ -23,7 +23,7 @@ fs.readFile(indexFile, 'utf8', function (err,data) {
     return console.log(err);
   }
 
-  const element = data.replace(`../src/auro-swatch.js`, `auro-swatch__bundled.js`);
+  const element = data.replace(`../src/auro-color-avatar.js`, `auro-color-avatar__bundled.js`);
 
   fs.writeFile(indexFile, element, 'utf8', function (err) {
      if (err) return console.log(err);

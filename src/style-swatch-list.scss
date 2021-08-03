@@ -10,7 +10,7 @@
 @import './../node_modules/@alaskaairux/webcorestylesheets/dist/breakpoints';
 @import './../node_modules/@alaskaairux/webcorestylesheets/dist/core';
 
-/* stylelint-disable selector-max-combinators, no-descending-specificity, declaration-no-important, selector-max-compound-selectors */
+/* stylelint-disable selector-max-combinators, selector-max-class, scss/selector-nest-combinators, selector-no-qualifying-type, no-descending-specificity, declaration-no-important, selector-max-compound-selectors */
 :host([ondark]) {
   padding: var(--auro-size-xs);
 
@@ -96,32 +96,33 @@
   }
 }
 
-.wcagRating {
-  border-radius: 4px;
-  padding: 3px 6px 2px 0;
+.wcagFail,
+.wcagPass {
   display: inline-flex;
   align-items: center;
+  padding: 3px 6px 2px 0;
+  border-radius: 4px;
   color: var(--auro-color-text-primary-on-dark);
+}
+.wcagFail {
+  background-color: var(--auro-color-border-error-on-light);
+}
+.wcagPass {
+  background-color:var(--auro-color-alert-success-on-light);
+}
 
-  .wcagText {
-    display: inline-flex;
-    flex-direction: column;
-    line-height: 1.125rem;
-    .wcagHeader {
-      font-weight: 800;
-      font-size: var(--auro-text-body-height-xs);
-    }
-    .wcagType {
-      font-weight: 600px;
-      line-height: 0.875rem;
-    }
-  }
-  &.wcagFail {
-    background-color: var(--auro-color-border-error-on-light);
-  }
-  &.wcagPass {
-    background-color:var(--auro-color-alert-success-on-light);
-  }
+.wcagText {
+  display: inline-flex;
+  flex-direction: column;
+  line-height: 1.125rem;
+}
+.wcagHeader {
+  font-size: var(--auro-text-body-height-xs);
+  font-weight: 800;
+}
+.wcagType {
+  font-weight: 600;
+  line-height: .875rem;
 }
 
 .popoverContent,
@@ -131,24 +132,24 @@
 
   table {
     border: 0 none transparent;
-    tr {
-      border: 0 none transparent;
-    }
-    th {
-      text-align: left;
-      padding: 0 0 0.5rem 0;
-      color: var(--auro-color-text-primary-on-light);
-      border-bottom: 2px solid var(--auro-color-border-primary-on-light);
-    }
-    td {
-      vertical-align: top;
-      border: 0 none transparent;
-      padding: 0.5rem 0 0 0;
-      &:first-child {
-        white-space: nowrap;
-        font-weight: 500;
-        padding-right: .75rem ;
-      }
+  }
+  th {
+    padding: 0 0 .5rem;
+    border-bottom: 2px solid var(--auro-color-border-primary-on-light);
+    color: var(--auro-color-text-primary-on-light);
+    text-align: left;
+  }
+  tr {
+    border: 0 none transparent;
+  }
+  td {
+    padding: .5rem 0 0;
+    border: 0 none transparent;
+    vertical-align: top;
+    &.wcagPopoverFirstCol {
+      padding-right: .75rem;
+      font-weight: 500;
+      white-space: nowrap;
     }
   }
 }

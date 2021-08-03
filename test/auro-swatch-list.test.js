@@ -57,13 +57,13 @@ describe('auro-swatch-list', () => {
     const el = await fixture(html`
       <auro-swatch-list componentData=${componentData}></auro-swatch-list>
     `);
-
+    await elementUpdated(el);
     await expect(el).to.be.accessible();
   });
 
   it('auro-swatch-list custom element is defined', async () => {
     const el = await Boolean(customElements.get("auro-swatch-list"));
-
+    await elementUpdated(el);
     await expect(el).to.be.true;
   });
 
@@ -74,6 +74,7 @@ describe('auro-swatch-list', () => {
 
     const tableBodyRow1 = el.shadowRoot.querySelector(".tableListing > tbody tr:nth-of-type(1)");
     const tableBodyRow2 = el.shadowRoot.querySelector(".tableListing > tbody tr:nth-of-type(2)");
+
     await expect(tableBodyRow1.querySelector("td:nth-of-type(1)")).to.contain.text("var(--auro-color-brand-atlas-200");
     await expect(tableBodyRow1.querySelector("td:nth-of-type(2)")).to.contain.text("Notification color on light backgrounds");
     await expect(tableBodyRow1.querySelector("td:nth-of-type(3)")).to.contain.text("#6bb7fb");
@@ -89,6 +90,7 @@ describe('auro-swatch-list', () => {
     const el = await fixture(html`
       <auro-swatch-list componentData=${componentData}></auro-swatch-list>
     `);
+    
     const tableBodyRowRatio1 = el.shadowRoot.querySelector(".tableListing > tbody tr:nth-of-type(1) td:nth-of-type(5)");
     const tableBodyRowRatio2 = el.shadowRoot.querySelector(".tableListing > tbody tr:nth-of-type(2) td:nth-of-type(5)");
     const tableBodyRowRatio3 = el.shadowRoot.querySelector(".tableListing > tbody tr:nth-of-type(3) td:nth-of-type(5)");

@@ -1,5 +1,7 @@
 {
   "extends": [
     "@aurodesignsystem/eslint-config"
-  ]
+  ],
+  "parser": "@babel/eslint-parser"
 }
+

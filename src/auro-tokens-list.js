@@ -27,8 +27,8 @@ class AuroTokensList extends LitElement {
     return {
       componentData:    { type: Array },
       deprecated:       { type: Boolean },
+      swatch:           { type: Boolean},
       version:          { type: Boolean },
-      swatch:           { type: Boolean}, // type="swatch"
       circle:           { type: Boolean}
     };
   }
@@ -80,7 +80,7 @@ class AuroTokensList extends LitElement {
   render() {
 
     const classes = {
-      'swatch': this.swatch ,
+      'swatch': this.swatch,
       'swatch--circle': this.circle
     }
 
