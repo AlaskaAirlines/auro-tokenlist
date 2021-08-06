@@ -147,15 +147,15 @@ class AuroSwatchList extends LitElement {
             <th>Token</th>
             <th class="">Usage</th>
             <th>Hex/RGBA</th>
-            <th class="center">Color</th>
+            <th>Color</th>
             <th>WCAG Ratio</th>
             <th class="noPadding">WCAG ratings
               <auro-popover class="popoverContent" for="ratioInfoIcon">
                 <table>
                   <tr><th colspan="2">Web Content Accessibility Guidelines 2.0</th></tr>
-                  <tr><td class="wcagPopoverFirstCol">AAA rating</td><td>Requires a contrast ratio of at least 7:1 for normal text and 4.5:1 for large text(&#8805;18pt or &#8805;14pt bold).</td></tr>
-                  <tr><td class="wcagPopoverFirstCol">AA rating</td><td>Requires a contrast ratio of at least 4.5:1 for normal text and 3:1 for large text (&#8805;18pt or &#8805;14pt bold).</td></tr>
-                  <tr><td class="wcagPopoverFirstCol">AA rating(2.1)</td><td>Also requires a contrast ratio of 3:1 for graphics and UI components.</td></tr>
+                  <tr><td>AAA rating</td><td>Requires a contrast ratio of at least 7:1 for normal text and 4.5:1 for large text(&#8805;18pt or &#8805;14pt bold).</td></tr>
+                  <tr><td>AA rating</td><td>Requires a contrast ratio of at least 4.5:1 for normal text and 3:1 for large text (&#8805;18pt or &#8805;14pt bold).</td></tr>
+                  <tr><td>AA rating(2.1)</td><td>Also requires a contrast ratio of 3:1 for graphics and UI components.</td></tr>
                 </table>
                 <auro-icon
                   emphasis
@@ -174,7 +174,7 @@ class AuroSwatchList extends LitElement {
         <tbody>
           ${this.componentData.map((index) => html`
             <tr>
-              <td class="noWrap varList">
+              <td class="noWrap">
                 ${varName(index.colorname, 'css')}
               </td>
               <td>${index.usage}</td>
