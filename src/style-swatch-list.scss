@@ -28,12 +28,6 @@
       border-bottom-color: var(--auro-color-border-primary-on-dark);
     }
   }
-
-  .popoverContent {
-    th {
-      color: var(--auro-color-text-primary-on-light);
-    }
-  }
 }
 
 .noWrap {
@@ -81,14 +75,38 @@
 }
 
 .swatch {
-  div {
-    width: 40px;
-    height: 40px;
-    margin: 0 auto;
-    border-radius: 50%;
-  }
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+  border-radius: 50%;
 }
 
+// WCAG info popover
+
+.wcagInfoPopover {
+  display: inline-grid;
+  color: var(--auro-color-text-primary-on-light);
+  font-size: var(--auro-text-body-size-sm);
+  font-weight: 200;
+  grid-template: 1fr 2fr / auto auto auto auto;
+  white-space: normal;
+}
+
+.infoHeader {
+  padding-bottom: var(--auro-size-xs);
+  border-bottom: var(--auro-size-xxxs) solid var(--auro-color-border-primary-on-light);
+  margin-bottom:  var(--auro-size-xs);
+  font-weight: 700;
+  grid-column: 1/-1;
+}
+
+.ratingType {
+  padding-right: var(--auro-size-sm);
+  font-weight: var(--auro-text-heading-default-weight);
+  grid-column: 1;
+}
+
+// WCAG Pass-Fail Avatars
 
 .wcagRatings {
   display:inline-flex;
@@ -107,9 +125,11 @@
   border-radius: var(--auro-size-xxs);
   color: var(--auro-color-text-primary-on-dark);
 }
+
 .wcagFail {
   background-color: var(--auro-color-border-error-on-light);
 }
+
 .wcagPass {
   background-color:var(--auro-color-alert-success-on-light);
 }
@@ -119,44 +139,13 @@
   flex-direction: column;
   line-height: 1.125rem;
 }
-.wcagHeader {
+
+.wcagRating {
   font-size: var(--auro-text-body-height-xs);
   font-weight: 800;
 }
+
 .wcagType {
   font-weight: 600;
   line-height: .875rem;
-}
-
-.popoverContent {
-  font-weight: var(--auro-text-body-default-weight);
-  white-space: normal;
-
-  table {
-    border: 0 none transparent;
-    margin-bottom: 0;
-  }
-
-  th {
-    padding: 0 0 var(--auro-size-xs);
-    border-bottom: 2px solid var(--auro-color-border-primary-on-light);
-    color: var(--auro-color-text-primary-on-light);
-    text-align: left;
-  }
-
-  tr {
-    border: 0 none transparent;
-  }
-
-  td {
-    padding: var(--auro-size-xs) 0 0;
-    border: 0 none transparent;
-    vertical-align: top;
-
-    &:first-child {
-      padding-right: var(--auro-size-sm);
-      font-weight: var(--auro-text-heading-default-weight);
-      white-space: nowrap;
-    }
-  }
 }

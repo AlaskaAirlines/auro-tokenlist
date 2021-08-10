@@ -146,7 +146,7 @@ To deploy a demo version of the component for review, run `npm run demo:build` t
 
 In the event that rgba values are passed in and need to be converted to hex values to hit the wcag api(currently 6/2021 the WCAG api doesn't not accept 8 char hex values) then this function may prove useful for converting rgb/rgba values to hex.
 
-```
+```js
   /**
    * @private internal function
    * @param {string} rgb(a) value string ex "rgba(0,22,23,0.5)"

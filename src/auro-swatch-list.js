@@ -150,13 +150,13 @@ class AuroSwatchList extends LitElement {
             <th>Color</th>
             <th>WCAG Ratio</th>
             <th class="noPadding">WCAG ratings
-              <auro-popover class="popoverContent" for="ratioInfoIcon">
-                <table>
-                  <tr><th colspan="2">Web Content Accessibility Guidelines 2.0</th></tr>
-                  <tr><td>AAA rating</td><td>Requires a contrast ratio of at least 7:1 for normal text and 4.5:1 for large text(&#8805;18pt or &#8805;14pt bold).</td></tr>
-                  <tr><td>AA rating</td><td>Requires a contrast ratio of at least 4.5:1 for normal text and 3:1 for large text (&#8805;18pt or &#8805;14pt bold).</td></tr>
-                  <tr><td>AA rating(2.1)</td><td>Also requires a contrast ratio of 3:1 for graphics and UI components.</td></tr>
-                </table>
+              <auro-popover for="ratioInfoIcon">
+                <div class="wcagInfoPopover">
+                  <div class="infoHeader">Web Content Accessibility Guidelines 2.0</div>
+                  <div class="ratingType">AAA rating</div><div>Requires a contrast ratio of at least 7:1 for normal text and 4.5:1 for large text(&#8805;18pt or &#8805;14pt bold).</div>
+                  <div class="ratingType">AA rating</div><div>Requires a contrast ratio of at least 4.5:1 for normal text and 3:1 for large text (&#8805;18pt or &#8805;14pt bold).</div>
+                  <div class="ratingType">AA rating(2.1)</div><div>Also requires a contrast ratio of 3:1 for graphics and UI components.</div>
+                </div>
                 <auro-icon
                   emphasis
                   ?ondark="${this.ondark}"
@@ -179,7 +179,7 @@ class AuroSwatchList extends LitElement {
               </td>
               <td>${index.usage}</td>
               <td class="noWrap">${index.backgroundcolor}</td>
-              <td class="swatch"><div style="background-color: var(--${index.colorname})"></div></td>
+              <td><div class="swatch" style="background-color: var(--${index.colorname})"></div></td>
               <td class="center">${index.wcag?.ratio ?? ""}</td>
               <td class="noPadding">
                 <div class="wcagRatings">
@@ -191,7 +191,7 @@ class AuroSwatchList extends LitElement {
                         category="interface"
                         name="${item.label === 'FAIL' ? 'x-lg' : 'checkmark-lg'}"></auro-icon>
                       <div class="wcagText">
-                        <div class= "wcagHeader">${item.label}</div>
+                        <div class= "wcagRating">${item.label}</div>
                         <div class= "wcagType">${item.type}</div>
                       </div>
                     </div>`)
