@@ -34,7 +34,7 @@ class AuroTokensList extends LitElement {
   }
 
   /**
-   * @private internal function
+   * @private
    * @param {string} arg token
    * @returns {string} token size
    */
@@ -43,7 +43,7 @@ class AuroTokensList extends LitElement {
   }
 
   /**
-   * @private internal function
+   * @private
    * @param {string} value type of
    * @returns {string} token size
    */
@@ -52,7 +52,7 @@ class AuroTokensList extends LitElement {
   }
 
   /**
-   * @private internal function
+   * @private
    * @param {string} reference to current token
    * @returns {string} name of current token
    */

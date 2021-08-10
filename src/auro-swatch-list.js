@@ -57,7 +57,8 @@ class AuroSwatchList extends LitElement {
   }
 
   /**
-   * @private async function to fetch wcag values from webaim.org
+   * Async function to fetch wcag values from webaim.org
+   * @private
    * @param {string} colorValue the `background color` in componentData it is the color of the swatch
    * @param {string} backgroundColor the hex background color of the table displaying the swatch
    * @returns {object} wcag value object ready to be appended to the componentData
@@ -100,7 +101,8 @@ class AuroSwatchList extends LitElement {
   }
 
   /**
-   * @private function to calculate display details for wcag rating icons
+   * Function to calculate display details for wcag rating icons
+   * @private
    * @param {object} wcag value object containing fields with fields 'ratio', 'AA', 'AALarge', 'AAA', 'AAALarge'
    * @returns {object} array of display details to build wcag pass/fail icons in the UI
    */

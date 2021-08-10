@@ -1,6 +1,6 @@
 /**
    * @name varName
-   * @private internal function
+   * @private
    * @param {string} name token name
    * @param {string} type deprecatedType
    * @returns {string} token name
