@@ -213,7 +213,7 @@ This example illustrates a token list of current Design tokens.
 
 ### Token List With Swatch
 
-This example illustrates a list of Design tokens with the swatch styling applied to the standard token table.
+This example illustrates a list of Design tokens with the rectangular swatch displayed in the standard token table.
 
 
 <div class="exampleWrapper">
@@ -234,9 +234,9 @@ This example illustrates a list of Design tokens with the swatch styling applied
   ```
 </auro-accordion>
 
-### Token List With Swatch--circle
+### Token List With Circular Swatch
 
-This example illustrates a list of Design tokens with the swatch--circle styling applied to the standard token table.
+This example illustrates a list of Design tokens with the a circular swatch displayed in the standard token table.
 
 
 <div class="exampleWrapper">
@@ -262,7 +262,7 @@ This example illustrates a list of Design tokens with the swatch--circle styling
 This example illustrates a list of Deprecated Design tokens with a reference to their current counterparts.
 
 <div class="exampleWrapper">
-  <auro-tokens-list deprecated componentData='[
+  <auro-tokens-list type="deprecated" componentData='[
     { "tokenvalue": "480px", "token": "breakpoint-width-narrow", "reference": "auro-breakpoint-sm" }
   ]'></auro-tokens-list>
 </div>
@@ -271,7 +271,7 @@ This example illustrates a list of Deprecated Design tokens with a reference to 
   <span slot="trigger">See code</span>
 
   ```html
-  <auro-tokens-list deprecated componentData='[
+  <auro-tokens-list type="deprecated" componentData='[
     { "tokenvalue": "480px", "token": "breakpoint-width-narrow", "reference": "auro-breakpoint-sm" }
   ]'></auro-tokens-list>
   ```
@@ -282,7 +282,7 @@ This example illustrates a list of Deprecated Design tokens with a reference to 
 This example illustrates a list of Deprecated Auro Design tokens with a reference to their current counterparts, including a version number.
 
 <div class="exampleWrapper">
-  <auro-tokens-list deprecated version componentData='[
+  <auro-tokens-list type="deprecated" version componentData='[
     { "tokenvalue": "#f8f8f8", "token": "color-base-gray-100", "reference": "auro-color-brand-gray-100", "version": "3.0.1" }
   ]'></auro-tokens-list>
 </div>
@@ -291,7 +291,7 @@ This example illustrates a list of Deprecated Auro Design tokens with a referenc
   <span slot="trigger">See code</span>
 
   ```html
-    <auro-tokens-list deprecated version componentData='[
+    <auro-tokens-list type="deprecated" version componentData='[
       { "tokenvalue": "#f8f8f8", "token": "color-base-gray-100", "reference": "auro-color-brand-gray-100", "version": "3.0.1" }
     ]'></auro-tokens-list>
   ```

@@ -1,7 +1,7 @@
 import { fixture, html, expect } from '@open-wc/testing';
 import '../src/auro-tokens-list.js';
 
-describe('auro-tokens-list is defined', () => {
+describe('auro-tokens-list', () => {
 
   it('auro-tokens-list custom element is defined', async () => {
     const el = await !!customElements.get("auro-tokens-list");
@@ -9,7 +9,7 @@ describe('auro-tokens-list is defined', () => {
     await expect(el).to.be.true;
   });
 
-  it('auro-tokens-list standard table size token displays value in rem', async () => {
+  it('auro-tokens-list current table size token displays value in rem', async () => {
     const el = await fixture(html`
       <auro-tokens-list componentData='[{ "tokenvalue": "0.75", "token": "auro-size-sm" }]'></auro-tokens-list>
     `);
@@ -17,7 +17,7 @@ describe('auro-tokens-list is defined', () => {
     await expect(tableBodyRow1.querySelector("td:nth-of-type(2)")).to.contain.text("0.75rem");
   });
 
-  it(`auro-tokens-list standard table 'sizeless' token displays value without units`, async () => {
+  it(`auro-tokens-list current table 'sizeless' token displays value without units`, async () => {
     const el = await fixture(html`
       <auro-tokens-list componentData='[{ "tokenvalue": "64", "token": "auro-breakpoint-md" }]'></auro-tokens-list>
     `);
@@ -25,7 +25,7 @@ describe('auro-tokens-list is defined', () => {
     await expect(tableBodyRow1.querySelector("td:nth-of-type(2)")).to.contain.text("64");
   });
 
-  it('auro-tokens-list standard table displays all componentData', async () => {
+  it('auro-tokens-list current table displays all componentData', async () => {
     const el = await fixture(html`
       <auro-tokens-list componentData='[
         { "tokenvalue": "660px", "token": "auro-breakpoint-sm" },
@@ -45,7 +45,7 @@ describe('auro-tokens-list is defined', () => {
 
   });
 
-  it('auro-tokens-list standard table with swatch displays all componentData', async () => {
+  it('auro-tokens-list current table with swatch displays all componentData', async () => {
     const el = await fixture(html`
       <auro-tokens-list swatch componentData='[
         { "tokenvalue": "#cde6ff", "token": "auro-color-brand-atlas-100" },
@@ -65,7 +65,7 @@ describe('auro-tokens-list is defined', () => {
 
   });
 
-  it('auro-tokens-list standard table with swatch circle displays all componentData', async () => {
+  it('auro-tokens-list current table with swatch circle displays all componentData', async () => {
     const el = await fixture(html`
       <auro-tokens-list swatch circle componentData='[
         { "tokenvalue": "#f26135", "token": "auro-color-brand-canyon-300" },
@@ -87,7 +87,7 @@ describe('auro-tokens-list is defined', () => {
 
   it('auro-tokens-list deprecated table displays n/a currentToken reference', async () => {
     const el = await fixture(html`
-      <auro-tokens-list deprecated componentData='[
+      <auro-tokens-list type="deprecated" componentData='[
         { "tokenvalue": "#0064c6", "token": "color-background-active-button", "reference": "n/a" }
       ]'></auro-tokens-list>
     `);
@@ -98,7 +98,7 @@ describe('auro-tokens-list is defined', () => {
 
   it('auro-tokens-list deprecated table displays explicit auro currentToken reference', async () => {
     const el = await fixture(html`
-      <auro-tokens-list deprecated componentData='[
+      <auro-tokens-list type="deprecated" componentData='[
         { "tokenvalue": "#0074cb", "token": "color-background-is-active-button", "reference": "auro-color-brand-atlas-400" }
       ]'></auro-tokens-list>
     `);
@@ -109,7 +109,7 @@ describe('auro-tokens-list is defined', () => {
 
   it('auro-tokens-list deprecated table displays implicit auro currentToken reference', async () => {
     const el = await fixture(html`
-      <auro-tokens-list deprecated componentData='[
+      <auro-tokens-list type="deprecated" componentData='[
         { "tokenvalue": "#0074cb", "token": "color-background-is-active-button", "reference": "color-brand-atlas-400" }
       ]'></auro-tokens-list>
     `);
@@ -120,7 +120,7 @@ describe('auro-tokens-list is defined', () => {
 
   it('auro-tokens-list deprecated table displays empty currentToken reference', async () => {
     const el = await fixture(html`
-      <auro-tokens-list deprecated componentData='[
+      <auro-tokens-list type="deprecated" componentData='[
         { "tokenvalue": "#0074cb", "token": "color-background-is-active-button", "reference": "" }
       ]'></auro-tokens-list>
     `);
@@ -131,7 +131,7 @@ describe('auro-tokens-list is defined', () => {
 
   it('auro-tokens-list deprecated table displays all componentData', async () => {
     const el = await fixture(html`
-      <auro-tokens-list deprecated componentData='[
+      <auro-tokens-list type="deprecated" componentData='[
         { "tokenvalue": "#0064c6", "token": "color-background-active-button", "reference": "n/a" },
         { "tokenvalue": "#0074cb", "token": "color-background-is-active-button", "reference": "auro-color-brand-atlas-400" }
       ]'></auro-tokens-list>
@@ -150,7 +150,7 @@ describe('auro-tokens-list is defined', () => {
 
   it('auro-tokens-list deprecated auro version table displays componentData', async () => {
     const el = await fixture(html`
-      <auro-tokens-list deprecated version componentData='[
+      <auro-tokens-list type="deprecated" version componentData='[
         { "tokenvalue": "#f8f8f8", "token": "color-base-gray-100", "reference": "auro-color-brand-gray-100", "version": "3.0.1" },
         { "tokenvalue": "#176cff", "token": "color-background-hover-button", "reference": "auro-color-brand-atlas-200", "version": "2.0.1" }
       ]'></auro-tokens-list>
@@ -185,7 +185,7 @@ describe('auro-tokens-list is accessible', () => {
 
   it('auro-tokens-list deprecated table is accessible', async () => {
     const el = await fixture(html`
-      <auro-tokens-list deprecated componentData='[
+      <auro-tokens-list type="deprecated" componentData='[
         { "tokenvalue": "480px", "token": "breakpoint-width-narrow", "reference": "auro-breakpoint-sm" },
         { "tokenvalue": "840px", "token": "breakpoint-width-medium", "reference": "auro-breakpoint-sm" }
       ]'></auro-tokens-list>
@@ -196,7 +196,7 @@ describe('auro-tokens-list is accessible', () => {
 
   it('auro-tokens-list deprecated version table is accessible', async () => {
     const el = await fixture(html`
-      <auro-tokens-list deprecated version componentData='[
+      <auro-tokens-list type="deprecated" version componentData='[
         { "tokenvalue": "#f8f8f8", "token": "color-base-gray-100", "reference": "auro-color-brand-gray-100", "version": "3.0.1" },
         { "tokenvalue": "#176cff", "token": "color-background-hover-button", "reference": "auro-color-brand-atlas-200", "version": "2.0.1" }
       ]'></auro-tokens-list>

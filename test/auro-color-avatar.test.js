@@ -2,7 +2,7 @@ import { fixture, html, expect, waitUntil } from '@open-wc/testing';
 import { aTimeout } from '@open-wc/testing-helpers';
 import '../src/auro-color-avatar.js';
 
-describe('auro-color-avatar is defined', () => {
+describe('auro-color-avatar', () => {
 
   it('auro-color-avatar custom element is defined', async () => {
     const el = await Boolean(customElements.get("auro-color-avatar"));

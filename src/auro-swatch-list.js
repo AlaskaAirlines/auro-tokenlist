@@ -24,7 +24,7 @@ class AuroSwatchList extends LitElement {
   static get properties() {
     return {
       componentData:   { type: Array },
-      ondark: {type: Boolean}
+      ondark:          { type: Boolean }
     };
   }
 

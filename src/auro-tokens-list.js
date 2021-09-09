@@ -12,11 +12,11 @@ import styleCss from "./style-tokens-list-css.js";
 /**
  * auro-tokens-list provides users a way to display a table of design token names and values.
  *
- * @attr {Array} componentData - Pass in `tokenvalue`, `token`
- * @attr {Boolean} deprecated - Use deprecated display table
- * @attr {String} version - Pass in token `version` for deprecated auro token table
- * @attr {Boolean} swatch - Adds the swatch css class to last column of token table
- * @attr {Boolean} circle - Adds swatch--circle class to last column of token table
+ * @attr {Array} componentData - Pass in `tokenvalue`, `token`. Include a new `reference` and `version` number with a deprecated token table as applicable.
+ * @attr {String} type - Selects token table `type`. Allowed options are `current` and `deprecated` for displaying deprecated tokens and their current equivalents. If given value is not allowed or set, defaults to `current`.
+ * @attr {String} version - Displays the current token `version` number in a deprecated tokens table.
+ * @attr {Boolean} swatch - Displays the rectangular swatch in a current tokens table
+ * @attr {Boolean} circle - Displays the circular swatch in a current tokens table
  */
 
 // build the component class
@@ -26,11 +26,37 @@ class AuroTokensList extends LitElement {
   static get properties() {
     return {
       componentData:    { type: Array },
-      deprecated:       { type: Boolean },
+      type:             { type: String },
       swatch:           { type: Boolean},
       version:          { type: Boolean },
       circle:           { type: Boolean}
     };
+  }
+
+  /**
+   * @private
+   * @returns {array} table headers
+   */
+  getTableHeaders() {
+    if (this.type === "deprecated") {
+      const headers = [
+        "Deprecated token",
+        "Current token"
+      ];
+
+      if (this.version !== null) {
+        headers.push("Version");
+      }
+      headers.push("Value");
+
+      return headers;
+    }
+
+    return [
+      "Token name",
+      "Value",
+      ""
+    ];
   }
 
   /**
@@ -85,69 +111,53 @@ class AuroTokensList extends LitElement {
     }
 
     return html`
-      ${this.deprecated
+      <table class="${this.type === "deprecated" ? "deprecated" : "current"}">
+      <thead>
+        <tr>
+    ${this.getTableHeaders().map((item) => html`
+          <th>${item}</th>
+    `)}
+        </tr>
+      </thead>
+      <tbody>
+    ${this.componentData.map((index) => html`
+        <tr>
+    ${this.type === "deprecated"
     ? html`
-      <table class="tableListing tableListing-deprecated">
-      <thead>
-        <tr>
-          <th>Deprecated token</th>
-          <th class="">Current Token</th>
-          ${this.version
-    ? html`<th>Version</th>`
+          <td>
+            ${varName(index.token, this.deprecatedType(index.version))}
+          </td>
+          <td>
+            ${this.currentToken(index.reference)}
+          </td>
+    ${this.version
+    ? html` 
+          <td>${index.version}</td>`
     : html``}
-
-          <th>Value</th>
-        </tr>
-      </thead>
-      <tbody>
-        ${this.componentData.map((index) => html`
-          <tr class="tableRow">
-            <td class="noWrap varList">
-              ${varName(index.token, this.deprecatedType(index.version))}
-            </td>
-            <td class="noWrap">
-              ${this.currentToken(index.reference)}
-            </td>
-          ${this.version
-    ? html` <td class="noWrap">${index.version}</td>`
-    : html``}
-            <td class="noWrap">${index.tokenvalue}</td>
-          </tr>
-        `)}
-      </tbody>
-    </table>`
-
+          <td>${index.tokenvalue}</td>
+    `
     : html`
-      <table class="tableListing tableListing-standard">
-      <thead>
-        <tr>
-          <th>Token name</th>
-          <th>Value</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        ${this.componentData.map((index) => html`
-          <tr class="tableRow">
-            <td class="noWrap varList">
-              ${varName(index.token, 'css')}
-            </td>
-            <td class="noWrap">
-              ${index.tokenvalue}${this.size(index.token)}
-            </td>
-            <td>
-            ${this.swatch || this.circle
-    ? html`     <div
-                class="${classMap(classes)}"
-                style="background-color: ${varName(index.token, 'css')}">
-              </div>
-        `
+          <td>
+            ${varName(index.token, 'css')}
+          </td>
+          <td>
+            ${index.tokenvalue}${this.size(index.token)}
+          </td>
+          <td>
+    ${this.swatch || this.circle
+    ? html` 
+            <div
+              class="${classMap(classes)}"
+              style="background-color: ${varName(index.token, 'css')}">
+            </div>
+    `
     : html``}
-            </td>
-          </tr>
-        `)}
+          </td>
+            `}
+        </tr>
+    `)}
       </tbody>
-    </table>`}
+    </table>
     `;
   }
 }

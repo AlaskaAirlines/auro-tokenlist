@@ -10,47 +10,47 @@
 @import './../node_modules/@alaskaairux/webcorestylesheets/dist/breakpoints';
 @import './../node_modules/@alaskaairux/webcorestylesheets/dist/core';
 
-.varList {
-  line-height: var(--auro-unitless-scale-200);
+
+table {
+  width: 100%;
+  margin-bottom: var(--auro-size-xxl);
+  border-collapse: collapse;
 }
 
-.noWrap {
+thead {
+  text-align: left;
+}
+
+tbody {
+  font-size: var(--auro-text-body-size-sm);
+  font-weight: 200;
+}
+
+th,
+td {
+  padding: var(--auro-size-md) var(--auro-size-xxl) var(--auro-size-sm) var(--auro-size-sm);
+  white-space: nowrap;
+}
+  
+th {
+  border-bottom: 1px solid var(--auro-color-border-primary-on-light);
   white-space: nowrap;
 }
 
-.tableListing-deprecated {
+td {
+  &:first-child {
+  line-height: var(--auro-unitless-scale-200);
+  }
+}
+
+.deprecated {
   th,
   td {
     padding-right: var(--auro-size-xxl);
   }
 }
 
-.tableListing {
-  width: 100%;
-  margin-bottom: var(--auro-size-xxl);
-  border-collapse: collapse;
-
-  tbody {
-    font-size: var(--auro-text-body-size-sm);
-    font-weight: 200;
-  }
-
-  th,
-  td {
-    padding: var(--auro-size-md) var(--auro-size-xxl) var(--auro-size-sm) var(--auro-size-sm);
-  }
-
-  th {
-    border-bottom: 1px solid var(--auro-color-border-primary-on-light);
-    white-space: nowrap;
-  }
-
-  thead {
-    text-align: left;
-  }
-}
-
-.tableListing-standard {
+.current {
   th,
   td {
     &:nth-child(odd) {
@@ -59,9 +59,9 @@
   }
 }
 
-.tableRow {
+tr {
   &:nth-child(even) {
-    background-color: var(--auro-color-base-gray-100);
+      background-color: var(--auro-color-base-gray-100);
   }
 }
 
