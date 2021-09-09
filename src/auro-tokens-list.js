@@ -44,7 +44,7 @@ class AuroTokensList extends LitElement {
         "Current token"
       ];
 
-      if (this.version !== null) {
+      if (this.version === true) {
         headers.push("Version");
       }
       headers.push("Value");

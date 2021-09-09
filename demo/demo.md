@@ -240,7 +240,7 @@ This example illustrates a list of Design tokens with the a circular swatch disp
 
 
 <div class="exampleWrapper">
-  <auro-tokens-list swatch circle componentData='[
+  <auro-tokens-list circle componentData='[
     { "tokenvalue": "#f26135", "token": "auro-color-brand-canyon-300" },
     { "tokenvalue": "#c0f7ff", "token": "auro-color-brand-breeze-100" }
   ]'></auro-tokens-list>
@@ -250,7 +250,7 @@ This example illustrates a list of Design tokens with the a circular swatch disp
   <span slot="trigger">See code</span>
 
   ```html
-    <auro-tokens-list swatch circle componentData='[
+    <auro-tokens-list circle componentData='[
       { "tokenvalue": "#f26135", "token": "auro-color-brand-canyon-300" },
       { "tokenvalue": "#c0f7ff", "token": "auro-color-brand-breeze-100" }
     ]'></auro-tokens-list>
