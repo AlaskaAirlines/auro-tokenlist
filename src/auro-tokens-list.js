@@ -3,7 +3,6 @@
 
 // ---------------------------------------------------------------------
 import { LitElement, html, css } from "lit-element";
-import { classMap } from 'lit-html/directives/class-map';
 import { varName } from "./util.js";
 
 import "focus-visible/dist/focus-visible.min.js";
@@ -13,10 +12,9 @@ import styleCss from "./style-tokens-list-css.js";
  * auro-tokens-list provides users a way to display a table of design token names and values.
  *
  * @attr {Array} componentData - Pass in `tokenvalue`, `token`. Include a new `reference` and `version` number with a deprecated token table as applicable.
- * @attr {String} type - Selects token table `type`. Allowed options are `current` and `deprecated` for displaying deprecated tokens and their current equivalents. If given value is not allowed or set, defaults to `current`.
+ * @attr {String} type - Selects tokens-list `type`. Allowed options are `current` and `deprecated` for displaying deprecated tokens and their current equivalents. If given value is not allowed or set, defaults to `current`.
  * @attr {String} version - Displays the current token `version` number in a deprecated tokens table.
- * @attr {Boolean} swatch - Displays the rectangular swatch in a current tokens table
- * @attr {Boolean} circle - Displays the circular swatch in a current tokens table
+ * @attr {Boolean} swatchType - Sets the swatch display type for the current tokens table. Allowed options are `rectangle` or `circle`. If given value is not allowed or set, defaults to none.
  */
 
 // build the component class
@@ -27,9 +25,8 @@ class AuroTokensList extends LitElement {
     return {
       componentData:    { type: Array },
       type:             { type: String },
-      swatch:           { type: Boolean},
-      version:          { type: Boolean },
-      circle:           { type: Boolean}
+      swatchType:       { type: String},
+      version:          { type: Boolean }
     };
   }
 
@@ -104,12 +101,6 @@ class AuroTokensList extends LitElement {
 
   // function that renders the HTML and CSS into the scope of the component
   render() {
-
-    const classes = {
-      'swatch': this.swatch,
-      'swatch--circle': this.circle
-    }
-
     return html`
       <table class="${this.type === "deprecated" ? "deprecated" : "current"}">
       <thead>
@@ -144,10 +135,10 @@ class AuroTokensList extends LitElement {
             ${index.tokenvalue}${this.size(index.token)}
           </td>
           <td>
-    ${this.swatch || this.circle
+    ${this.swatchType === "circle" || this.swatchType === "rectangle"
     ? html` 
             <div
-              class="${classMap(classes)}"
+              class="swatch--${this.swatchType}"
               style="background-color: ${varName(index.token, 'css')}">
             </div>
     `

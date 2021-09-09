@@ -211,13 +211,13 @@ This example illustrates a token list of current Design tokens.
   ```
 </auro-accordion>
 
-### Token List With Swatch
+### Token List With Rectangle Swatch
 
 This example illustrates a list of Design tokens with the rectangular swatch displayed in the standard token table.
 
 
 <div class="exampleWrapper">
-  <auro-tokens-list swatch componentData='[
+  <auro-tokens-list swatchType="rectangle" componentData='[
     { "tokenvalue": "#cde6ff", "token": "auro-color-brand-atlas-100" },
     { "tokenvalue": "#6bb7fb", "token": "auro-color-brand-atlas-200" }
   ]'></auro-tokens-list>
@@ -227,20 +227,20 @@ This example illustrates a list of Design tokens with the rectangular swatch dis
   <span slot="trigger">See code</span>
 
   ```html
-  <auro-tokens-list swatch componentData='[
+  <auro-tokens-list swatchType="rectangle" componentData='[
     { "tokenvalue": "#cde6ff", "token": "auro-color-brand-atlas-100" },
     { "tokenvalue": "#6bb7fb", "token": "auro-color-brand-atlas-200" }
   ]'></auro-tokens-list>
   ```
 </auro-accordion>
 
-### Token List With Circular Swatch
+### Token List With Circle Swatch
 
 This example illustrates a list of Design tokens with the a circular swatch displayed in the standard token table.
 
 
 <div class="exampleWrapper">
-  <auro-tokens-list circle componentData='[
+  <auro-tokens-list swatchType="circle" componentData='[
     { "tokenvalue": "#f26135", "token": "auro-color-brand-canyon-300" },
     { "tokenvalue": "#c0f7ff", "token": "auro-color-brand-breeze-100" }
   ]'></auro-tokens-list>
@@ -250,7 +250,7 @@ This example illustrates a list of Design tokens with the a circular swatch disp
   <span slot="trigger">See code</span>
 
   ```html
-    <auro-tokens-list circle componentData='[
+    <auro-tokens-list swatchType="circle" componentData='[
       { "tokenvalue": "#f26135", "token": "auro-color-brand-canyon-300" },
       { "tokenvalue": "#c0f7ff", "token": "auro-color-brand-breeze-100" }
     ]'></auro-tokens-list>
