@@ -81,14 +81,15 @@ class AuroSwatchList extends LitElement {
       const hashlessBackgroundColor = backgroundColor.substring(1);
 
       try {
-        const wcag = await cacheFetch(`https://webaim.org/resources/contrastchecker/?fcolor=${hashlessColor}&bcolor=${hashlessBackgroundColor}&api`);
+        const wcag = await cacheFetch(
+          `https://webaim.org/resources/contrastchecker/?fcolor=${hashlessColor}&bcolor=${hashlessBackgroundColor}&api`,
+          {responseParser: (res) => res.json()}
+        );
 
         if (wcag) {
-          const parsedWCAG = JSON.parse(wcag);
+          wcag.ratio += ":1";
 
-          parsedWCAG.ratio += ":1";
-
-          return parsedWCAG;
+          return wcag;
         }
       } catch {
 

@@ -2,35 +2,10 @@ import { fixture, html, expect, elementUpdated } from '@open-wc/testing';
 import sinon from 'sinon';
 import '../src/auro-swatch-list.js';
 
-const componentData=`[
-  { "backgroundcolor": "#6bb7fb", "colorname": "auro-color-brand-atlas-200", "usage": "Notification color on light backgrounds" },
-  { "backgroundcolor": "#2492eb", "colorname": "auro-color-brand-atlas-300", "usage": "Notification color on light backgrounds" },
-  { "backgroundcolor": "#0074cb", "colorname": "auro-color-brand-atlas-400", "usage": "Notification color on light backgrounds" },
-  { "backgroundcolor": "#054687", "colorname": "auro-color-brand-atlas-500", "usage": "Notification color on light backgrounds" },
-  { "backgroundcolor": "#000000", "colorname": "auro-color-brand-atlas-600", "usage": "Notification color on light backgrounds" }
-  ]`;
-const componentDataWithWCAG=`[
-  { "backgroundcolor": "#d0fba6", "colorname": "auro-color-brand-tropical-200", "wcag": "AAA", "usage": "Notification color on light backgrounds" },
-  { "backgroundcolor": "#c0e585", "colorname": "auro-color-brand-tropical-300", "wcag": "AAA", "usage": "Notification color on light backgrounds" }
-  ]`;
-
-const componentDataWithRgbaAndInvalidColor=`[
-  { "backgroundcolor": "rgba(256,32,33,0.7)", "colorname": "auro-color-brand-tropical-200", "usage": "Notification color on light backgrounds" },
-  { "backgroundcolor": "invalidColor", "colorname": "not-a-color", "usage": "Cannot be used" }
-  ]`;
-
-
-
-const mockWCAGResponse = (body) => {
-  var mockResponse = new window.Response(JSON.stringify(body), {
-    ok: true,
+const mockFetchResponse = (body = "") => new window.Response(JSON.stringify(body), {
     status: 200,
     headers: { 'Content-type': 'application/json' }
  });
- return Promise.resolve(mockResponse);
-}
-
-const mockWCAGReject = () => Promise.reject("Failed to reach webaim.org");
 
 const wcagReplies = {
   failFail: {"ratio": "2.14", "AA":"fail","AALarge":"fail","AAA":"fail","AAALarge":"fail"},
@@ -39,20 +14,45 @@ const wcagReplies = {
   passAAAPassAAA: {"ratio": "9.40", "AA":"pass","AALarge":"pass","AAA":"pass","AAALarge":"pass"}
 };
 
+const componentData=`[
+  { "backgroundcolor": "#6bb7fb", "colorname": "auro-color-brand-atlas-200", "usage": "Notification color on light backgrounds" },
+  { "backgroundcolor": "#2492eb", "colorname": "auro-color-brand-atlas-300", "usage": "Notification color on light backgrounds" },
+  { "backgroundcolor": "#0074cb", "colorname": "auro-color-brand-atlas-400", "usage": "Notification color on light backgrounds" },
+  { "backgroundcolor": "#054687", "colorname": "auro-color-brand-atlas-500", "usage": "Notification color on light backgrounds" },
+  { "backgroundcolor": "#000000", "colorname": "auro-color-brand-atlas-600", "usage": "Notification color on light backgrounds" }
+  ]`;
+
+const componentDataWithWCAG=`[
+  { "backgroundcolor": "#6bb7fb", "colorname": "auro-color-brand-tropical-200", "wcag": "AAA", "usage": "Notification color on light backgrounds" },
+  { "backgroundcolor": "#2492eb", "colorname": "auro-color-brand-tropical-300", "wcag": "AAA", "usage": "Notification color on light backgrounds" }
+  ]`;
+
+const componentDataWithRgbaAndInvalidColor=`[
+  { "backgroundcolor": "rgba(256,32,33,0.7)", "colorname": "auro-color-brand-tropical-200", "usage": "Notification color on light backgrounds" },
+  { "backgroundcolor": "invalidColor", "colorname": "not-a-color", "usage": "Cannot be used" }
+  ]`;
+  
 beforeEach(() => {
   const fetchStub = sinon.stub(window, 'fetch');
-  fetchStub.onCall(0).returns(mockWCAGResponse(wcagReplies.failFail));
-  fetchStub.onCall(1).returns(mockWCAGResponse(wcagReplies.failPassAA));
-  fetchStub.onCall(2).returns(mockWCAGResponse(wcagReplies.passAAPassAAA));
-  fetchStub.onCall(3).returns(mockWCAGResponse(wcagReplies.passAAAPassAAA));
-  fetchStub.onCall(4).rejects(mockWCAGReject);
+
+  fetchStub
+  .withArgs(sinon.match('https://webaim.org/resources/contrastchecker/'))
+  .onCall(0).resolves(mockFetchResponse(wcagReplies.failFail))
+  .onCall(1).resolves(mockFetchResponse(wcagReplies.failPassAA))
+  .onCall(2).resolves(mockFetchResponse(wcagReplies.passAAPassAAA))
+  .onCall(3).resolves(mockFetchResponse(wcagReplies.passAAAPassAAA))
+  .onCall(4).rejects("Failed to reach webaim.org")
+  fetchStub
+  .withArgs(sinon.match('https://unpkg.com/@alaskaairux/icons@latest/dist/'))
+  .resolves(mockFetchResponse("<svg></svg>"));
+  fetchStub.resolves(mockFetchResponse(""));
 });
+
 afterEach(()=> {
   window.fetch.restore(); // remove stub
 })
 
 describe('auro-swatch-list', () => {
-
   it('auro-swatch-list standard is accessible', async () => {
     const el = await fixture(html`
       <auro-swatch-list componentData=${componentData}></auro-swatch-list>
