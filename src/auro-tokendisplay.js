@@ -4,7 +4,7 @@
 // ---------------------------------------------------------------------
 import { html, css, LitElement } from "lit-element";
 import "focus-visible/dist/focus-visible.min.js";
-import styleCss from "./style-swatch-list-css.js";
+import styleCss from "./style-tokendisplay-css.js";
 import '@alaskaairux/auro-icon/dist/auro-icon';
 import "@alaskaairux/auro-popover/";
 import { varName } from "./util";
@@ -13,13 +13,13 @@ import cacheFetch from "./cacheFetch";
 /* eslint-disable one-var, no-magic-numbers, max-statements*/
 
 /**
- * auro-swatch-list provides users a way to illustrate Design Token colors and their related data and usage in a table.
+ * The auro-tokendisplay element provides users a way to illustrate design token colors and their related data and usage in a table.
  *
  * @attr {Array} componentData - Pass in `backgroundcolor`, `colorname` & `usage`
  * @attr {Boolean} ondark - Defines if color state is to be on-dark
  */
 
-class AuroSwatchList extends LitElement {
+class AuroTokenDisplay extends LitElement {
   // function to define props used within the scope of this component
   static get properties() {
     return {
@@ -212,6 +212,6 @@ class AuroSwatchList extends LitElement {
 
 /* istanbul ignore else */
 // define the name of the custom component
-if (!customElements.get("auro-swatch-list")) {
-  customElements.define("auro-swatch-list", AuroSwatchList);
+if (!customElements.get("auro-tokendisplay")) {
+  customElements.define("auro-tokendisplay", AuroTokenDisplay);
 }

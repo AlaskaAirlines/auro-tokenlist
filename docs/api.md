@@ -1,6 +1,6 @@
-# auro-color-avatar
+# auro-tokenavatar
 
-auro-color-avatar provides users a way to illustrate Design Token colors and their related data for text, border, alert, interactive or icon uses.
+The auro-tokenavatar element provides users a way to illustrate design token colors and their related data for text, border, alert, interactive or icon uses.
 
 ## Attributes
 
@@ -16,9 +16,9 @@ auro-color-avatar provides users a way to illustrate Design Token colors and the
 | `colorname`  | `colorname`  | `String` | Pass in `-`(dash) to delimitated name of color token |
 
 
-# auro-swatch-list
+# auro-tokendisplay
 
-auro-swatch-list provides users a way to illustrate Design Token colors and their related data and usage in a table.
+The auro-tokendisplay element provides users a way to illustrate design token colors and their related data and usage in a table.
 
 ## Properties
 
@@ -28,16 +28,15 @@ auro-swatch-list provides users a way to illustrate Design Token colors and thei
 | `ondark`        | `ondark`        | `Boolean` | Defines if color state is to be on-dark          |
 
 
-# auro-tokens-list
+# auro-tokenlist
 
-auro-tokens-list provides users a way to display a table of design token names and values.
+The auro-tokenlist element provides users a way to display a table of design token names and values.
 
 ## Properties
 
 | Property        | Attribute       | Type      | Description                                      |
 |-----------------|-----------------|-----------|--------------------------------------------------|
-| `circle`        | `circle`        | `Boolean` | Adds swatch--circle class to last column of token table |
-| `componentData` | `componentData` | `Array`   | Pass in `tokenvalue`, `token`                    |
-| `deprecated`    | `deprecated`    | `Boolean` | Use deprecated display table                     |
-| `swatch`        | `swatch`        | `Boolean` | Adds the swatch css class to last column of token table |
-| `version`       | `version`       | `String`  | Pass in token `version` for deprecated auro token table |
+| `componentData` | `componentData` | `Array`   | Pass in `tokenvalue`, `token`. Include a new `reference` and `version` number with a deprecated token table as applicable. |
+| `swatchType`    | `swatchType`    | `Boolean` | Sets the swatch display type for a current type tokens list. Allowed options are `rectangle` or `circle`. If given value is not allowed or set, defaults to none. |
+| `type`          | `type`          | `String`  | Selects tokens-list `type`. Allowed options are `current` and `deprecated` for displaying deprecated tokens and their current equivalents. If given value is not allowed or set, defaults to `current`. |
+| `version`       | `version`       | `String`  | Displays the current token `version` number in a deprecated type tokens list. |

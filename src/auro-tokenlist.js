@@ -6,10 +6,10 @@ import { LitElement, html, css } from "lit-element";
 import { varName } from "./util.js";
 
 import "focus-visible/dist/focus-visible.min.js";
-import styleCss from "./style-tokens-list-css.js";
+import styleCss from "./style-tokenlist-css.js";
 
 /**
- * auro-tokens-list provides users a way to display a table of design token names and values.
+ * The auro-tokenlist element provides users a way to display a table of design token names and values.
  *
  * @attr {Array} componentData - Pass in `tokenvalue`, `token`. Include a new `reference` and `version` number with a deprecated token table as applicable.
  * @attr {String} type - Selects tokens-list `type`. Allowed options are `current` and `deprecated` for displaying deprecated tokens and their current equivalents. If given value is not allowed or set, defaults to `current`.
@@ -18,7 +18,7 @@ import styleCss from "./style-tokens-list-css.js";
  */
 
 // build the component class
-class AuroTokensList extends LitElement {
+class AuroTokenList extends LitElement {
 
   // function to define props used within the scope of this component
   static get properties() {
@@ -122,7 +122,7 @@ class AuroTokensList extends LitElement {
             ${this.currentToken(index.reference)}
           </td>
     ${this.version
-    ? html` 
+    ? html`
           <td>${index.version}</td>`
     : html``}
           <td>${index.tokenvalue}</td>
@@ -136,7 +136,7 @@ class AuroTokensList extends LitElement {
           </td>
           <td>
     ${this.swatchType === "circle" || this.swatchType === "rectangle"
-    ? html` 
+    ? html`
             <div
               class="swatch--${this.swatchType}"
               style="background-color: ${varName(index.token, 'css')}">
@@ -155,6 +155,6 @@ class AuroTokensList extends LitElement {
 
 /* istanbul ignore else */
 // define the name of the custom component
-if (!customElements.get("auro-tokens-list")) {
-  customElements.define("auro-tokens-list", AuroTokensList);
+if (!customElements.get("auro-tokenlist")) {
+  customElements.define("auro-tokenlist", AuroTokenList);
 }

@@ -3,7 +3,7 @@ repository:
   # See https://github.com/apps/settings for app settings
 
   # A short description of the repository that will show up on GitHub
-  description: HTML custom element for the purpose of displaying Design Token data in the view
+  description: HTML custom element for the purpose of displaying design token data in the view
 
   # A URL with more information about the repository
   # homepage: https://auro.alaskaair.com/components/auro/swatch

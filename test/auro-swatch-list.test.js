@@ -1,6 +1,6 @@
 import { fixture, html, expect, elementUpdated } from '@open-wc/testing';
 import sinon from 'sinon';
-import '../src/auro-swatch-list.js';
+import '../src/auro-tokendisplay.js';
 
 const mockFetchResponse = (body = "") => new window.Response(JSON.stringify(body), {
     status: 200,
@@ -31,7 +31,7 @@ const componentDataWithRgbaAndInvalidColor=`[
   { "backgroundcolor": "rgba(256,32,33,0.7)", "colorname": "auro-color-brand-tropical-200", "usage": "Notification color on light backgrounds" },
   { "backgroundcolor": "invalidColor", "colorname": "not-a-color", "usage": "Cannot be used" }
   ]`;
-  
+
 beforeEach(() => {
   const fetchStub = sinon.stub(window, 'fetch');
 
@@ -52,24 +52,24 @@ afterEach(()=> {
   window.fetch.restore(); // remove stub
 })
 
-describe('auro-swatch-list', () => {
-  it('auro-swatch-list standard is accessible', async () => {
+describe('auro-tokendisplay', () => {
+  it('auro-tokendisplay standard is accessible', async () => {
     const el = await fixture(html`
-      <auro-swatch-list componentData=${componentData}></auro-swatch-list>
+      <auro-tokendisplay componentData=${componentData}></auro-tokendisplay>
     `);
     await elementUpdated(el);
     await expect(el).to.be.accessible();
   });
 
-  it('auro-swatch-list custom element is defined', async () => {
-    const el = await Boolean(customElements.get("auro-swatch-list"));
+  it('auro-tokendisplay custom element is defined', async () => {
+    const el = await Boolean(customElements.get("auro-tokendisplay"));
     await elementUpdated(el);
     await expect(el).to.be.true;
   });
 
-  it('auro-swatch-list displays componentData', async () => {
+  it('auro-tokendisplay displays componentData', async () => {
     const el = await fixture(html`
-      <auro-swatch-list componentData=${componentData}></auro-swatch-list>
+      <auro-tokendisplay componentData=${componentData}></auro-tokendisplay>
     `);
 
     const tableBodyRow1 = el.shadowRoot.querySelector(".tableListing > tbody tr:nth-of-type(1)");
@@ -86,11 +86,11 @@ describe('auro-swatch-list', () => {
     await expect(tableBodyRow2.querySelector("td:nth-of-type(4)")).to.contain.html(`<div class="swatch" style="background-color: var(--auro-color-brand-atlas-300)"></div>`);
   });
 
-  it('auro-swatch-list WCAG ratio from webaim.org is displayed', async () => {
+  it('auro-tokendisplay WCAG ratio from webaim.org is displayed', async () => {
     const el = await fixture(html`
-      <auro-swatch-list componentData=${componentData}></auro-swatch-list>
+      <auro-tokendisplay componentData=${componentData}></auro-tokendisplay>
     `);
-    
+
     const tableBodyRowRatio1 = el.shadowRoot.querySelector(".tableListing > tbody tr:nth-of-type(1) td:nth-of-type(5)");
     const tableBodyRowRatio2 = el.shadowRoot.querySelector(".tableListing > tbody tr:nth-of-type(2) td:nth-of-type(5)");
     const tableBodyRowRatio3 = el.shadowRoot.querySelector(".tableListing > tbody tr:nth-of-type(3) td:nth-of-type(5)");
@@ -107,9 +107,9 @@ describe('auro-swatch-list', () => {
     await expect(tableBodyRowRatio4).to.contain.text("9.40:1");
   });
 
-  it('auro-swatch-list WCAG ratio from webaim.org displays despite presence of componentData wcag', async () => {
+  it('auro-tokendisplay WCAG ratio from webaim.org displays despite presence of componentData wcag', async () => {
     const el = await fixture(html`
-      <auro-swatch-list componentData=${componentDataWithWCAG}></auro-swatch-list>
+      <auro-tokendisplay componentData=${componentDataWithWCAG}></auro-tokendisplay>
     `);
     const tableBodyRowRatio1 = el.shadowRoot.querySelector(".tableListing > tbody tr:nth-of-type(1) td:nth-of-type(5)");
     const tableBodyRowRatio2 = el.shadowRoot.querySelector(".tableListing > tbody tr:nth-of-type(2) td:nth-of-type(5)");
@@ -120,9 +120,9 @@ describe('auro-swatch-list', () => {
     await expect(tableBodyRowRatio2).to.contain.text("3.28:1");
   });
 
-  it('auro-swatch-list WCAG pass-fail avatars are displayed', async () => {
+  it('auro-tokendisplay WCAG pass-fail avatars are displayed', async () => {
     const el = await fixture(html`
-      <auro-swatch-list componentData=${componentData}></auro-swatch-list>
+      <auro-tokendisplay componentData=${componentData}></auro-tokendisplay>
     `);
     const tableBodyRowRatings1 = el.shadowRoot.querySelector(".tableListing > tbody tr:nth-of-type(1) td:nth-of-type(6)");
     const tableBodyRowRatings2 = el.shadowRoot.querySelector(".tableListing > tbody tr:nth-of-type(2) td:nth-of-type(6)");
@@ -160,12 +160,12 @@ describe('auro-swatch-list', () => {
     await expect(tableBodyRowRatings5.innerHTML).not.to.contain(`<div class="wcagType"><!---->normal<!----></div>`);
     await expect(tableBodyRowRatings5.innerHTML).not.to.contain(`<div class="wcagRating"><!---->AAA<!----></div>`);
     await expect(tableBodyRowRatings5.innerHTML).not.to.contain(`<div class="wcagType"><!---->Large<!----></div>`);
-    
+
   });
 
-  it('auro-swatch-list WCAG values are only displayed for valid hex color values', async () => {
+  it('auro-tokendisplay WCAG values are only displayed for valid hex color values', async () => {
     const el = await fixture(html`
-      <auro-swatch-list componentData=${componentDataWithRgbaAndInvalidColor}></auro-swatch-list>
+      <auro-tokendisplay componentData=${componentDataWithRgbaAndInvalidColor}></auro-tokendisplay>
     `);
     const tableBodyRowRatio1 = el.shadowRoot.querySelector(".tableListing > tbody tr:nth-of-type(1) td:nth-of-type(5)");
     const tableBodyRowRatio2 = el.shadowRoot.querySelector(".tableListing > tbody tr:nth-of-type(2) td:nth-of-type(5)");
@@ -188,7 +188,7 @@ describe('auro-swatch-list', () => {
     await expect(tableBodyRowRatings2.innerHTML).not.to.contain(`<div class="wcagType"><!---->normal<!----></div>`);
     await expect(tableBodyRowRatings2.innerHTML).not.to.contain(`<div class="wcagRating"><!---->AAA<!----></div>`);
     await expect(tableBodyRowRatings2.innerHTML).not.to.contain(`<div class="wcagType"><!---->Large<!----></div>`);
-    
+
   });
 
 });

@@ -5,12 +5,12 @@
 
 import { html, css, LitElement } from "lit-element";
 import "focus-visible/dist/focus-visible.min.js";
-import styleCss from "./style-color-avatar-css.js";
+import styleCss from "./style-tokenavatar-css.js";
 import '@alaskaairux/auro-icon/dist/auro-icon';
 import { varName } from "./util.js";
 
 /**
- * auro-color-avatar provides users a way to illustrate Design Token colors and their related data for text, border, alert, interactive or icon uses.
+ * The auro-tokenavatar element provides users a way to illustrate design token colors and their related data for text, border, alert, interactive or icon uses.
  *
  * @attr {String} avatartype - Pass in `font`, `border`, `alert`, `ui`, `icon` string to illustrate preferred avatar type
  * @attr {String} colorname - Pass in `-`(dash) to delimitated name of color token
@@ -18,7 +18,7 @@ import { varName } from "./util.js";
  */
 
 // build the component class
-class AuroColorAvatar extends LitElement {
+class AuroTokenAvatar extends LitElement {
 
   // function to define props used within the scope of this component
   static get properties() {
@@ -89,6 +89,6 @@ class AuroColorAvatar extends LitElement {
 
 /* istanbul ignore else */
 // define the name of the custom component
-if (!customElements.get("auro-color-avatar")) {
-  customElements.define("auro-color-avatar", AuroColorAvatar);
+if (!customElements.get("auro-tokenavatar")) {
+  customElements.define("auro-tokenavatar", AuroTokenAvatar);
 }
