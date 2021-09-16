@@ -27,9 +27,9 @@ const getSharedPlugins = (isLegacy) => [
 
 const modernConfig = {
   input: {
-    ['auro-color-avatar__bundled']: './src/auro-color-avatar.js',
-    ['auro-tokens-list__bundled']: './src/auro-tokens-list.js',
-    ['auro-swatch-list__bundled']: './src/auro-swatch-list.js',
+    ['auro-tokenavatar__bundled']: './src/auro-tokenavatar.js',
+    ['auro-tokenlist__bundled']: './src/auro-tokenlist.js',
+    ['auro-tokendisplay__bundled']: './src/auro-tokendisplay.js',
   },
   output: {
     format: 'esm',

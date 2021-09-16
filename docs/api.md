@@ -1,6 +1,6 @@
-# auro-color-avatar
+# auro-tokenavatar
 
-auro-color-avatar provides users a way to illustrate Design Token colors and their related data for text, border, alert, interactive or icon uses.
+The auro-tokenavatar element provides users a way to illustrate design token colors and their related data for text, border, alert, interactive or icon uses.
 
 ## Attributes
 
@@ -16,9 +16,9 @@ auro-color-avatar provides users a way to illustrate Design Token colors and the
 | `colorname`  | `colorname`  | `String` | Pass in `-`(dash) to delimitated name of color token |
 
 
-# auro-swatch-list
+# auro-tokendisplay
 
-auro-swatch-list provides users a way to illustrate Design Token colors and their related data and usage in a table.
+The auro-tokendisplay element provides users a way to illustrate design token colors and their related data and usage in a table.
 
 ## Properties
 
@@ -28,9 +28,9 @@ auro-swatch-list provides users a way to illustrate Design Token colors and thei
 | `ondark`        | `ondark`        | `Boolean` | Defines if color state is to be on-dark          |
 
 
-# auro-tokens-list
+# auro-tokenlist
 
-auro-tokens-list provides users a way to display a table of design token names and values.
+The auro-tokenlist element provides users a way to display a table of design token names and values.
 
 ## Properties
 

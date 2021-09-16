@@ -1,18 +1,18 @@
 import { fixture, html, expect, waitUntil } from '@open-wc/testing';
 import { aTimeout } from '@open-wc/testing-helpers';
-import '../src/auro-color-avatar.js';
+import '../src/auro-tokenavatar.js';
 
-describe('auro-color-avatar', () => {
+describe('auro-tokenavatar', () => {
 
-  it('auro-color-avatar custom element is defined', async () => {
-    const el = await Boolean(customElements.get("auro-color-avatar"));
+  it('auro-tokenavatar custom element is defined', async () => {
+    const el = await Boolean(customElements.get("auro-tokenavatar"));
 
     await expect(el).to.be.true;
   });
 
-  it('auro-color-avatar returns default color avatar', async () => {
+  it('auro-tokenavatar returns default color avatar', async () => {
     const el = await fixture(html`
-      <auro-color-avatar colorname='auro-color-border-error-on-light'></auro-color-avatar>
+      <auro-tokenavatar colorname='auro-color-border-error-on-light'></auro-tokenavatar>
     `);
     const avatarWrapper = el.shadowRoot.querySelector(".avatarWrapper");
 
@@ -21,18 +21,18 @@ describe('auro-color-avatar', () => {
     );
   });
 
-  it('auro-color-avatar displays avatar token name', async () => {
+  it('auro-tokenavatar displays avatar token name', async () => {
     const el = await fixture(html`
-      <auro-color-avatar colorname='auro-color-border-error-on-light'></auro-color-avatar>
+      <auro-tokenavatar colorname='auro-color-border-error-on-light'></auro-tokenavatar>
     `);
     const avatarToken = el.shadowRoot.querySelector(".avatarToken");
 
     await expect(avatarToken).to.contain.text("auro-color-border-error-on-light");
   });
 
-  it('auro-color-avatar returns alert color avatar', async () => {
+  it('auro-tokenavatar returns alert color avatar', async () => {
     const el = await fixture(html`
-      <auro-color-avatar avatartype="alert" colorname="auro-color-alert-success-on-light"></auro-color-avatar>
+      <auro-tokenavatar avatartype="alert" colorname="auro-color-alert-success-on-light"></auro-tokenavatar>
     `);
     const avatar = el.shadowRoot.querySelector(".avatar");
 
@@ -41,9 +41,9 @@ describe('auro-color-avatar', () => {
     );
   });
 
-  it('auro-color-avatar returns ui color avatar', async () => {
+  it('auro-tokenavatar returns ui color avatar', async () => {
     const el = await fixture(html`
-      <auro-color-avatar avatartype="ui" colorname="auro-color-ui-default-on-light"></auro-color-avatar>
+      <auro-tokenavatar avatartype="ui" colorname="auro-color-ui-default-on-light"></auro-tokenavatar>
     `);
     const avatar = el.shadowRoot.querySelector(".avatar");
 
@@ -52,9 +52,9 @@ describe('auro-color-avatar', () => {
     );
   });
 
-  it('auro-color-avatar returns border color avatar', async () => {
+  it('auro-tokenavatar returns border color avatar', async () => {
     const el = await fixture(html`
-      <auro-color-avatar avatartype="border" colorname="auro-color-border-error-on-light"></auro-color-avatar>
+      <auro-tokenavatar avatartype="border" colorname="auro-color-border-error-on-light"></auro-tokenavatar>
     `);
     const avatar = el.shadowRoot.querySelector(".avatar");
 
@@ -63,18 +63,18 @@ describe('auro-color-avatar', () => {
     );
   });
 
-  it('auro-color-avatar returns font color avatar', async () => {
+  it('auro-tokenavatar returns font color avatar', async () => {
     const el = await fixture(html`
-      <auro-color-avatar avatartype="font" colorname="auro-color-text-primary-on-light">Aa</auro-color-avatar>
+      <auro-tokenavatar avatartype="font" colorname="auro-color-text-primary-on-light">Aa</auro-tokenavatar>
     `);
     const avatar = el.shadowRoot.querySelector(".avatar");
     await expect(avatar).to.have.attribute("style", "color: var(--auro-color-text-primary-on-light)")
     await expect(avatar).to.contain.text("Aa");
   });
 
-  it('auro-color-avatar returns icon color avatar', async () => {
+  it('auro-tokenavatar returns icon color avatar', async () => {
     const el = await fixture(html`
-      <auro-color-avatar avatartype="icon" colorname='auro-color-ui-default-on-light'></auro-color-avatar>
+      <auro-tokenavatar avatartype="icon" colorname='auro-color-ui-default-on-light'></auro-tokenavatar>
     `);
     const avatarIcon = el.shadowRoot.querySelector("auro-icon");
     await expect(avatarIcon).to.have.attribute("style", "color: var(--auro-color-ui-default-on-light)");
@@ -82,51 +82,51 @@ describe('auro-color-avatar', () => {
   });
 });
 
-describe('auro-color-avatar is accessible', () => {
+describe('auro-tokenavatar is accessible', () => {
 
-  it('auro-color-avatar default is accessible', async () => {
+  it('auro-tokenavatar default is accessible', async () => {
     const el = await fixture(html`
-      <auro-color-avatar colorname='auro-color-border-error-on-light'></auro-color-avatar>
+      <auro-tokenavatar colorname='auro-color-border-error-on-light'></auro-tokenavatar>
     `);
 
     await expect(el).to.be.accessible();
   });
 
-  it('auro-color-avatar color avatar is accessible', async () => {
+  it('auro-tokenavatar color avatar is accessible', async () => {
     const el = await fixture(html`
-      <auro-color-avatar avatartype="alert" colorname="auro-color-alert-success-on-light"></auro-color-avatar>
+      <auro-tokenavatar avatartype="alert" colorname="auro-color-alert-success-on-light"></auro-tokenavatar>
     `);
 
     await expect(el).to.be.accessible();
   });
 
-  it('auro-color-avatar ui color avatar is accessible', async () => {
+  it('auro-tokenavatar ui color avatar is accessible', async () => {
     const el = await fixture(html`
-      <auro-color-avatar avatartype="ui" colorname="auro-color-ui-default-on-light"></auro-color-avatar>
+      <auro-tokenavatar avatartype="ui" colorname="auro-color-ui-default-on-light"></auro-tokenavatar>
     `);
-    
+
     await expect(el).to.be.accessible();
   });
 
-  it('auro-color-avatar border color avatar is accessible', async () => {
+  it('auro-tokenavatar border color avatar is accessible', async () => {
     const el = await fixture(html`
-      <auro-color-avatar avatartype="border" colorname="auro-color-border-error-on-light"></auro-color-avatar>
+      <auro-tokenavatar avatartype="border" colorname="auro-color-border-error-on-light"></auro-tokenavatar>
     `);
-    
+
     await expect(el).to.be.accessible();
   });
 
-  it('auro-color-avatar font color avatar is accessible', async () => {
+  it('auro-tokenavatar font color avatar is accessible', async () => {
     const el = await fixture(html`
-      <auro-color-avatar avatartype="font" colorname="auro-color-text-primary-on-light">Aa</auro-color-avatar>
+      <auro-tokenavatar avatartype="font" colorname="auro-color-text-primary-on-light">Aa</auro-tokenavatar>
     `);
-    
+
     await expect(el).to.be.accessible();
   });
 
-  it('auro-color-avatar icon color avatar is accessible', async () => {
+  it('auro-tokenavatar icon color avatar is accessible', async () => {
     const el = await fixture(html`
-      <auro-color-avatar avatartype="icon" colorname='auro-color-ui-default-on-light'></auro-color-avatar>
+      <auro-tokenavatar avatartype="icon" colorname='auro-color-ui-default-on-light'></auro-tokenavatar>
     `);
 
     await expect(el).to.be.accessible();

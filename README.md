@@ -1,6 +1,6 @@
-# Swatch
+# Design token display
 
-`<auro-color-avatar>`, `<auro-swatch-list>` and `<auro-tokens-list>` are [HTML custom element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) for the purpose of illustrating Design Tokens and their related data.
+`<auro-tokenavatar>`, `<auro-tokendisplay>` and `<auro-tokenlist>` are [HTML custom elements](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) for the purpose of illustrating design tokens and their related data.
 
 ## UI development browser support
 
@@ -8,11 +8,12 @@ For the most up to date information on [UI development browser support](https://
 
 ## Install
 
-[![Build Status](https://img.shields.io/github/workflow/status/AlaskaAirlines/auro-swatch/Test%20and%20publish?branch=master&style=for-the-badge)](https://github.com/AlaskaAirlines/auro-swatch/actions?query=workflow%3A%22test+and+publish%22)
-[![See it on NPM!](https://img.shields.io/npm/v/@aurolabs/auro-swatch?style=for-the-badge&color=orange)](https://www.npmjs.com/package/@aurolabs/auro-swatch)
-[![License](https://img.shields.io/npm/l/@aurolabs/auro-swatch?color=blue&style=for-the-badge)](https://www.apache.org/licenses/LICENSE-2.0)
+[![Build Status](https://img.shields.io/github/workflow/status/AlaskaAirlines/auro-tokendisplay/Test%20and%20publish?branch=master&style=for-the-badge)](https://github.com/AlaskaAirlines/auro-tokendisplay/actions?query=workflow%3A%22test+and+publish%22)
+[![See it on NPM!](https://img.shields.io/npm/v/@aurodesignsystem/auro-tokendisplay?style=for-the-badge&color=orange)](https://www.npmjs.com/package/@aurodesignsystem/auro-tokendisplay)
+[![License](https://img.shields.io/npm/l/@aurodesignsystem/auro-tokendisplay?color=blue&style=for-the-badge)](https://www.apache.org/licenses/LICENSE-2.0)
 
 ```shell
+<<<<<<< HEAD
 $ npm i @aurolabs/auro-swatch
 
 // Peer dependencies
@@ -22,43 +23,36 @@ $ npm i @alaskaairux/design-tokens
 $ npm i @alaskaairux/webcorestylesheets
 $ npm i @webcomponents/webcomponentsjs
 $ npm i focus-visible
+=======
+$ npm i @aurodesignsystem/auro-tokendisplay
+>>>>>>> 110a986 (refactor: rename core elements; address all related updates)
 ```
 
 Installing as a direct, dev or peer dependency is up to the user installing the package. If you are unsure as to what type of dependency you should use, consider reading this [stack overflow](https://stackoverflow.com/questions/18875674/whats-the-difference-between-dependencies-devdependencies-and-peerdependencies) answer.
 
 ### Design Token CSS Custom Property dependency
 
-The use of any Auro custom element has a dependency on the [Auro Design Tokens](https://auro.alaskaair.com/getting-started/developers/design-tokens).
+The use of any Auro custom element has a dependency on the [Auro design tokens](https://auro.alaskaair.com/getting-started/developers/design-tokens).
 
 ### CSS Custom Property fallbacks
 
 [CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) are [not supported](https://auro.alaskaair.com/support/custom-properties) in older browsers. For this, fallback properties are pre-generated and included with the npm.
 
-Any update to the Auro Design Tokens will be immediately reflected with browsers that support CSS custom properties, legacy browsers will require updated components with pre-generated fallback properties.
+Any update to the Auro design tokens will be immediately reflected with browsers that support CSS custom properties, legacy browsers will require updated components with pre-generated fallback properties.
 
 ### Define dependency in project component
 
-Defining the component dependency within each component that is using the `<auro-swatch-list>`, `<auro-color-avatar>` or `<auro-tokens-list>` component.
+Defining the component dependency within each component that is using the `<auro-tokenavatar>`, `<auro-tokendisplay>` and `<auro-tokenlist>` elements.
 
 ```javascript
-import "@aurolabs/auro-swatch/dist/auro-swatch-list";
-import "@aurolabs/auro-swatch/dist/auro-color-avatar";
-import "@aurolabs/auro-swatch/dist/auro-tokens-list";
-```
-
-**Reference component in HTML**
-
-```html
-<auro-color-avatar avatartype="font" colorname="color-text-primary-on-light"></auro-color-avatar>
-
-<auro-swatch-list componentData='[{ "backgroundcolor": "#cde6ff", "colorname": "auro-color-brand-atlas-100", "wcag": "AAA", "usage": "Notification color on light backgrounds" }]'></auro-swatch-list>
-
-<auro-tokens-list componentData='[{ "tokenvalue": "480px", "token": "breakpoint-width-narrow" }]'></auro-tokens-list>
+import "@aurodesignsystem/auro-tokendisplay/dist/auro-tokendisplay";
+import "@aurodesignsystem/auro-tokendisplay/dist/auro-tokenavatar";
+import "@aurodesignsystem/auro-tokendisplay/dist/auro-tokenlist";
 ```
 
 ## Install bundled assets from CDN
 
-In cases where the project is not able to process JS assets, there are pre-processed assets available for use. Two bundles are available -- `auro-swatch__bundled.js` for modern browsers and `auro-swatch__bundled.es5.js` for legacy browsers (including IE11).
+In cases where the project is not able to process JS assets, there are pre-processed assets available for use. Two bundles are available -- `auro-tokendisplay__bundled.js` for modern browsers and `auro-tokendisplay__bundled.es5.js` for legacy browsers (including IE11).
 
 Since the legacy bundle includes many polyfills that are not needed by modern browsers, we recommend you load these bundles using [differential serving](https://philipwalton.com/articles/deploying-es2015-code-in-production-today/) so that the browser only loads the bundle it needs. To accomplish this, the script tag for the modern bundle should have `type="module"` and the script tag for the legacy bundle should have the `nomodule` attribute. See the example below.
 
@@ -70,6 +64,7 @@ Since the legacy bundle includes many polyfills that are not needed by modern br
 <link rel="stylesheet" href="https://unpkg.com/@alaskaairux/design-tokens@latest/dist/tokens/CSSCustomProperties.css" />
 <link rel="stylesheet" href="https://unpkg.com/@alaskaairux/webcorestylesheets@latest/dist/bundled/essentials.css" />
 
+<<<<<<< HEAD
 <script src="https://unpkg.com/@alaskaairux/auro-swatch@latest/dist/auro-swatch__bundled.js" type="module"></script>
 <script src="https://unpkg.com/@alaskaairux/auro-swatch@latest/dist/auro-swatch__bundled.es5.js" nomodule></script>
 
@@ -81,40 +76,17 @@ Since the legacy bundle includes many polyfills that are not needed by modern br
 ## auro-color-avatar use cases
 
 The `<auro-color-avatar>` element should be used in situations where users may:
+=======
+<script src="https://unpkg.com/@alaskaairux/auro-swatch@latest/dist/auro-tokenavatar__bundled.js" type="module"></script>
+<script src="https://unpkg.com/@alaskaairux/auro-swatch@latest/dist/auro-tokenavatar__bundled.es5.js" nomodule></script>
+>>>>>>> 110a986 (refactor: rename core elements; address all related updates)
 
-* Need to illustrate a Design Token color and its related data
-* Use illustrative avatar to display color listing
-* Need to illustrate between text, border, alert, interactive or icon uses
+<script src="https://unpkg.com/@alaskaairux/auro-swatch@latest/dist/auro-tokendisplay__bundled.js" type="module"></script>
+<script src="https://unpkg.com/@alaskaairux/auro-swatch@latest/dist/auro-tokendisplay__bundled.es5.js" nomodule></script>
 
-## API Code Examples
-
-```html
-<auro-color-avatar avatartype="font" colorname="color-text-primary-on-light"></auro-color-avatar>
-<auro-color-avatar avatartype="font" ondark colorname="color-text-primary-on-dark"></auro-color-avatar>
+<script src="https://unpkg.com/@alaskaairux/auro-swatch@latest/dist/auro-tokenlist__bundled.js" type="module"></script>
+<script src="https://unpkg.com/@alaskaairux/auro-swatch@latest/dist/auro-tokenlist__bundled.es5.js" nomodule></script>
 ```
-
-```html
-<auro-color-avatar avatartype="border" colorname="color-border-error-on-light"></auro-color-avatar>
-<auro-color-avatar avatartype="border" ondark colorname="color-border-error-on-dark"></auro-color-avatar>
-```
-
-```html
-<auro-color-avatar avatartype="alert" colorname="color-alert-success-on-light"></auro-color-avatar>
-<auro-color-avatar avatartype="alert" ondark colorname="color-alert-success-on-dark"></auro-color-avatar>
-```
-
-## auro-swatch-list use cases
-
-The `<auro-swatch-list>` element should be used in situations where users may:
-
-* Need to illustrate a Design Token color and its related data
-* Display data in table format
-* Displays CSS custom property name
-* Displays Sass variable name
-* Describes color usage and WCAG rating
-* Displays color in circular inkwell
-* Displays color HEX or RGBA value
-
 
 ## Development
 

@@ -7,9 +7,9 @@
     "  3. Go to http://localhost:8000",
     "================================================================================"
   ],
-  "name": "@aurolabs/auro-swatch",
+  "name": "@aurodesignsystem/auro-tokendisplay",
   "version": "0.0.0",
-  "description": "auro-swatch HTML custom element",
+  "description": "auro-tokendisplay HTML custom element",
   "repository": {
     "type": "git",
     "url": "https://github.com/AlaskaAirlines/auro-swatch"
