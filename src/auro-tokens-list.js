@@ -4,12 +4,11 @@
 // ---------------------------------------------------------------------
 import { LitElement, html, css } from "lit-element";
 import { varName } from "./util.js";
-
 import "focus-visible/dist/focus-visible.min.js";
 import styleCss from "./style-tokens-list-css.js";
 
 /**
- * auro-tokens-list provides users a way to display a table of design token names and values.
+ * The auro-tokens-list element provides users a way to display a table of design token names and values.
  *
  * @attr {Array} componentData - Pass in `tokenvalue`, `token`. Include a new `reference` and `version` number with a deprecated token table as applicable.
  * @attr {String} type - Selects tokens-list `type`. Allowed options are `current` and `deprecated` for displaying deprecated tokens and their current equivalents. If given value is not allowed or set, defaults to `current`.
@@ -32,7 +31,7 @@ class AuroTokensList extends LitElement {
 
   /**
    * @private
-   * @returns {array} table headers
+   * @returns {void}
    */
   getTableHeaders() {
     if (this.type === "deprecated") {
@@ -58,17 +57,17 @@ class AuroTokensList extends LitElement {
 
   /**
    * @private
-   * @param {string} arg token
-   * @returns {string} token size
+   * @param {string} arg Accepts token.
+   * @returns {string}
    */
   size(arg) {
-    return arg.includes("size") ? 'rem' : ''
+    return arg.includes("size") ? 'rem' : '';
   }
 
   /**
    * @private
-   * @param {string} value type of
-   * @returns {string} token size
+   * @param {string} value Type of token.
+   * @returns {string}
    */
   deprecatedType(value) {
     return value ? `auro` : `deprecated`;
@@ -76,8 +75,8 @@ class AuroTokensList extends LitElement {
 
   /**
    * @private
-   * @param {string} reference to current token
-   * @returns {string} name of current token
+   * @param {string} reference To the current token.
+   * @returns {string}
    */
   currentToken(reference) {
     if (reference === 'n/a') {
@@ -90,7 +89,7 @@ class AuroTokensList extends LitElement {
       return `var(--auro-${reference})`;
     }
 
-    return ''
+    return '';
   }
 
   static get styles() {
@@ -122,7 +121,7 @@ class AuroTokensList extends LitElement {
             ${this.currentToken(index.reference)}
           </td>
     ${this.version
-    ? html` 
+    ? html`
           <td>${index.version}</td>`
     : html``}
           <td>${index.tokenvalue}</td>
@@ -136,7 +135,7 @@ class AuroTokensList extends LitElement {
           </td>
           <td>
     ${this.swatchType === "circle" || this.swatchType === "rectangle"
-    ? html` 
+    ? html`
             <div
               class="swatch--${this.swatchType}"
               style="background-color: ${varName(index.token, 'css')}">

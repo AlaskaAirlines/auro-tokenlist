@@ -14,6 +14,14 @@ For the most up to date information on [UI development browser support](https://
 
 ```shell
 $ npm i @aurolabs/auro-swatch
+
+// Peer dependencies
+$ npm i @alaskaairux/auro-icon
+$ npm i @alaskaairux/auro-popover
+$ npm i @alaskaairux/design-tokens
+$ npm i @alaskaairux/webcorestylesheets
+$ npm i @webcomponents/webcomponentsjs
+$ npm i focus-visible
 ```
 
 Installing as a direct, dev or peer dependency is up to the user installing the package. If you are unsure as to what type of dependency you should use, consider reading this [stack overflow](https://stackoverflow.com/questions/18875674/whats-the-difference-between-dependencies-devdependencies-and-peerdependencies) answer.
@@ -64,6 +72,10 @@ Since the legacy bundle includes many polyfills that are not needed by modern br
 
 <script src="https://unpkg.com/@alaskaairux/auro-swatch@latest/dist/auro-swatch__bundled.js" type="module"></script>
 <script src="https://unpkg.com/@alaskaairux/auro-swatch@latest/dist/auro-swatch__bundled.es5.js" nomodule></script>
+
+// Peer dependencies
+<script src="https://unpkg.com/@alaskaairux/auro-icon@latest/dist/auro-icon__bundled.js" type="module"></script>
+<script src="https://unpkg.com/@alaskaairux/auro-popover@latest/dist/auro-popover__bundled.js" type="module"></script>
 ```
 
 ## auro-color-avatar use cases
@@ -153,26 +165,26 @@ In the event that rgba values are passed in and need to be converted to hex valu
    * @returns {string} 7-8 char hex value ex "#00161780"
    */
 
-  rgbaToHex(rgbaString) { 
+  rgbaToHex(rgbaString) {
     // remove whitespace
-    rgbaString = rgbaString.replace(/\+/g,''); 
+    rgbaString = rgbaString.replace(/\+/g,'');
     // find indices of parentheses
     const valuesStart = rgbaString.indexOf('(')+1;
     const valuesEnd = rgbaString.indexOf(')');
     // pull rgb(a) values out into an array and convert them to decimal
-    let rgba =  rgbaString.substring(valuesStart, valuesEnd).split(',').map(x=>+x); 
+    let rgba =  rgbaString.substring(valuesStart, valuesEnd).split(',').map(x=>+x);
     if(rgba.length == 4) {
       rgba[3]=Math.round(rgba[3] * 255);
     }
     rgba = rgba.map(x => {
       // convert to hex;
-      x = x.toString(16); 
+      x = x.toString(16);
       // add 0 to single char values
       if (x.length==1) {
-        x = "0" + x; 
+        x = "0" + x;
       }
       // update array
-      return x; 
+      return x;
     })
 
     return "#" + rgba.join('');

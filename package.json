@@ -22,18 +22,16 @@
     "sinon": "^11.1.1"
   },
   "peerDependencies": {
+    "@alaskaairux/auro-icon": "^3.0.0",
+    "@alaskaairux/auro-popover": "^2.2.0",
     "@alaskaairux/design-tokens": "^3.3.0",
-    "@alaskaairux/icons": "^4.7.0",
     "@alaskaairux/webcorestylesheets": "^3.4.0",
     "@webcomponents/webcomponentsjs": "^2.5.0",
     "focus-visible": "^5.2.0"
   },
   "devDependencies": {
-    "@alaskaairux/auro-icon": "^3.1.1",
-    "@alaskaairux/auro-popover": "^2.2.0",
     "@alaskaairux/design-tokens": "^3.3.0",
-    "@alaskaairux/icons": "^4.7.0",
-    "@alaskaairux/webcorestylesheets": "^3.4.0",
+    "@alaskaairux/webcorestylesheets": "^3.0.0",
     "@aurodesignsystem/eslint-config": "^1.1.0",
     "@babel/core": "^7.14.6",
     "@babel/eslint-parser": "^7.14.9",

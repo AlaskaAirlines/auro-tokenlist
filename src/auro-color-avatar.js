@@ -6,11 +6,10 @@
 import { html, css, LitElement } from "lit-element";
 import "focus-visible/dist/focus-visible.min.js";
 import styleCss from "./style-color-avatar-css.js";
-import '@alaskaairux/auro-icon/dist/auro-icon';
 import { varName } from "./util.js";
 
 /**
- * auro-color-avatar provides users a way to illustrate Design Token colors and their related data for text, border, alert, interactive or icon uses.
+ * The auro-color-avatar element provides users a way to illustrate Design Token colors and their related data for text, border, alert, interactive or icon uses.
  *
  * @attr {String} avatartype - Pass in `font`, `border`, `alert`, `ui`, `icon` string to illustrate preferred avatar type
  * @attr {String} colorname - Pass in `-`(dash) to delimitated name of color token

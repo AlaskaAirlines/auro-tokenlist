@@ -5,15 +5,13 @@
 import { html, css, LitElement } from "lit-element";
 import "focus-visible/dist/focus-visible.min.js";
 import styleCss from "./style-swatch-list-css.js";
-import '@alaskaairux/auro-icon/dist/auro-icon';
-import "@alaskaairux/auro-popover/";
 import { varName } from "./util";
 import cacheFetch from "./cacheFetch";
 
 /* eslint-disable one-var, no-magic-numbers, max-statements*/
 
 /**
- * auro-swatch-list provides users a way to illustrate Design Token colors and their related data and usage in a table.
+ * The auro-swatch-list element provides users a way to illustrate Design Token colors and their related data and usage in a table.
  *
  * @attr {Array} componentData - Pass in `backgroundcolor`, `colorname` & `usage`
  * @attr {Boolean} ondark - Defines if color state is to be on-dark
@@ -57,11 +55,11 @@ class AuroSwatchList extends LitElement {
   }
 
   /**
-   * Async function to fetch wcag values from webaim.org
+   * Async function to fetch wcag values from webaim.org.
    * @private
-   * @param {string} colorValue the `background color` in componentData it is the color of the swatch
-   * @param {string} backgroundColor the hex background color of the table displaying the swatch
-   * @returns {object} wcag value object ready to be appended to the componentData
+   * @param {string} colorValue The `background color` in componentData it is the color of the swatch.
+   * @param {string} backgroundColor The hex background color of the table displaying the swatch.
+   * @returns {object} The wcag value object ready to be appended to the componentData.
    */
   async fetchWCAG(colorValue, backgroundColor) {
     const hexRegex = /#(?:[0-9A-Fa-f]{3}){1,2}\b/u;
@@ -102,10 +100,10 @@ class AuroSwatchList extends LitElement {
   }
 
   /**
-   * Function to calculate display details for wcag rating icons
+   * Function to calculate display details for wcag rating icons.
    * @private
-   * @param {object} wcag value object containing fields with fields 'ratio', 'AA', 'AALarge', 'AAA', 'AAALarge'
-   * @returns {object} array of display details to build wcag pass/fail icons in the UI
+   * @param {object} wcag The value object containing fields with fields 'ratio', 'AA', 'AALarge', 'AAA', 'AAALarge'.
+   * @returns {object} The array of display details to build wcag pass/fail icons in the UI.
    */
   validateRatings(wcag) {
     const result = [];
