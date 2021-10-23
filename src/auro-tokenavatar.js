@@ -6,7 +6,6 @@
 import { html, css, LitElement } from "lit-element";
 import "focus-visible/dist/focus-visible.min.js";
 import styleCss from "./style-tokenavatar-css.js";
-import '@alaskaairux/auro-icon/dist/auro-icon';
 import { varName } from "./util.js";
 
 /**
