@@ -5,8 +5,6 @@
 import { html, css, LitElement } from "lit-element";
 import "focus-visible/dist/focus-visible.min.js";
 import styleCss from "./style-tokendisplay-css.js";
-import '@alaskaairux/auro-icon/dist/auro-icon';
-import "@alaskaairux/auro-popover/";
 import { varName } from "./util";
 import cacheFetch from "./cacheFetch";
 
@@ -61,7 +59,7 @@ class AuroTokenDisplay extends LitElement {
    * @private
    * @param {string} colorValue The `background color` in componentData it is the color of the swatch.
    * @param {string} backgroundColor The hex background color of the table displaying the swatch.
-   * @returns {object} The wcag value object ready to be appended to the componentData.
+   * @returns {object} WCAG value object ready to be appended to the componentData.
    */
   async fetchWCAG(colorValue, backgroundColor) {
     const hexRegex = /#(?:[0-9A-Fa-f]{3}){1,2}\b/u;
@@ -91,8 +89,7 @@ class AuroTokenDisplay extends LitElement {
 
           return wcag;
         }
-      } catch {
-
+      } catch (el) {
         return undefined;
       }
     }
@@ -104,8 +101,8 @@ class AuroTokenDisplay extends LitElement {
   /**
    * Function to calculate display details for wcag rating icons.
    * @private
-   * @param {object} wcag The value object containing fields with fields 'ratio', 'AA', 'AALarge', 'AAA', 'AAALarge'.
-   * @returns {object} The array of display details to build wcag pass/fail icons in the UI.
+   * @param {object} wcag Value object containing fields with fields 'ratio', 'AA', 'AALarge', 'AAA', 'AAALarge'.
+   * @returns {object} Array of display details to build wcag pass/fail icons in the UI.
    */
   validateRatings(wcag) {
     const result = [];

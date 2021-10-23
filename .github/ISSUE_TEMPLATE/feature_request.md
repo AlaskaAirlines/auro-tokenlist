@@ -1,7 +1,7 @@
 ---
 name: Feature request
 about: Suggest an idea for this project
-title: 'auro-swatch: [feature summary]'
+title: 'auro-tokenlist: [feature summary]'
 labels: 'Type: Feature, not-reviewed'
 assignees: blackfalcon
 ---

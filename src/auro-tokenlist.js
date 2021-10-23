@@ -31,7 +31,7 @@ class AuroTokenList extends LitElement {
 
   /**
    * @private
-   * @returns {void}
+   * @returns {Array} Table headers.
    */
   getTableHeaders() {
     if (this.type === "deprecated") {
@@ -57,8 +57,8 @@ class AuroTokenList extends LitElement {
 
   /**
    * @private
-   * @param {string} arg Accepts token.
-   * @returns {string}
+   * @param {string} arg Token.
+   * @returns {string} Token size.
    */
   size(arg) {
     return arg.includes("size") ? 'rem' : '';
@@ -66,8 +66,8 @@ class AuroTokenList extends LitElement {
 
   /**
    * @private
-   * @param {string} value Type of token.
-   * @returns {string}
+   * @param {string} value Type of.
+   * @returns {string} Token size.
    */
   deprecatedType(value) {
     return value ? `auro` : `deprecated`;
@@ -75,8 +75,8 @@ class AuroTokenList extends LitElement {
 
   /**
    * @private
-   * @param {string} reference To the current token.
-   * @returns {string}
+   * @param {string} reference To current token.
+   * @returns {string} Name of current token.
    */
   currentToken(reference) {
     if (reference === 'n/a') {
