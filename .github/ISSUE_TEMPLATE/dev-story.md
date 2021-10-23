@@ -1,7 +1,7 @@
 ---
 name: Development Story
 about: Create a new user story to address the development process
-title: 'auro-swatch; develop [feature]'
+title: 'auro-tokenlist; develop [feature]'
 labels: 'Status: Proposal, not-reviewed'
 ---
 

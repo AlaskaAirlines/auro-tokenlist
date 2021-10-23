@@ -4,7 +4,6 @@
 // ---------------------------------------------------------------------
 import { LitElement, html, css } from "lit-element";
 import { varName } from "./util.js";
-
 import "focus-visible/dist/focus-visible.min.js";
 import styleCss from "./style-tokenlist-css.js";
 
@@ -32,7 +31,7 @@ class AuroTokenList extends LitElement {
 
   /**
    * @private
-   * @returns {array} table headers
+   * @returns {Array} Table headers.
    */
   getTableHeaders() {
     if (this.type === "deprecated") {
@@ -58,17 +57,17 @@ class AuroTokenList extends LitElement {
 
   /**
    * @private
-   * @param {string} arg token
-   * @returns {string} token size
+   * @param {string} arg Token.
+   * @returns {string} Token size.
    */
   size(arg) {
-    return arg.includes("size") ? 'rem' : ''
+    return arg.includes("size") ? 'rem' : '';
   }
 
   /**
    * @private
-   * @param {string} value type of
-   * @returns {string} token size
+   * @param {string} value Type of.
+   * @returns {string} Token size.
    */
   deprecatedType(value) {
     return value ? `auro` : `deprecated`;
@@ -76,8 +75,8 @@ class AuroTokenList extends LitElement {
 
   /**
    * @private
-   * @param {string} reference to current token
-   * @returns {string} name of current token
+   * @param {string} reference To current token.
+   * @returns {string} Name of current token.
    */
   currentToken(reference) {
     if (reference === 'n/a') {
@@ -90,7 +89,7 @@ class AuroTokenList extends LitElement {
       return `var(--auro-${reference})`;
     }
 
-    return ''
+    return '';
   }
 
   static get styles() {
