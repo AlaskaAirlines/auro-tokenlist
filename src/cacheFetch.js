@@ -1,27 +1,28 @@
-const _fetchMap = new Map();
+const fetchMap = new Map();
 
 /**
  * A callback to parse Response body.
- * 
+ *
  * @callback ResponseParser
- * @param {Fetch.Response} response
+ * @param {fetch} response
  * @returns {Promise}
  */
 
 /**
  * A minimal in-memory map to de-duplicate Fetch API media requests.
- * 
- * @param {String} uri
- * @param {Object} [options={}]
+ *
+ * @param {string} uri
+ * @param {object} [options={}]
  * @param {ResponseParser} [options.responseParser=(response) => response.text()]
  * @returns {Promise}
  */
+
 const cacheFetch = (uri, options = {}) => {
   const responseParser = options.responseParser || ((response) => response.text());
-  if (!_fetchMap.has(uri)) {
-    _fetchMap.set(uri, fetch(uri).then(responseParser));
+  if (!fetchMap.has(uri)) {
+    fetchMap.set(uri, fetch(uri).then(responseParser));
   }
-  return _fetchMap.get(uri);  
-}
+  return fetchMap.get(uri);
+};
 
 export default cacheFetch;

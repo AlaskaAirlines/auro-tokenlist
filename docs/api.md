@@ -1,33 +1,3 @@
-# auro-tokenavatar
-
-The auro-tokenavatar element provides users a way to illustrate design token colors and their related data for text, border, alert, interactive or icon uses.
-
-## Attributes
-
-| Attribute | Type      | Description                             |
-|-----------|-----------|-----------------------------------------|
-| `ondark`  | `Boolean` | Defines if color state is to be on-dark |
-
-## Properties
-
-| Property     | Attribute    | Type     | Description                                      |
-|--------------|--------------|----------|--------------------------------------------------|
-| `avatartype` | `avatartype` | `String` | Pass in `font`, `border`, `alert`, `ui`, `icon` string to illustrate preferred avatar type |
-| `colorname`  | `colorname`  | `String` | Pass in `-`(dash) to delimitated name of color token |
-
-
-# auro-tokendisplay
-
-The auro-tokendisplay element provides users a way to illustrate design token colors and their related data and usage in a table.
-
-## Properties
-
-| Property        | Attribute       | Type      | Description                                      |
-|-----------------|-----------------|-----------|--------------------------------------------------|
-| `componentData` | `componentData` | `Array`   | Pass in `backgroundcolor`, `colorname` & `usage` |
-| `ondark`        | `ondark`        | `Boolean` | Defines if color state is to be on-dark          |
-
-
 # auro-tokenlist
 
 The auro-tokenlist element provides users a way to display a table of design token names and values.

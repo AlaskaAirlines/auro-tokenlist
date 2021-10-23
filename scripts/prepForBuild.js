@@ -1,5 +1,5 @@
 const fs = require('fs');
-const bundle = 'auro-swatch__bundled.js';
+const bundle = 'auro-tokenlist__bundled.js';
 const indexFile = './build/index.html';
 
 // File destination.txt will be created or overwritten by default.
@@ -9,7 +9,7 @@ let copyFiles = async function() {
     console.log(`${bundle} was copied to ./build dir`);
   });
 
-  fs.copyFile(`./demo/css/style.css`, `./build/css/style.css`, (err) => {
+  fs.copyFile(`./demo/style.css`, `./build/style.css`, (err) => {
     if (err) throw err;
     console.log(`CSS was copied to ./build dir`);
   });
@@ -23,7 +23,7 @@ fs.readFile(indexFile, 'utf8', function (err,data) {
     return console.log(err);
   }
 
-  const element = data.replace(`../src/auro-color-avatar.js`, `auro-color-avatar__bundled.js`);
+  const element = data.replace(`../src/auro-tokenlist.js`, `auro-tokenlist__bundled.js`);
 
   fs.writeFile(indexFile, element, 'utf8', function (err) {
      if (err) return console.log(err);
