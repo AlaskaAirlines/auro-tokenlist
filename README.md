@@ -13,23 +13,7 @@ For the most up to date information on [UI development browser support](https://
 [![License](https://img.shields.io/npm/l/@aurolabs/auro-tokenlist?color=blue&style=for-the-badge)](https://www.apache.org/licenses/LICENSE-2.0)
 
 ```shell
-<<<<<<< HEAD
-<<<<<<< HEAD
-$ npm i @aurolabs/auro-swatch
-
-// Peer dependencies
-$ npm i @alaskaairux/auro-icon
-$ npm i @alaskaairux/auro-popover
-$ npm i @alaskaairux/design-tokens
-$ npm i @alaskaairux/webcorestylesheets
-$ npm i @webcomponents/webcomponentsjs
-$ npm i focus-visible
-=======
-$ npm i @aurodesignsystem/auro-tokendisplay
->>>>>>> 110a986 (refactor: rename core elements; address all related updates)
-=======
 $ npm i @aurolabs/auro-tokenlist
->>>>>>> d4bee10 (refactor: upgrade to WC-Generator v3.9.3)
 ```
 
 Installing as a direct, dev or peer dependency is up to the user installing the package. If you are unsure as to what type of dependency you should use, consider reading this [stack overflow](https://stackoverflow.com/questions/18875674/whats-the-difference-between-dependencies-devdependencies-and-peerdependencies) answer.
@@ -75,28 +59,13 @@ In cases where the project is not able to process JS assets, there are pre-proce
 <link rel="stylesheet" href="https://unpkg.com/@alaskaairux/design-tokens@latest/dist/tokens/CSSCustomProperties.css" />
 <link rel="stylesheet" href="https://unpkg.com/@alaskaairux/webcorestylesheets@latest/dist/bundled/essentials.css" />
 
-<<<<<<< HEAD
-<script src="https://unpkg.com/@alaskaairux/auro-swatch@latest/dist/auro-swatch__bundled.js" type="module"></script>
-<script src="https://unpkg.com/@alaskaairux/auro-swatch@latest/dist/auro-swatch__bundled.es5.js" nomodule></script>
+<script src="https://unpkg.com/@aurodesignsystem/auro-tokendisplay@latest/dist/auro-tokendisplay__bundled.js" type="module"></script>
+<script src="https://unpkg.com/@aurodesignsystem/auro-tokendisplay@latest/dist/auro-tokenavatar__bundled.js" type="module"></script>
+<script src="https://unpkg.com/@aurodesignsystem/auro-tokendisplay@latest/dist/auro-tokenlist__bundled.js" type="module"></script>
 
 // Peer dependencies
 <script src="https://unpkg.com/@alaskaairux/auro-icon@latest/dist/auro-icon__bundled.js" type="module"></script>
 <script src="https://unpkg.com/@alaskaairux/auro-popover@latest/dist/auro-popover__bundled.js" type="module"></script>
-```
-
-## auro-color-avatar use cases
-
-The `<auro-color-avatar>` element should be used in situations where users may:
-=======
-<script src="https://unpkg.com/@alaskaairux/auro-swatch@latest/dist/auro-tokenavatar__bundled.js" type="module"></script>
-<<<<<<< HEAD
-<script src="https://unpkg.com/@alaskaairux/auro-swatch@latest/dist/auro-tokenavatar__bundled.es5.js" nomodule></script>
->>>>>>> 110a986 (refactor: rename core elements; address all related updates)
-
-=======
->>>>>>> d4bee10 (refactor: upgrade to WC-Generator v3.9.3)
-<script src="https://unpkg.com/@alaskaairux/auro-swatch@latest/dist/auro-tokendisplay__bundled.js" type="module"></script>
-<script src="https://unpkg.com/@alaskaairux/auro-swatch@latest/dist/auro-tokenlist__bundled.js" type="module"></script>
 ```
 
 ## Development

@@ -10,7 +10,7 @@
 @import './../node_modules/@alaskaairux/webcorestylesheets/dist/breakpoints';
 @import './../node_modules/@alaskaairux/webcorestylesheets/dist/core';
 
-
+/* stylelint-disable font-weight-notation */
 table {
   width: 100%;
   margin-bottom: var(--auro-size-xxl);
@@ -23,7 +23,7 @@ thead {
 
 tbody {
   font-size: var(--auro-text-body-size-sm);
-  font-weight: 200;
+  font-weight: var(--auro-text-heading-display-weight);
 }
 
 th,
@@ -31,9 +31,10 @@ td {
   padding: var(--auro-size-md) var(--auro-size-xxl) var(--auro-size-sm) var(--auro-size-sm);
   white-space: nowrap;
 }
-  
+
 th {
   border-bottom: 1px solid var(--auro-color-border-primary-on-light);
+  font-weight: unset;
   white-space: nowrap;
 }
 
@@ -76,11 +77,11 @@ tr {
 
 .swatch {
   &--rectangle {
-    width: 100px;
-    height: 15px;
+    width: 8rem;
+    height: 1rem;
     margin: 0 auto;
     outline: 1px solid var(--auro-color-base-neutral-400);
-    outline-offset: 4px;
+    outline-offset: var(--auro-size-xxs);
   }
   &--circle {
     width: 40px;

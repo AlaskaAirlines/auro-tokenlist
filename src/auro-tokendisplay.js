@@ -3,6 +3,7 @@
 
 // ---------------------------------------------------------------------
 import { html, css, LitElement } from "lit-element";
+import { classMap } from "lit-html/directives/class-map";
 import "focus-visible/dist/focus-visible.min.js";
 import styleCss from "./style-tokendisplay-css.js";
 import { varName } from "./util";
@@ -35,8 +36,15 @@ class AuroTokenDisplay extends LitElement {
   // Lifecycle function currently in use to load wcag ratings from webaim.org
   // re-uses or creates wcag object for each item for backwards compatibility
   async firstUpdated() {
-    const auroDarkestBackground = getComputedStyle(document.documentElement).getPropertyValue('--auro-color-background-darkest');
-    const backgroundColor = this.ondark ? auroDarkestBackground.substring(1) : "#FFFFFF";
+    const computedDarkestBackground = getComputedStyle(document.documentElement).getPropertyValue('--auro-color-background-darkest');
+    let auroDarkestBackground = computedDarkestBackground !== "" ? computedDarkestBackground : " #00274a";
+
+    // Note: getPropertyValue inconsistently returns the color value beginning with a space.
+    if (auroDarkestBackground.indexOf(' ') >= 0) {
+      auroDarkestBackground = auroDarkestBackground.substring(1);
+    }
+
+    const backgroundColor = this.ondark ? auroDarkestBackground : "#FFFFFF";
     const dataWithWCAG = await Promise.all(this.componentData.map(async(index) => {
       // empty out any existing 'wcag' value input by the user (for backwards compatibility).
       index.wcag = undefined;
@@ -61,6 +69,7 @@ class AuroTokenDisplay extends LitElement {
    * @param {string} backgroundColor The hex background color of the table displaying the swatch.
    * @returns {object} WCAG value object ready to be appended to the componentData.
    */
+
   async fetchWCAG(colorValue, backgroundColor) {
     const hexRegex = /#(?:[0-9A-Fa-f]{3}){1,2}\b/u;
     const rgbaRegex = /rgba\(\s*(?<rValue>-?\d+|-?\d*\.\d+(?=%))(?<percentMatch>%?)\s*,\s*(?<gValue>-?\d+|-?\d*\.\d+(?=%))(?<percentMatch2>\2)\s*,\s*(?<bValue>-?\d+|-?\d*\.\d+(?=%))(?<percentMatch3>\2)\s*,\s*(?<aValue>-?\d+|-?\d*.\d+)\s*\)/u;
@@ -85,11 +94,16 @@ class AuroTokenDisplay extends LitElement {
         );
 
         if (wcag) {
-          wcag.ratio += ":1";
+
+          // not all ratios come back with :1 appended
+          if (!wcag.ratio.includes(":1")) {
+            wcag.ratio += ":1";
+          }
 
           return wcag;
         }
       } catch (el) {
+
         return undefined;
       }
     }
@@ -140,11 +154,16 @@ class AuroTokenDisplay extends LitElement {
 
   // function that renders the HTML and CSS into  the scope of the component
   render() {
+
+    const classes = {
+      stop: this.string = 'Stop it!'
+    };
+
     return html`
       <table class="tableListing">
         <thead>
           <tr>
-            <th>Token</th>
+            <th class="${classMap(classes)}">Token</th>
             <th class="">Usage</th>
             <th>Hex/RGBA</th>
             <th>Color</th>
@@ -180,16 +199,17 @@ class AuroTokenDisplay extends LitElement {
               <td>${index.usage}</td>
               <td class="noWrap">${index.backgroundcolor}</td>
               <td><div class="swatch" style="background-color: var(--${index.colorname})"></div></td>
-              <td class="center">${index.wcag?.ratio ?? ""}</td>
+              <td class="center">
+                ${index.wcag?.ratio ?? ""}
+              </td>
               <td class="noPadding">
                 <div class="wcagRatings">
                   ${index.wcag ? this.validateRatings(index.wcag).map((item) => html`
                     <div class="${item.label === 'FAIL' ? 'wcagFail' : 'wcagPass'}">
                       <auro-icon
-                        emphasis
-                        ondark
+                        customColor
                         category="interface"
-                        name="${item.label === 'FAIL' ? 'x-lg' : 'checkmark-lg'}"></auro-icon>
+                        name="${item.label === 'FAIL' ? 'x-sm' : 'check-sm'}"></auro-icon>
                       <div class="wcagText">
                         <div class= "wcagRating">${item.label}</div>
                         <div class= "wcagType">${item.type}</div>
