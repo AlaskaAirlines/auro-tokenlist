@@ -1,198 +1,12 @@
-# Design token display
+# Design token list
 
-Design token display is a suite of three independent data display elements - `<auro-tokenavatar>`, `<auro-tokendisplay>` and `<auro-tokenlist>`. Both the `<auro-tokenavatar>` and the `<auro-tokendisplay>` elements provide users with a way to illustrate design token colors and their related data. The `<auro-tokenlist>` element provides a way to display a table of design token name and values or a table of deprecated tokens with optional new reference token names.
+Design token list is a suite of three independent data display elements - `<auro-tokenavatar>`, `<auro-tokendisplay>` and `<auro-tokenlist>`. Both the `<auro-tokenavatar>` and the `<auro-tokendisplay>` elements provide users with a way to illustrate design token colors and their related data. The `<auro-tokenlist>` element provides a way to display a table of design token name and values or a table of deprecated tokens with optional new reference token names.
 
-## Auro token avatar use cases
+Having a list of tokens is one thing, but we on the Auro team feel that there is more to communicate than only the variable and its value.
 
-The `<auro-tokenavatar>` element should be used in situations where users may:
+## The token list element
 
-* Need to illustrate a design token color and its related data
-* Use illustrative avatar to display color listing
-* Need to illustrate between text, border, alert, interactive or icon uses
-
-### Token avatar - default avatar type
-
-The following example illustrates the default auro token avatar in standard and ondark modes.
-
-<div class="exampleWrapper">
-  <auro-tokenavatar colorname='auro-color-border-error-on-light'></auro-tokenavatar>
-  <auro-tokenavatar ondark colorname='auro-color-border-error-on-dark'></auro-tokenavatar>
-</div>
-
-<auro-accordion lowProfile justifyRight>
-  <span slot="trigger">See code</span>
-
-  ```html
-    <auro-tokenavatar colorname='auro-color-border-error-on-light'></auro-tokenavatar>
-    <auro-tokenavatar ondark colorname='auro-color-border-error-on-dark'></auro-tokenavatar>
-  ```
-</auro-accordion>
-
-### Token avatar - font avatar type
-
-The following example illustrates the auro token avatar with `font` avatar type in standard and ondark modes.
-
-<div class="exampleWrapper">
-  <auro-tokenavatar avatartype="font" colorname="auro-color-text-primary-on-light"></auro-tokenavatar>
-  <auro-tokenavatar avatartype="font" ondark colorname="auro-color-text-primary-on-dark"></auro-tokenavatar>
-</div>
-
-<auro-accordion lowProfile justifyRight>
-  <span slot="trigger">See code</span>
-
-  ```html
-    <auro-tokenavatar avatartype="font" colorname="auro-color-text-primary-on-light"></auro-tokenavatar>
-    <auro-tokenavatar avatartype="font" ondark colorname="auro-color-text-primary-on-dark"></auro-tokenavatar>
-  ```
-</auro-accordion>
-
-### Token avatar - border avatar type
-
-The following example illustrates the auro token avatar with `border` avatar type in standard and ondark modes.
-
-<div class="exampleWrapper">
-  <auro-tokenavatar avatartype="border" colorname="auro-color-border-error-on-light"></auro-tokenavatar>
-  <auro-tokenavatar avatartype="border" ondark colorname="auro-color-border-error-on-dark"></auro-tokenavatar>
-</div>
-
-<auro-accordion lowProfile justifyRight>
-  <span slot="trigger">See code</span>
-
-  ```html
-  <auro-tokenavatar avatartype="border" colorname="auro-color-border-error-on-light"></auro-tokenavatar>
-  <auro-tokenavatar avatartype="border" ondark colorname="auro-color-border-error-on-dark"></auro-tokenavatar>
-  ```
-</auro-accordion>
-
-### Token avatar - alert avatar type
-
-The following example illustrates the auro token avatar with `alert` avatar type in standard and ondark modes.
-
-<div class="exampleWrapper">
-  <auro-tokenavatar avatartype="alert" colorname="auro-color-alert-success-on-light"></auro-tokenavatar>
-  <auro-tokenavatar avatartype="alert" ondark colorname="auro-color-alert-success-on-dark"></auro-tokenavatar>
-</div>
-
-<auro-accordion lowProfile justifyRight>
-  <span slot="trigger">See code</span>
-
-  ```html
-  <auro-tokenavatar avatartype="alert" colorname="auro-color-alert-success-on-light"></auro-tokenavatar>
-  <auro-tokenavatar avatartype="alert" ondark colorname="auro-color-alert-success-on-dark"></auro-tokenavatar>
-  ```
-</auro-accordion>
-
-### Token avatar - UI avatar type
-
-The following example illustrates the auro token avatar with `ui` avatar type in standard and ondark modes.
-
-<div class="exampleWrapper">
-  <auro-tokenavatar avatartype="ui" colorname="auro-color-ui-default-on-light"></auro-tokenavatar>
-  <auro-tokenavatar avatartype="ui" ondark colorname="auro-color-ui-default-on-dark"></auro-tokenavatar>
-</div>
-
-<auro-accordion lowProfile justifyRight>
-  <span slot="trigger">See code</span>
-
-  ```html
-  <auro-tokenavatar avatartype="ui" colorname="auro-color-ui-primary-on-light"></auro-tokenavatar>
-  <auro-tokenavatar avatartype="ui" ondark colorname="auro-color-ui-primary-on-dark"></auro-tokenavatar>
-  ```
-</auro-accordion>
-
-### Token avatar - icon avatar type
-
-The following example illustrates the auro token avatar with `icon` avatar type in standard and ondark modes.
-
-<div class="exampleWrapper">
-  <auro-tokenavatar avatartype="icon" colorname='auro-color-ui-default-on-light'></auro-tokenavatar>
-  <auro-tokenavatar avatartype="icon" ondark colorname='auro-color-ui-default-on-dark'></auro-tokenavatar>
-</div>
-
-<auro-accordion lowProfile justifyRight>
-  <span slot="trigger">See code</span>
-
-  ```html
-  <auro-tokenavatar avatartype="icon" colorname='auro-color-ui-default-on-light'></auro-tokenavatar>
-  <auro-tokenavatar avatartype="icon" ondark colorname='auro-color-ui-default-on-dark'></auro-tokenavatar>
-  ```
-</auro-accordion>
-
-## Auro token display use cases
-
-The `<auro-tokendisplay>` element should be used in situations where users may:
-
-* Need to illustrate a design token color and its related data
-* Display data in table format
-* Display CSS custom property name
-* Display Sass variable name
-* Describe color usage and WCAG rating
-* Display color in circular inkwell
-* Display color HEX or RGBA value
-
-### Token display default
-
-The following example illustrates the standard token display table.
-
-<div class="exampleWrapper">
-  <auro-tokendisplay componentData='[
-    { "backgroundcolor": "#6bb7fb", "colorname": "auro-color-brand-atlas-200", "usage": "Notification color on light backgrounds" },
-    { "backgroundcolor": "#2492eb", "colorname": "auro-color-brand-atlas-300", "usage": "Notification color on light backgrounds" },
-    { "backgroundcolor": "#0074cb", "colorname": "auro-color-brand-atlas-400", "wcag":"AAA", "usage": "Notification color on light backgrounds" },
-    { "backgroundcolor": "#054687", "colorname": "auro-color-brand-atlas-500", "usage": "Notification color on light backgrounds" },
-    { "backgroundcolor": "rgba(1,1,1,0.5)", "colorname": "auro-color-brand-atlas-600", "usage": "Example of failure to load wcag response" }
-  ]'></auro-tokendisplay>
-</div>
-
-<auro-accordion lowProfile justifyRight>
-  <span slot="trigger">See code</span>
-
-  ```html
-    <auro-tokendisplay componentData='[
-      { "backgroundcolor": "#6bb7fb", "colorname": "auro-color-brand-atlas-200", "usage": "Notification color on light backgrounds" },
-      { "backgroundcolor": "#2492eb", "colorname": "auro-color-brand-atlas-300", "usage": "Notification color on light backgrounds" },
-      { "backgroundcolor": "#0074cb", "colorname": "auro-color-brand-atlas-400", "usage": "Notification color on light backgrounds" },
-      { "backgroundcolor": "#054687", "colorname": "auro-color-brand-atlas-500", "usage": "Notification color on light backgrounds" }
-    ]'></auro-tokendisplay>
-  ```
-</auro-accordion>
-
-### Token display default with ondark option
-
-This following example illustrates the `ondark` token display table.
-
-<div class="exampleWrapper">
-  <auro-tokendisplay ondark componentData='[
-    { "backgroundcolor": "#6bb7fb", "colorname": "auro-color-brand-atlas-200", "usage": "Notification color on light backgrounds" },
-    { "backgroundcolor": "#2492eb", "colorname": "auro-color-brand-atlas-300", "usage": "Notification color on light backgrounds" },
-    { "backgroundcolor": "#0074cb", "colorname": "auro-color-brand-atlas-400", "usage": "Notification color on light backgrounds" },
-    { "backgroundcolor": "#054687", "colorname": "auro-color-brand-atlas-500", "usage": "Notification color on light backgrounds" }
-  ]'></auro-tokendisplay>
-</div>
-
-<auro-accordion lowProfile justifyRight>
-  <span slot="trigger">See code</span>
-
-  ```html
-    <auro-tokendisplay ondark componentData='[
-      { "backgroundcolor": "#6bb7fb", "colorname": "auro-color-brand-atlas-200", "usage": "Notification color on light backgrounds" },
-      { "backgroundcolor": "#2492eb", "colorname": "auro-color-brand-atlas-300", "usage": "Notification color on light backgrounds" },
-      { "backgroundcolor": "#0074cb", "colorname": "auro-color-brand-atlas-400", "usage": "Notification color on light backgrounds" },
-      { "backgroundcolor": "#054687", "colorname": "auro-color-brand-atlas-500", "usage": "Notification color on light backgrounds" },
-    ]'></auro-tokendisplay>
-  ```
-</auro-accordion>
-
-## auro-tokenlist use cases
-
-The `<auro-tokenlist>` element should be used in situations where users may:
-
-* Display table of a design token's name and value
-* Display alternate table of deprecated tokens with optional new reference
-
-### Current Token List
-
-The following example illustrates a token list of current design tokens.
+The first element is the `<auro-tokenlist>` default element. the listing of a token should include some base characteristics where users may need to only display a table that includes the name of the token and its value.
 
 <div class="exampleWrapper">
   <auro-tokenlist componentData='[
@@ -211,9 +25,7 @@ The following example illustrates a token list of current design tokens.
   ```
 </auro-accordion>
 
-### Token list with rectangle swatch type
-
-The following example illustrates a list of design tokens with the `rectangle` swatch type.
+The following example illustrates the `swatchType="rectangle"` feature that includes a sample swatch of the token's color value.
 
 <div class="exampleWrapper">
   <auro-tokenlist swatchType="rectangle" componentData='[
@@ -233,9 +45,7 @@ The following example illustrates a list of design tokens with the `rectangle` s
   ```
 </auro-accordion>
 
-### Token list with circle swatch type
-
-The following example illustrates a list of design tokens with the `circle` swatch type.
+Similar to the previous example, the following illustrates the `swatchType="circle"` feature that includes a sample swatch of the token's color value with a circle style.
 
 <div class="exampleWrapper">
   <auro-tokenlist swatchType="circle" componentData='[
@@ -255,9 +65,7 @@ The following example illustrates a list of design tokens with the `circle` swat
   ```
 </auro-accordion>
 
-### Deprecated token List
-
-The following example illustrates a token list type of `deprecated` with a reference to their current counterparts.
+Not all tokens stay forever, so it's important to have a deprecation strategy. A key aspect of deprecation is communication. The following example illustrates a token list `type="deprecated"` that contains a reference to their current counterparts referenced from the token's data.
 
 <div class="exampleWrapper">
   <auro-tokenlist type="deprecated" componentData='[
@@ -275,13 +83,12 @@ The following example illustrates a token list type of `deprecated` with a refer
   ```
 </auro-accordion>
 
-### Deprecated token List
-
-The following example illustrates a token list type of `deprecated` with a reference to their current counterparts and `version` option.
+In addition to `type="deprecated"`, the custom element supports a `version` boolean attribute that will show the token's deprecated version if noted in the token's data.
 
 <div class="exampleWrapper">
   <auro-tokenlist type="deprecated" version componentData='[
-    { "tokenvalue": "#f8f8f8", "token": "color-base-gray-100", "reference": "auro-color-brand-gray-100", "version": "3.0.1" }
+    { "tokenvalue": "#f8f8f8", "token": "color-base-gray-100", "reference": "auro-color-brand-gray-100", "version": "3.0.1" },
+    { "tokenvalue": "#054687", "token": "color-base-atlas", "reference": "n/a"}
   ]'></auro-tokenlist>
 </div>
 
@@ -295,7 +102,152 @@ The following example illustrates a token list type of `deprecated` with a refer
   ```
 </auro-accordion>
 
+## The token display element
 
+Token's come with a lot of data. The `<auro-tokendisplay>` custom element provides features so that users may:
 
+* Illustrate a design token color and its related data.
+* Display the token's name
+* Describe color usage and WCAG rating
+* Display color in circular inkwell
+* Display color HEX or RGBA value
 
+Auro's dedication to accessibility comes shining through this custom element. By addressing the WCAG rating in real time, this element provides data to both engineers and designers to inform them about each color's best use case. The following examples will clearly show if a color passes the standard for use with normal or large text with either a bright or dark background.
 
+The following example illustrates the standard token display table.
+
+<div class="exampleWrapper">
+  <auro-tokendisplay componentData='[
+    { "backgroundcolor": "#01426a", "colorname": "auro-color-brand-atlas-200", "usage": "Notification color on light backgrounds" },
+    { "backgroundcolor": "#00274a", "colorname": "auro-color-brand-atlas-300", "usage": "Notification color on light backgrounds" },
+    { "backgroundcolor": "#054687", "colorname": "auro-color-brand-atlas-400", "wcag":"AAA", "usage": "Notification color on light backgrounds" },
+    { "backgroundcolor": "#054687", "colorname": "auro-color-brand-atlas-500", "usage": "Notification color on light backgrounds" },
+    { "backgroundcolor": "rgba(1,1,1,0.5)", "colorname": "auro-color-brand-atlas-600", "usage": "Example of failure to load wcag response" }
+  ]'></auro-tokendisplay>
+</div>
+
+<auro-accordion lowProfile justifyRight>
+  <span slot="trigger">See code</span>
+
+  ```html
+  <auro-tokendisplay componentData='[
+    { "backgroundcolor": "#01426a", "colorname": "auro-color-brand-atlas-200", "usage": "Notification color on light backgrounds" },
+    { "backgroundcolor": "#00274a", "colorname": "auro-color-brand-atlas-300", "usage": "Notification color on light backgrounds" },
+    { "backgroundcolor": "#054687", "colorname": "auro-color-brand-atlas-400", "wcag":"AAA", "usage": "Notification color on light backgrounds" },
+    { "backgroundcolor": "#054687", "colorname": "auro-color-brand-atlas-500", "usage": "Notification color on light backgrounds" },
+    { "backgroundcolor": "rgba(1,1,1,0.5)", "colorname": "auro-color-brand-atlas-600", "usage": "Example of failure to load wcag response" }
+  ]'></auro-tokendisplay>
+  ```
+</auro-accordion>
+
+This example illustrates the `ondark` token display table.
+
+<div class="exampleWrapper">
+  <auro-tokendisplay ondark componentData='[
+    { "backgroundcolor": "#6bb7fb", "colorname": "auro-color-brand-atlas-200", "usage": "Notification color on light backgrounds" },
+    { "backgroundcolor": "#2492eb", "colorname": "auro-color-brand-atlas-300", "usage": "Notification color on light backgrounds" },
+    { "backgroundcolor": "#0074cb", "colorname": "auro-color-brand-atlas-400", "usage": "Notification color on light backgrounds" },
+    { "backgroundcolor": "#054687", "colorname": "auro-color-brand-atlas-500", "usage": "Notification color on light backgrounds" }
+  ]'></auro-tokendisplay>
+</div>
+
+<auro-accordion lowProfile justifyRight>
+  <span slot="trigger">See code</span>
+
+  ```html
+  <auro-tokendisplay ondark componentData='[
+    { "backgroundcolor": "#6bb7fb", "colorname": "auro-color-brand-atlas-200", "usage": "Notification color on light backgrounds" },
+    { "backgroundcolor": "#2492eb", "colorname": "auro-color-brand-atlas-300", "usage": "Notification color on light backgrounds" },
+    { "backgroundcolor": "#0074cb", "colorname": "auro-color-brand-atlas-400", "usage": "Notification color on light backgrounds" },
+    { "backgroundcolor": "#054687", "colorname": "auro-color-brand-atlas-500", "usage": "Notification color on light backgrounds" }
+  ]'></auro-tokendisplay>
+  ```
+</auro-accordion>
+
+## The token avatar element
+
+The `<auro-tokenavatar>` custom element is a great UI option for when users may:
+
+* Need to illustrate a design token color and its related data
+* Use illustrative avatar to display color listing
+* Need to illustrate between text, border, alert, interactive or icon uses
+
+The following example illustrates the auro token avatar with the `avatartype="font"` attribute in standard and ondark modes.
+
+<div class="exampleWrapper">
+  <auro-tokenavatar avatartype="font" colorname="auro-color-text-primary-on-light"></auro-tokenavatar>
+  <auro-tokenavatar avatartype="font" ondark colorname="auro-color-text-primary-on-dark"></auro-tokenavatar>
+</div>
+
+<auro-accordion lowProfile justifyRight>
+  <span slot="trigger">See code</span>
+
+  ```html
+    <auro-tokenavatar avatartype="font" colorname="auro-color-text-primary-on-light"></auro-tokenavatar>
+    <auro-tokenavatar avatartype="font" ondark colorname="auro-color-text-primary-on-dark"></auro-tokenavatar>
+  ```
+</auro-accordion>
+
+The following example illustrates the auro token avatar with `avatartype="border"` attribute in standard and ondark modes.
+
+<div class="exampleWrapper">
+  <auro-tokenavatar avatartype="border" colorname="auro-color-border-error-on-light"></auro-tokenavatar>
+  <auro-tokenavatar avatartype="border" ondark colorname="auro-color-border-error-on-dark"></auro-tokenavatar>
+</div>
+
+<auro-accordion lowProfile justifyRight>
+  <span slot="trigger">See code</span>
+
+  ```html
+  <auro-tokenavatar avatartype="border" colorname="auro-color-border-error-on-light"></auro-tokenavatar>
+  <auro-tokenavatar avatartype="border" ondark colorname="auro-color-border-error-on-dark"></auro-tokenavatar>
+  ```
+</auro-accordion>
+
+The following example illustrates the auro token avatar with `avatartype="alert"` attribute in standard and ondark modes.
+
+<div class="exampleWrapper">
+  <auro-tokenavatar avatartype="alert" colorname="auro-color-alert-success-on-light"></auro-tokenavatar>
+  <auro-tokenavatar avatartype="alert" ondark colorname="auro-color-alert-success-on-dark"></auro-tokenavatar>
+</div>
+
+<auro-accordion lowProfile justifyRight>
+  <span slot="trigger">See code</span>
+
+  ```html
+  <auro-tokenavatar avatartype="alert" colorname="auro-color-alert-success-on-light"></auro-tokenavatar>
+  <auro-tokenavatar avatartype="alert" ondark colorname="auro-color-alert-success-on-dark"></auro-tokenavatar>
+  ```
+</auro-accordion>
+
+The following example illustrates the auro token avatar with `avatartype="ui"` attribute in standard and ondark modes.
+
+<div class="exampleWrapper">
+  <auro-tokenavatar avatartype="ui" colorname="auro-color-ui-default-on-light"></auro-tokenavatar>
+  <auro-tokenavatar avatartype="ui" ondark colorname="auro-color-ui-default-on-dark"></auro-tokenavatar>
+</div>
+
+<auro-accordion lowProfile justifyRight>
+  <span slot="trigger">See code</span>
+
+  ```html
+  <auro-tokenavatar avatartype="ui" colorname="auro-color-ui-primary-on-light"></auro-tokenavatar>
+  <auro-tokenavatar avatartype="ui" ondark colorname="auro-color-ui-primary-on-dark"></auro-tokenavatar>
+  ```
+</auro-accordion>
+
+The following example illustrates the auro token avatar with `avatartype="icon"` attribute in standard and ondark modes.
+
+<div class="exampleWrapper">
+  <auro-tokenavatar avatartype="icon" colorname='auro-color-ui-default-on-light'></auro-tokenavatar>
+  <auro-tokenavatar avatartype="icon" ondark colorname='auro-color-ui-default-on-dark'></auro-tokenavatar>
+</div>
+
+<auro-accordion lowProfile justifyRight>
+  <span slot="trigger">See code</span>
+
+  ```html
+  <auro-tokenavatar avatartype="icon" colorname='auro-color-ui-default-on-light'></auro-tokenavatar>
+  <auro-tokenavatar avatartype="icon" ondark colorname='auro-color-ui-default-on-dark'></auro-tokenavatar>
+  ```
+</auro-accordion>
