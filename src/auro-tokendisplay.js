@@ -35,7 +35,9 @@ class AuroTokenDisplay extends LitElement {
   // Lifecycle function currently in use to load wcag ratings from webaim.org
   // re-uses or creates wcag object for each item for backwards compatibility
   async firstUpdated() {
-    const auroDarkestBackground = getComputedStyle(document.documentElement).getPropertyValue('--auro-color-background-darkest');
+    // Note: getPropertyValue returns the color value beginning with a space.
+    const computedDarkestBackground = getComputedStyle(document.documentElement).getPropertyValue('--auro-color-background-darkest');
+    const auroDarkestBackground = computedDarkestBackground !== "" ? computedDarkestBackground : " #00274a";
     const backgroundColor = this.ondark ? auroDarkestBackground.substring(1) : "#FFFFFF";
     const dataWithWCAG = await Promise.all(this.componentData.map(async(index) => {
       // empty out any existing 'wcag' value input by the user (for backwards compatibility).
