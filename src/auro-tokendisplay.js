@@ -85,11 +85,16 @@ class AuroTokenDisplay extends LitElement {
         );
 
         if (wcag) {
-          wcag.ratio += ":1";
+
+          // not all ratios come back with :1 appended
+          if (!wcag.ratio.includes(":1")) {
+            wcag.ratio += ":1";
+          }
 
           return wcag;
         }
       } catch (el) {
+
         return undefined;
       }
     }
@@ -180,7 +185,9 @@ class AuroTokenDisplay extends LitElement {
               <td>${index.usage}</td>
               <td class="noWrap">${index.backgroundcolor}</td>
               <td><div class="swatch" style="background-color: var(--${index.colorname})"></div></td>
-              <td class="center">${index.wcag?.ratio ?? ""}</td>
+              <td class="center">
+                ${index.wcag?.ratio ?? ""}
+              </td>
               <td class="noPadding">
                 <div class="wcagRatings">
                   ${index.wcag ? this.validateRatings(index.wcag).map((item) => html`
@@ -195,7 +202,7 @@ class AuroTokenDisplay extends LitElement {
                         <div class= "wcagType">${item.type}</div>
                       </div>
                     </div>`)
-    : undefined}
+                  : undefined}
                 </div>
               </td>
             </tr>

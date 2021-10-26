@@ -136,9 +136,9 @@ The following example illustrates the standard token display table.
 
 <div class="exampleWrapper">
   <auro-tokendisplay componentData='[
-    { "backgroundcolor": "#6bb7fb", "colorname": "auro-color-brand-atlas-200", "usage": "Notification color on light backgrounds" },
-    { "backgroundcolor": "#2492eb", "colorname": "auro-color-brand-atlas-300", "usage": "Notification color on light backgrounds" },
-    { "backgroundcolor": "#0074cb", "colorname": "auro-color-brand-atlas-400", "wcag":"AAA", "usage": "Notification color on light backgrounds" },
+    { "backgroundcolor": "#01426a", "colorname": "auro-color-brand-atlas-200", "usage": "Notification color on light backgrounds" },
+    { "backgroundcolor": "#00274a", "colorname": "auro-color-brand-atlas-300", "usage": "Notification color on light backgrounds" },
+    { "backgroundcolor": "#054687", "colorname": "auro-color-brand-atlas-400", "wcag":"AAA", "usage": "Notification color on light backgrounds" },
     { "backgroundcolor": "#054687", "colorname": "auro-color-brand-atlas-500", "usage": "Notification color on light backgrounds" },
     { "backgroundcolor": "rgba(1,1,1,0.5)", "colorname": "auro-color-brand-atlas-600", "usage": "Example of failure to load wcag response" }
   ]'></auro-tokendisplay>
@@ -148,12 +148,13 @@ The following example illustrates the standard token display table.
   <span slot="trigger">See code</span>
 
   ```html
-    <auro-tokendisplay componentData='[
-      { "backgroundcolor": "#6bb7fb", "colorname": "auro-color-brand-atlas-200", "usage": "Notification color on light backgrounds" },
-      { "backgroundcolor": "#2492eb", "colorname": "auro-color-brand-atlas-300", "usage": "Notification color on light backgrounds" },
-      { "backgroundcolor": "#0074cb", "colorname": "auro-color-brand-atlas-400", "usage": "Notification color on light backgrounds" },
-      { "backgroundcolor": "#054687", "colorname": "auro-color-brand-atlas-500", "usage": "Notification color on light backgrounds" }
-    ]'></auro-tokendisplay>
+  <auro-tokendisplay componentData='[
+    { "backgroundcolor": "#01426a", "colorname": "auro-color-brand-atlas-200", "usage": "Notification color on light backgrounds" },
+    { "backgroundcolor": "#00274a", "colorname": "auro-color-brand-atlas-300", "usage": "Notification color on light backgrounds" },
+    { "backgroundcolor": "#054687", "colorname": "auro-color-brand-atlas-400", "wcag":"AAA", "usage": "Notification color on light backgrounds" },
+    { "backgroundcolor": "#054687", "colorname": "auro-color-brand-atlas-500", "usage": "Notification color on light backgrounds" },
+    { "backgroundcolor": "rgba(1,1,1,0.5)", "colorname": "auro-color-brand-atlas-600", "usage": "Example of failure to load wcag response" }
+  ]'></auro-tokendisplay>
   ```
 </auro-accordion>
 
@@ -174,12 +175,12 @@ This following example illustrates the `ondark` token display table.
   <span slot="trigger">See code</span>
 
   ```html
-    <auro-tokendisplay ondark componentData='[
-      { "backgroundcolor": "#6bb7fb", "colorname": "auro-color-brand-atlas-200", "usage": "Notification color on light backgrounds" },
-      { "backgroundcolor": "#2492eb", "colorname": "auro-color-brand-atlas-300", "usage": "Notification color on light backgrounds" },
-      { "backgroundcolor": "#0074cb", "colorname": "auro-color-brand-atlas-400", "usage": "Notification color on light backgrounds" },
-      { "backgroundcolor": "#054687", "colorname": "auro-color-brand-atlas-500", "usage": "Notification color on light backgrounds" },
-    ]'></auro-tokendisplay>
+  <auro-tokendisplay ondark componentData='[
+    { "backgroundcolor": "#6bb7fb", "colorname": "auro-color-brand-atlas-200", "usage": "Notification color on light backgrounds" },
+    { "backgroundcolor": "#2492eb", "colorname": "auro-color-brand-atlas-300", "usage": "Notification color on light backgrounds" },
+    { "backgroundcolor": "#0074cb", "colorname": "auro-color-brand-atlas-400", "usage": "Notification color on light backgrounds" },
+    { "backgroundcolor": "#054687", "colorname": "auro-color-brand-atlas-500", "usage": "Notification color on light backgrounds" }
+  ]'></auro-tokendisplay>
   ```
 </auro-accordion>
 

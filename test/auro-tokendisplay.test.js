@@ -172,10 +172,10 @@ describe('auro-tokendisplay', () => {
     const tableBodyRowRatings1 = el.shadowRoot.querySelector(".tableListing > tbody tr:nth-of-type(1) td:nth-of-type(6)");
     const tableBodyRowRatings2 = el.shadowRoot.querySelector(".tableListing > tbody tr:nth-of-type(2) td:nth-of-type(6)");
 
-    await elementUpdated(tableBodyRowRatings1);
-    await elementUpdated(tableBodyRowRatings2);
     await elementUpdated(tableBodyRowRatio1);
     await elementUpdated(tableBodyRowRatio2);
+    await elementUpdated(tableBodyRowRatings1);
+    await elementUpdated(tableBodyRowRatings2);
 
     await expect(tableBodyRowRatio1.innerHTML).to.contain(`n/a`);
     await expect(tableBodyRowRatings1.innerHTML).to.contain(`<div class="wcagRating"><!---->FAIL<!----></div>`);
@@ -183,7 +183,6 @@ describe('auro-tokendisplay', () => {
     await expect(tableBodyRowRatings1.innerHTML).to.contain(`<div class="wcagRating"><!---->FAIL<!----></div>`);
     await expect(tableBodyRowRatings1.innerHTML).to.contain(`<div class="wcagType"><!---->Large<!----></div>`);
 
-    await expect(tableBodyRowRatio2.innerHTML).to.equal("<!----><!---->");
     await expect(tableBodyRowRatings2.innerHTML).not.to.contain(`<div class="wcagRating"><!---->AA<!----></div>`);
     await expect(tableBodyRowRatings2.innerHTML).not.to.contain(`<div class="wcagType"><!---->normal<!----></div>`);
     await expect(tableBodyRowRatings2.innerHTML).not.to.contain(`<div class="wcagRating"><!---->AAA<!----></div>`);
