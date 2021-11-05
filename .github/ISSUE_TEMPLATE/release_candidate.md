@@ -1,8 +1,8 @@
 ---
 name: Release candidate
 about: Organize all issues for a release candidate
-title: '[namespace]-[name]: [vX.X-rc]'
-labels: release
+title: '[vX.X-rc]'
+labels: auro-tokenlist, release
 assignees: braven112
 ---
 
