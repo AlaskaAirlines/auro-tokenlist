@@ -3,7 +3,6 @@
 
 // ---------------------------------------------------------------------
 import { html, css, LitElement } from "lit-element";
-import { classMap } from "lit-html/directives/class-map";
 import "focus-visible/dist/focus-visible.min.js";
 import styleCss from "./style-tokendisplay-css.js";
 import { varName } from "./util";
@@ -154,17 +153,12 @@ class AuroTokenDisplay extends LitElement {
 
   // function that renders the HTML and CSS into  the scope of the component
   render() {
-
-    const classes = {
-      stop: this.string = 'Stop it!'
-    };
-
     return html`
       <table class="tableListing">
         <thead>
           <tr>
-            <th class="${classMap(classes)}">Token</th>
-            <th class="">Usage</th>
+            <th>Token</th>
+            <th>Usage</th>
             <th>Hex/RGBA</th>
             <th>Color</th>
             <th>WCAG Ratio</th>

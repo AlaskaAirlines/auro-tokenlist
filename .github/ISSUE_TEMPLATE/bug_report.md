@@ -1,8 +1,8 @@
 ---
 name: Bug report
 about: Create a report to help us improve
-title: 'auro-tokenlist: [issue summary]'
-labels: 'Type: Bug, not-reviewed'
+title: '[issue summary]'
+labels: 'auro-tokenlist, Type: Bug, not-reviewed'
 assignees: blackfalcon
 ---
 
