@@ -10,7 +10,13 @@
 @import './../node_modules/@alaskaairux/webcorestylesheets/dist/breakpoints';
 @import './../node_modules/@alaskaairux/webcorestylesheets/dist/core';
 
-/* stylelint-disable selector-max-combinators, no-descending-specificity, declaration-no-important, selector-max-compound-selectors */
+/* stylelint-disable selector-max-combinators,
+  no-descending-specificity,
+  declaration-no-important,
+  selector-max-compound-selectors,
+  selector-class-pattern
+*/
+
 :host {
   > * {
     --size-icon-square-lg: 3rem;

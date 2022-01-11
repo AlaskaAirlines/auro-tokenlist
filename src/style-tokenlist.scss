@@ -40,7 +40,7 @@ th {
 
 td {
   &:first-child {
-  line-height: var(--auro-unitless-scale-200);
+    line-height: var(--auro-unitless-scale-200);
   }
 }
 
@@ -62,7 +62,7 @@ td {
 
 tr {
   &:nth-child(even) {
-      background-color: var(--auro-color-base-gray-100);
+    background-color: var(--auro-color-base-gray-100);
   }
 }
 
@@ -83,6 +83,7 @@ tr {
     outline: 1px solid var(--auro-color-base-neutral-400);
     outline-offset: var(--auro-size-xxs);
   }
+
   &--circle {
     width: 40px;
     height: 40px;

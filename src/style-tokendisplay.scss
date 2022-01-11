@@ -10,7 +10,13 @@
 @import './../node_modules/@alaskaairux/webcorestylesheets/dist/breakpoints';
 @import './../node_modules/@alaskaairux/webcorestylesheets/dist/core';
 
-/* stylelint-disable selector-max-combinators, no-descending-specificity, declaration-no-important, selector-max-compound-selectors, font-weight-notation */
+/* stylelint-disable selector-max-combinators,
+  no-descending-specificity,
+  declaration-no-important,
+  selector-max-compound-selectors,
+  font-weight-notation
+*/
+
 :host([ondark]) {
   padding: var(--auro-size-xs);
 
@@ -97,7 +103,7 @@
 .infoHeader {
   padding-bottom: var(--auro-size-xs);
   border-bottom: var(--auro-size-xxxs) solid var(--auro-color-border-primary-on-light);
-  margin-bottom:  var(--auro-size-xs);
+  margin-bottom: var(--auro-size-xs);
   font-weight: var(--auro-text-heading-default-weight);
   grid-column: 1/-1;
 }
@@ -111,10 +117,10 @@
 // WCAG Pass-Fail Avatars
 
 .wcagRatings {
-  display:inline-flex;
+  display: inline-flex;
   justify-content: space-between;
 
-  :first-child{
+  :first-child {
     margin-right: var(--auro-size-xxs);
   }
 }
