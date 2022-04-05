@@ -192,7 +192,9 @@ class AuroTokenDisplay extends LitElement {
               </td>
               <td>${index.usage}</td>
               <td class="noWrap">${index.backgroundcolor}</td>
-              <td><div class="swatch" style="background-color: var(--${index.colorname})"></div></td>
+              <td>
+                <div class="swatch" style="background-color: var(--${index.colorname})"></div>
+              </td>
               <td class="center">
                 ${index.wcag?.ratio ?? ""}
               </td>
@@ -200,10 +202,6 @@ class AuroTokenDisplay extends LitElement {
                 <div class="wcagRatings">
                   ${index.wcag ? this.validateRatings(index.wcag).map((item) => html`
                     <div class="${item.label === 'FAIL' ? 'wcagFail' : 'wcagPass'}">
-                      <auro-icon
-                        customColor
-                        category="interface"
-                        name="${item.label === 'FAIL' ? 'x-sm' : 'check-sm'}"></auro-icon>
                       <div class="wcagText">
                         <div class= "wcagRating">${item.label}</div>
                         <div class= "wcagType">${item.type}</div>
