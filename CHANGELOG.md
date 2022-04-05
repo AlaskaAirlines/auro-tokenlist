@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.0.1](https://github.com/AlaskaAirlines/auro-tokenlist/compare/v1.0.0...v1.0.1) (2022-04-05)
+
+
+### Bug Fixes
+
+* **icon:** remove use of icons due to error ([dea3965](https://github.com/AlaskaAirlines/auro-tokenlist/commit/dea39655cb5443ebb3784df26b82babd20271df8))
+
 # 1.0.0 (2021-11-08)
 
 
