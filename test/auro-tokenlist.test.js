@@ -151,20 +151,20 @@ describe('auro-tokenlist', () => {
   it('auro-tokenlist deprecated auro version table displays componentData', async () => {
     const el = await fixture(html`
       <auro-tokenlist type="deprecated" version componentData='[
-        { "tokenvalue": "#f8f8f8", "token": "color-base-gray-100", "reference": "auro-color-brand-gray-100", "version": "3.0.1" },
-        { "tokenvalue": "#176cff", "token": "color-background-hover-button", "reference": "auro-color-brand-atlas-200", "version": "2.0.1" }
+        { "tokenvalue": "#f8f8f8", "token": "color-base-gray-100", "reference": "color-brand-gray-100", "version": "3.0.1" },
+        { "tokenvalue": "#176cff", "token": "color-background-hover-button", "reference": "color-brand-atlas-200", "version": "2.0.1" }
       ]'></auro-tokenlist>
     `);
     const tableBodyRow1 = el.shadowRoot.querySelector("tbody tr:nth-of-type(1)");
     const tableBodyRow2 = el.shadowRoot.querySelector("tbody tr:nth-of-type(2)");
 
     await expect(tableBodyRow1.querySelector("td:nth-of-type(1)")).to.contain.text("var(--auro-color-base-gray-100)");
-    await expect(tableBodyRow1.querySelector("td:nth-of-type(2)")).to.contain.text("var(--auro-color-brand-gray-100)");
+    await expect(tableBodyRow1.querySelector("td:nth-of-type(2)")).to.contain.text("var(--ds-color-brand-gray-100)");
     await expect(tableBodyRow1.querySelector("td:nth-of-type(3)")).to.contain.text("3.0.1");
     await expect(tableBodyRow1.querySelector("td:nth-of-type(4)")).to.contain.text("#f8f8f8");
 
     await expect(tableBodyRow2.querySelector("td:nth-of-type(1)")).to.contain.text("var(--auro-color-background-hover-button)");
-    await expect(tableBodyRow2.querySelector("td:nth-of-type(2)")).to.contain.text("var(--auro-color-brand-atlas-200)");
+    await expect(tableBodyRow2.querySelector("td:nth-of-type(2)")).to.contain.text("var(--ds-color-brand-atlas-200)");
     await expect(tableBodyRow2.querySelector("td:nth-of-type(3)")).to.contain.text("2.0.1");
     await expect(tableBodyRow2.querySelector("td:nth-of-type(4)")).to.contain.text("#176cff");
   });

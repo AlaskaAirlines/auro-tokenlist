@@ -195,7 +195,7 @@ The following example illustrates the auro token avatar with `avatartype="border
 
 <div class="exampleWrapper">
   <auro-tokenavatar avatartype="border" colorname="ds-color-border-error-default"></auro-tokenavatar>
-  <auro-tokenavatar avatartype="border" ondark colorname="ds-color-border-error-on-inverse"></auro-tokenavatar>
+  <auro-tokenavatar avatartype="border" ondark colorname="ds-color-border-error-inverse"></auro-tokenavatar>
 </div>
 
 <auro-accordion lowProfile justifyRight>
@@ -203,7 +203,7 @@ The following example illustrates the auro token avatar with `avatartype="border
 
   ```html
   <auro-tokenavatar avatartype="border" colorname="ds-color-border-error-default"></auro-tokenavatar>
-  <auro-tokenavatar avatartype="border" ondark colorname="ds-color-border-error-on-inverse"></auro-tokenavatar>
+  <auro-tokenavatar avatartype="border" ondark colorname="ds-color-border-error-inverse"></auro-tokenavatar>
   ```
 </auro-accordion>
 

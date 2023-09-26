@@ -70,7 +70,7 @@ class AuroTokenList extends LitElement {
    * @returns {string} Token size.
    */
   deprecatedType(value) {
-    return value ? `auro` : `deprecated`;
+    return value ? `ds` : `deprecated`;
   }
 
   /**
@@ -79,11 +79,9 @@ class AuroTokenList extends LitElement {
    * @returns {string} Name of current token.
    */
   currentToken(reference) {
+
     if (reference === 'n/a') {
       return reference;
-    }
-    if (reference.startsWith("auro")) {
-      return `var(--${reference})`;
     }
     if (reference) {
       return `var(--ds-${reference})`;
