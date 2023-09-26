@@ -1,5 +1,17 @@
 # Semantic Release Automated Changelog
 
+# [1.1.0](https://github.com/AlaskaAirlines/auro-tokenlist/compare/v1.0.1...v1.1.0) (2023-09-26)
+
+
+### Features
+
+* update to support deprecated tokens with --ds ref ([d393f60](https://github.com/AlaskaAirlines/auro-tokenlist/commit/d393f606d1af1262a55b9d9892401b34cf896eb3))
+
+
+### Performance Improvements
+
+* update build dependencies ([151d488](https://github.com/AlaskaAirlines/auro-tokenlist/commit/151d4885d2e903b12b7acdce307c032a6138fb75))
+
 ## [1.0.1](https://github.com/AlaskaAirlines/auro-tokenlist/compare/v1.0.0...v1.0.1) (2022-04-05)
 
 
