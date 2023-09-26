@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.1.1](https://github.com/AlaskaAirlines/auro-tokenlist/compare/v1.1.0...v1.1.1) (2023-09-26)
+
+
+### Bug Fixes
+
+* address currentToken reference returned value issue ([b7d9b75](https://github.com/AlaskaAirlines/auro-tokenlist/commit/b7d9b75d1544940fb65874cc7c67a6a2a4d08016))
+
 # [1.1.0](https://github.com/AlaskaAirlines/auro-tokenlist/compare/v1.0.1...v1.1.0) (2023-09-26)
 
 
