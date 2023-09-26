@@ -11,7 +11,7 @@ describe('auro-tokenlist', () => {
 
   it('auro-tokenlist current table size token displays value in rem', async () => {
     const el = await fixture(html`
-      <auro-tokenlist componentData='[{ "tokenvalue": "0.75", "token": "auro-size-sm" }]'></auro-tokenlist>
+      <auro-tokenlist componentData='[{ "tokenvalue": "0.75", "token": "ds-size-sm" }]'></auro-tokenlist>
     `);
     const tableBodyRow1 = el.shadowRoot.querySelector("tbody tr:nth-of-type(1)");
     await expect(tableBodyRow1.querySelector("td:nth-of-type(2)")).to.contain.text("0.75rem");
@@ -19,7 +19,7 @@ describe('auro-tokenlist', () => {
 
   it(`auro-tokenlist current table 'sizeless' token displays value without units`, async () => {
     const el = await fixture(html`
-      <auro-tokenlist componentData='[{ "tokenvalue": "64", "token": "auro-breakpoint-md" }]'></auro-tokenlist>
+      <auro-tokenlist componentData='[{ "tokenvalue": "64", "token": "ds-breakpoint-md" }]'></auro-tokenlist>
     `);
     const tableBodyRow1 = el.shadowRoot.querySelector("tbody tr:nth-of-type(1)");
     await expect(tableBodyRow1.querySelector("td:nth-of-type(2)")).to.contain.text("64");
@@ -28,60 +28,60 @@ describe('auro-tokenlist', () => {
   it('auro-tokenlist current table displays all componentData', async () => {
     const el = await fixture(html`
       <auro-tokenlist componentData='[
-        { "tokenvalue": "660px", "token": "auro-breakpoint-sm" },
-        { "tokenvalue": "1024px", "token": "auro-breakpoint-md" }
+        { "tokenvalue": "660px", "token": "ds-breakpoint-sm" },
+        { "tokenvalue": "1024px", "token": "ds-breakpoint-md" }
       ]'></auro-tokenlist>
     `);
     const tableBodyRow1 = el.shadowRoot.querySelector("tbody tr:nth-of-type(1)");
     const tableBodyRow2 = el.shadowRoot.querySelector("tbody tr:nth-of-type(2)");
 
-    await expect(tableBodyRow1.querySelector("td:nth-of-type(1)")).to.contain.text("var(--auro-breakpoint-sm)");
+    await expect(tableBodyRow1.querySelector("td:nth-of-type(1)")).to.contain.text("var(--ds-breakpoint-sm)");
     await expect(tableBodyRow1.querySelector("td:nth-of-type(2)")).to.contain.text("660px");
-    await expect(tableBodyRow1.querySelector("td:nth-of-type(3)")).not.to.contain.text(`style="background-color: var(--auro-breakpoint-sm)"></div>`);
+    await expect(tableBodyRow1.querySelector("td:nth-of-type(3)")).not.to.contain.text(`style="background-color: var(--ds-breakpoint-sm)"></div>`);
 
-    await expect(tableBodyRow2.querySelector("td:nth-of-type(1)")).to.contain.text("var(--auro-breakpoint-md)");
+    await expect(tableBodyRow2.querySelector("td:nth-of-type(1)")).to.contain.text("var(--ds-breakpoint-md)");
     await expect(tableBodyRow2.querySelector("td:nth-of-type(2)")).to.contain.text("1024px");
-    await expect(tableBodyRow2.querySelector("td:nth-of-type(3)")).not.to.contain.text(`style="background-color: var(--auro-breakpoint-md)"></style=>`);
+    await expect(tableBodyRow2.querySelector("td:nth-of-type(3)")).not.to.contain.text(`style="background-color: var(--ds-breakpoint-md)"></style=>`);
 
   });
 
   it('auro-tokenlist current table with swatch displays all componentData', async () => {
     const el = await fixture(html`
       <auro-tokenlist swatchType="rectangle" componentData='[
-        { "tokenvalue": "#cde6ff", "token": "auro-color-brand-atlas-100" },
-        { "tokenvalue": "#6bb7fb", "token": "auro-color-brand-atlas-200" }
+        { "tokenvalue": "#cde6ff", "token": "ds-color-brand-atlas-100" },
+        { "tokenvalue": "#6bb7fb", "token": "ds-color-brand-atlas-200" }
       ]'></auro-tokenlist>
     `);
     const tableBodyRow1 = el.shadowRoot.querySelector("tbody tr:nth-of-type(1)");
     const tableBodyRow2 = el.shadowRoot.querySelector("tbody tr:nth-of-type(2)");
 
-    await expect(tableBodyRow1.querySelector("td:nth-of-type(1)")).to.contain.text("var(--auro-color-brand-atlas-100)");
+    await expect(tableBodyRow1.querySelector("td:nth-of-type(1)")).to.contain.text("var(--ds-color-brand-atlas-100)");
     await expect(tableBodyRow1.querySelector("td:nth-of-type(2)")).to.contain.text("#cde6ff");
-    await expect(tableBodyRow1.querySelector("td:nth-of-type(3)")).to.contain.html(`<div class="swatch--rectangle" style="background-color: var(--auro-color-brand-atlas-100)">`);
+    await expect(tableBodyRow1.querySelector("td:nth-of-type(3)")).to.contain.html(`<div class="swatch--rectangle" style="background-color: var(--ds-color-brand-atlas-100)">`);
 
-    await expect(tableBodyRow2.querySelector("td:nth-of-type(1)")).to.contain.text("var(--auro-color-brand-atlas-200)");
+    await expect(tableBodyRow2.querySelector("td:nth-of-type(1)")).to.contain.text("var(--ds-color-brand-atlas-200)");
     await expect(tableBodyRow2.querySelector("td:nth-of-type(2)")).to.contain.text("#6bb7fb");
-    await expect(tableBodyRow2.querySelector("td:nth-of-type(3)")).to.contain.html(`<div class="swatch--rectangle" style="background-color: var(--auro-color-brand-atlas-200)">`);
+    await expect(tableBodyRow2.querySelector("td:nth-of-type(3)")).to.contain.html(`<div class="swatch--rectangle" style="background-color: var(--ds-color-brand-atlas-200)">`);
 
   });
 
   it('auro-tokenlist current table with swatch circle displays all componentData', async () => {
     const el = await fixture(html`
       <auro-tokenlist swatchType="circle" componentData='[
-        { "tokenvalue": "#f26135", "token": "auro-color-brand-canyon-300" },
-        { "tokenvalue": "#c0f7ff", "token": "auro-color-brand-breeze-100" }
+        { "tokenvalue": "#f26135", "token": "ds-color-brand-canyon-300" },
+        { "tokenvalue": "#c0f7ff", "token": "ds-color-brand-breeze-100" }
       ]'></auro-tokenlist>
     `);
     const tableBodyRow1 = el.shadowRoot.querySelector("tbody tr:nth-of-type(1)");
     const tableBodyRow2 = el.shadowRoot.querySelector("tbody tr:nth-of-type(2)");
 
-    await expect(tableBodyRow1.querySelector("td:nth-of-type(1)")).to.contain.text("var(--auro-color-brand-canyon-300)");
+    await expect(tableBodyRow1.querySelector("td:nth-of-type(1)")).to.contain.text("var(--ds-color-brand-canyon-300)");
     await expect(tableBodyRow1.querySelector("td:nth-of-type(2)")).to.contain.text("#f26135");
-    await expect(tableBodyRow1.querySelector("td:nth-of-type(3)")).to.contain.html(`<div class="swatch--circle" style="background-color: var(--auro-color-brand-canyon-300)">`);
+    await expect(tableBodyRow1.querySelector("td:nth-of-type(3)")).to.contain.html(`<div class="swatch--circle" style="background-color: var(--ds-color-brand-canyon-300)">`);
 
-    await expect(tableBodyRow2.querySelector("td:nth-of-type(1)")).to.contain.text("var(--auro-color-brand-breeze-100)");
+    await expect(tableBodyRow2.querySelector("td:nth-of-type(1)")).to.contain.text("var(--ds-color-brand-breeze-100)");
     await expect(tableBodyRow2.querySelector("td:nth-of-type(2)")).to.contain.text("#c0f7ff");
-    await expect(tableBodyRow2.querySelector("td:nth-of-type(3)")).to.contain.html(`<div class="swatch--circle" style="background-color: var(--auro-color-brand-breeze-100)">`);
+    await expect(tableBodyRow2.querySelector("td:nth-of-type(3)")).to.contain.html(`<div class="swatch--circle" style="background-color: var(--ds-color-brand-breeze-100)">`);
 
   });
 
@@ -99,12 +99,12 @@ describe('auro-tokenlist', () => {
   it('auro-tokenlist deprecated table displays explicit auro currentToken reference', async () => {
     const el = await fixture(html`
       <auro-tokenlist type="deprecated" componentData='[
-        { "tokenvalue": "#0074cb", "token": "color-background-is-active-button", "reference": "auro-color-brand-atlas-400" }
+        { "tokenvalue": "#0074cb", "token": "color-background-is-active-button", "reference": "color-brand-atlas-400" }
       ]'></auro-tokenlist>
     `);
     const tableBodyRow1 = el.shadowRoot.querySelector("tbody tr:nth-of-type(1)");
 
-    await expect(tableBodyRow1.querySelector("td:nth-of-type(2)")).to.contain.text("var(--auro-color-brand-atlas-400)");
+    await expect(tableBodyRow1.querySelector("td:nth-of-type(2)")).to.contain.text("var(--ds-color-brand-atlas-400)");
   });
 
   it('auro-tokenlist deprecated table displays implicit auro currentToken reference', async () => {
@@ -115,7 +115,7 @@ describe('auro-tokenlist', () => {
     `);
     const tableBodyRow1 = el.shadowRoot.querySelector("tbody tr:nth-of-type(1)");
 
-    await expect(tableBodyRow1.querySelector("td:nth-of-type(2)")).to.contain.text("var(--auro-color-brand-atlas-400)");
+    await expect(tableBodyRow1.querySelector("td:nth-of-type(2)")).to.contain.text("var(--ds-color-brand-atlas-400)");
   });
 
   it('auro-tokenlist deprecated table displays empty currentToken reference', async () => {
@@ -133,7 +133,7 @@ describe('auro-tokenlist', () => {
     const el = await fixture(html`
       <auro-tokenlist type="deprecated" componentData='[
         { "tokenvalue": "#0064c6", "token": "color-background-active-button", "reference": "n/a" },
-        { "tokenvalue": "#0074cb", "token": "color-background-is-active-button", "reference": "auro-color-brand-atlas-400" }
+        { "tokenvalue": "#0074cb", "token": "color-background-is-active-button", "reference": "color-brand-atlas-400" }
       ]'></auro-tokenlist>
     `);
     const tableBodyRow1 = el.shadowRoot.querySelector("tbody tr:nth-of-type(1)");
@@ -144,7 +144,7 @@ describe('auro-tokenlist', () => {
     await expect(tableBodyRow1.querySelector("td:nth-of-type(3)")).to.contain.text("#0064c6");
 
     await expect(tableBodyRow2.querySelector("td:nth-of-type(1)")).to.contain.text("var(--color-background-is-active-button)");
-    await expect(tableBodyRow2.querySelector("td:nth-of-type(2)")).to.contain.text("var(--auro-color-brand-atlas-400)");
+    await expect(tableBodyRow2.querySelector("td:nth-of-type(2)")).to.contain.text("var(--ds-color-brand-atlas-400)");
     await expect(tableBodyRow2.querySelector("td:nth-of-type(3)")).to.contain.text("#0074cb");
   });
 
@@ -175,8 +175,8 @@ describe('auro-tokenlist is accessible', () => {
   it('auro-tokenlist standard table is accessible', async () => {
     const el = await fixture(html`
       <auro-tokenlist componentData='[
-        { "tokenvalue": "660px", "token": "auro-breakpoint-sm" },
-        { "tokenvalue": "1024px", "token": "auro-breakpoint-md" }
+        { "tokenvalue": "660px", "token": "ds-breakpoint-sm" },
+        { "tokenvalue": "1024px", "token": "ds-breakpoint-md" }
       ]'></auro-tokenlist>
     `);
 
@@ -186,8 +186,8 @@ describe('auro-tokenlist is accessible', () => {
   it('auro-tokenlist deprecated table is accessible', async () => {
     const el = await fixture(html`
       <auro-tokenlist type="deprecated" componentData='[
-        { "tokenvalue": "480px", "token": "breakpoint-width-narrow", "reference": "auro-breakpoint-sm" },
-        { "tokenvalue": "840px", "token": "breakpoint-width-medium", "reference": "auro-breakpoint-sm" }
+        { "tokenvalue": "480px", "token": "breakpoint-width-narrow", "reference": "ds-breakpoint-sm" },
+        { "tokenvalue": "840px", "token": "breakpoint-width-medium", "reference": "ds-breakpoint-sm" }
       ]'></auro-tokenlist>
     `);
 
@@ -197,8 +197,8 @@ describe('auro-tokenlist is accessible', () => {
   it('auro-tokenlist deprecated version table is accessible', async () => {
     const el = await fixture(html`
       <auro-tokenlist type="deprecated" version componentData='[
-        { "tokenvalue": "#f8f8f8", "token": "color-base-gray-100", "reference": "auro-color-brand-gray-100", "version": "3.0.1" },
-        { "tokenvalue": "#176cff", "token": "color-background-hover-button", "reference": "auro-color-brand-atlas-200", "version": "2.0.1" }
+        { "tokenvalue": "#f8f8f8", "token": "color-base-gray-100", "reference": "ds-color-brand-gray-100", "version": "3.0.1" },
+        { "tokenvalue": "#176cff", "token": "color-background-hover-button", "reference": "ds-color-brand-atlas-200", "version": "2.0.1" }
       ]'></auro-tokenlist>
     `);
 

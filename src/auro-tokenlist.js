@@ -86,7 +86,7 @@ class AuroTokenList extends LitElement {
       return `var(--${reference})`;
     }
     if (reference) {
-      return `var(--auro-${reference})`;
+      return `var(--ds-${reference})`;
     }
 
     return '';
