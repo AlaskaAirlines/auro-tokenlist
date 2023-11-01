@@ -66,8 +66,8 @@ p {
   height: 5rem;
   align-items: center;
   justify-content: center;
-  background-color: var(--auro-color-background-lighter);
   border-radius: 50%;
+  background-color: var(--auro-color-background-lighter);
   clip-path: circle(2.5rem at center);
   font-size: var(--auro-size-xl);
 
@@ -85,8 +85,8 @@ p {
 .icon {
   width: 80%;
   height: var(--auro-size-xs);
-  margin-right: -40%;
   border-radius: var(--auro-size-xxs);
+  margin-right: -40%;
 }
 
 .uiBox,
@@ -102,8 +102,8 @@ p {
     left: 40%;
     width: 80%;
     height: var(--auro-size-xs);
-    background-color: var(--auro-color-background-lighter);
     border-radius: var(--auro-size-xxs);
+    background-color: var(--auro-color-background-lighter);
     content: '';
   }
 }
@@ -123,7 +123,7 @@ p {
     border-width: 1px;
     border-style: solid;
     border-color: inherit;
-    background-color: inherit;
     border-radius: 50%;
+    background-color: inherit;
   }
 }

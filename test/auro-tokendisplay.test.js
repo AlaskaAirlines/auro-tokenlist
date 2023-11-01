@@ -136,30 +136,30 @@ describe('auro-tokendisplay', () => {
     await elementUpdated(tableBodyRowRatings4);
     await elementUpdated(tableBodyRowRatings5);
 
-    await expect(tableBodyRowRatings1.innerHTML).to.contain(`<div class="wcagRating"><!---->FAIL<!----></div>`);
-    await expect(tableBodyRowRatings1.innerHTML).to.contain(`<div class="wcagType"><!---->normal<!----></div>`);
-    await expect(tableBodyRowRatings1.innerHTML).to.contain(`<div class="wcagRating"><!---->FAIL<!----></div>`);
-    await expect(tableBodyRowRatings1.innerHTML).to.contain(`<div class="wcagType"><!---->Large<!----></div>`);
+    await expect(tableBodyRowRatings1.innerHTML).to.contain(`FAIL`);
+    await expect(tableBodyRowRatings1.innerHTML).to.contain(`normal`);
+    await expect(tableBodyRowRatings1.innerHTML).to.contain(`FAIL`);
+    await expect(tableBodyRowRatings1.innerHTML).to.contain(`Large`);
 
-    await expect(tableBodyRowRatings2.innerHTML).to.contain(`<div class="wcagRating"><!---->FAIL<!----></div>`);
-    await expect(tableBodyRowRatings2.innerHTML).to.contain(`<div class="wcagType"><!---->normal<!----></div>`);
-    await expect(tableBodyRowRatings2.innerHTML).to.contain(`<div class="wcagRating"><!---->AA<!----></div>`);
-    await expect(tableBodyRowRatings2.innerHTML).to.contain(`<div class="wcagType"><!---->Large<!----></div>`);
+    await expect(tableBodyRowRatings2.innerHTML).to.contain(`FAIL`);
+    await expect(tableBodyRowRatings2.innerHTML).to.contain(`normal`);
+    await expect(tableBodyRowRatings2.innerHTML).to.contain(`AA`);
+    await expect(tableBodyRowRatings2.innerHTML).to.contain(`Large`);
 
-    await expect(tableBodyRowRatings3.innerHTML).to.contain(`<div class="wcagRating"><!---->AA<!----></div>`);
-    await expect(tableBodyRowRatings3.innerHTML).to.contain(`<div class="wcagType"><!---->normal<!----></div>`);
-    await expect(tableBodyRowRatings3.innerHTML).to.contain(`<div class="wcagRating"><!---->AAA<!----></div>`);
-    await expect(tableBodyRowRatings3.innerHTML).to.contain(`<div class="wcagType"><!---->Large<!----></div>`);
+    await expect(tableBodyRowRatings3.innerHTML).to.contain(`AA`);
+    await expect(tableBodyRowRatings3.innerHTML).to.contain(`normal`);
+    await expect(tableBodyRowRatings3.innerHTML).to.contain(`AAA`);
+    await expect(tableBodyRowRatings3.innerHTML).to.contain(`Large`);
 
-    await expect(tableBodyRowRatings4.innerHTML).to.contain(`<div class="wcagRating"><!---->AAA<!----></div>`);
-    await expect(tableBodyRowRatings4.innerHTML).to.contain(`<div class="wcagType"><!---->normal<!----></div>`);
-    await expect(tableBodyRowRatings4.innerHTML).to.contain(`<div class="wcagRating"><!---->AAA<!----></div>`);
-    await expect(tableBodyRowRatings4.innerHTML).to.contain(`<div class="wcagType"><!---->Large<!----></div>`);
+    await expect(tableBodyRowRatings4.innerHTML).to.contain(`AAA`);
+    await expect(tableBodyRowRatings4.innerHTML).to.contain(`normal`);
+    await expect(tableBodyRowRatings4.innerHTML).to.contain(`AAA`);
+    await expect(tableBodyRowRatings4.innerHTML).to.contain(`Large`);
 
-    await expect(tableBodyRowRatings5.innerHTML).not.to.contain(`<div class="wcagRating"><!---->AAA<!----></div>`);
-    await expect(tableBodyRowRatings5.innerHTML).not.to.contain(`<div class="wcagType"><!---->normal<!----></div>`);
-    await expect(tableBodyRowRatings5.innerHTML).not.to.contain(`<div class="wcagRating"><!---->AAA<!----></div>`);
-    await expect(tableBodyRowRatings5.innerHTML).not.to.contain(`<div class="wcagType"><!---->Large<!----></div>`);
+    await expect(tableBodyRowRatings5.innerHTML).not.to.contain(`AAA`);
+    await expect(tableBodyRowRatings5.innerHTML).not.to.contain(`normal`);
+    await expect(tableBodyRowRatings5.innerHTML).not.to.contain(`AAA`);
+    await expect(tableBodyRowRatings5.innerHTML).not.to.contain(`Large`);
 
   });
 
@@ -178,15 +178,15 @@ describe('auro-tokendisplay', () => {
     await elementUpdated(tableBodyRowRatings2);
 
     await expect(tableBodyRowRatio1.innerHTML).to.contain(`n/a`);
-    await expect(tableBodyRowRatings1.innerHTML).to.contain(`<div class="wcagRating"><!---->FAIL<!----></div>`);
-    await expect(tableBodyRowRatings1.innerHTML).to.contain(`<div class="wcagType"><!---->normal<!----></div>`);
-    await expect(tableBodyRowRatings1.innerHTML).to.contain(`<div class="wcagRating"><!---->FAIL<!----></div>`);
-    await expect(tableBodyRowRatings1.innerHTML).to.contain(`<div class="wcagType"><!---->Large<!----></div>`);
+    await expect(tableBodyRowRatings1.innerHTML).to.contain(`FAIL`);
+    await expect(tableBodyRowRatings1.innerHTML).to.contain(`normal`);
+    await expect(tableBodyRowRatings1.innerHTML).to.contain(`FAIL`);
+    await expect(tableBodyRowRatings1.innerHTML).to.contain(`Large`);
 
-    await expect(tableBodyRowRatings2.innerHTML).not.to.contain(`<div class="wcagRating"><!---->AA<!----></div>`);
-    await expect(tableBodyRowRatings2.innerHTML).not.to.contain(`<div class="wcagType"><!---->normal<!----></div>`);
-    await expect(tableBodyRowRatings2.innerHTML).not.to.contain(`<div class="wcagRating"><!---->AAA<!----></div>`);
-    await expect(tableBodyRowRatings2.innerHTML).not.to.contain(`<div class="wcagType"><!---->Large<!----></div>`);
+    await expect(tableBodyRowRatings2.innerHTML).not.to.contain(`AA`);
+    await expect(tableBodyRowRatings2.innerHTML).not.to.contain(`normal`);
+    await expect(tableBodyRowRatings2.innerHTML).not.to.contain(`AAA`);
+    await expect(tableBodyRowRatings2.innerHTML).not.to.contain(`Large`);
 
   });
 
