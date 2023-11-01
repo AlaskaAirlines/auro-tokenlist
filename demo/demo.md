@@ -15,7 +15,7 @@ The first element is the `<auro-tokenlist>` default element. the listing of a to
   ]'></auro-tokenlist>
 </div>
 
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 
   ```html
@@ -34,7 +34,7 @@ The following example illustrates the `swatchType="rectangle"` feature that incl
   ]'></auro-tokenlist>
 </div>
 
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 
   ```html
@@ -54,7 +54,7 @@ Similar to the previous example, the following illustrates the `swatchType="circ
   ]'></auro-tokenlist>
 </div>
 
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 
   ```html
@@ -74,7 +74,7 @@ Not all tokens stay forever, so it's important to have a deprecation strategy. A
   ]'></auro-tokenlist>
 </div>
 
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 
   ```html
@@ -94,7 +94,7 @@ In addition to `type="deprecated"`, the custom element supports a `version` bool
   ]'></auro-tokenlist>
 </div>
 
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 
   ```html
@@ -129,7 +129,7 @@ The following example illustrates the standard token display table.
   ]'></auro-tokendisplay>
 </div>
 
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 
   ```html
@@ -154,7 +154,7 @@ This example illustrates the `ondark` token display table.
   ]'></auro-tokendisplay>
 </div>
 
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 
   ```html
@@ -182,7 +182,7 @@ The following example illustrates the auro token avatar with the `avatartype="fo
   <auro-tokenavatar avatartype="font" ondark colorname="ds-color-text-primary-inverse"></auro-tokenavatar>
 </div>
 
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 
   ```html
@@ -195,15 +195,13 @@ The following example illustrates the auro token avatar with `avatartype="border
 
 <div class="exampleWrapper">
   <auro-tokenavatar avatartype="border" colorname="ds-color-border-error-default"></auro-tokenavatar>
-  <auro-tokenavatar avatartype="border" ondark colorname="ds-color-border-error-inverse"></auro-tokenavatar>
 </div>
 
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 
   ```html
   <auro-tokenavatar avatartype="border" colorname="ds-color-border-error-default"></auro-tokenavatar>
-  <auro-tokenavatar avatartype="border" ondark colorname="ds-color-border-error-inverse"></auro-tokenavatar>
   ```
 </auro-accordion>
 
@@ -211,15 +209,13 @@ The following example illustrates the auro token avatar with `avatartype="alert"
 
 <div class="exampleWrapper">
   <auro-tokenavatar avatartype="alert" colorname="ds-color-alert-success-default"></auro-tokenavatar>
-  <auro-tokenavatar avatartype="alert" ondark colorname="ds-color-alert-success-inverse"></auro-tokenavatar>
 </div>
 
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 
   ```html
   <auro-tokenavatar avatartype="alert" colorname="ds-color-alert-success-default"></auro-tokenavatar>
-  <auro-tokenavatar avatartype="alert" ondark colorname="ds-color-alert-success-inverse"></auro-tokenavatar>
   ```
 </auro-accordion>
 
@@ -230,7 +226,7 @@ The following example illustrates the auro token avatar with `avatartype="ui"` a
   <auro-tokenavatar avatartype="ui" ondark colorname="ds-color-ui-default-inverse"></auro-tokenavatar>
 </div>
 
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 
   ```html
@@ -246,7 +242,7 @@ The following example illustrates the auro token avatar with `avatartype="icon"`
   <auro-tokenavatar avatartype="icon" ondark colorname='ds-color-ui-default-inverse'></auro-tokenavatar>
 </div>
 
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 
   ```html

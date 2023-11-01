@@ -4,11 +4,11 @@
 // ---------------------------------------------------------------------
 
 // Import Auro tokens
-@import './../node_modules/@alaskaairux/design-tokens/dist/tokens/SCSSVariables';
-@import './../node_modules/@alaskaairux/design-tokens/dist/tokens/SassCustomProperties';
+@import './../node_modules/@aurodesignsystem/design-tokens/dist/tokens/SCSSVariables';
+@import './../node_modules/@aurodesignsystem/design-tokens/dist/tokens/SassCustomProperties';
 
-@import './../node_modules/@alaskaairux/webcorestylesheets/dist/breakpoints';
-@import './../node_modules/@alaskaairux/webcorestylesheets/dist/core';
+@import './../node_modules/@aurodesignsystem/webcorestylesheets/src/breakpoints';
+@import './../node_modules/@aurodesignsystem/webcorestylesheets/src/core';
 
 /* stylelint-disable selector-max-combinators,
   no-descending-specificity,
@@ -18,21 +18,21 @@
 */
 
 :host([ondark]) {
-  padding: var(--auro-size-xs);
+  padding: var(--ds-size-100, $ds-size-100);
 
   .tableListing {
-    background-color: var(--auro-color-background-darkest);
-    color: var(--auro-color-text-primary-on-dark);
-    outline: var(--auro-size-md) solid var(--auro-color-background-darkest);
+    background-color: var(--ds-color-background-darkest, $ds-color-background-darkest);
+    color: var(--ds-color-text-primary-inverse, $ds-color-text-primary-inverse);
+    outline: var(--ds-size-200, $ds-size-200) solid var(--ds-color-background-darkest, $ds-color-background-darkest);
 
     th {
-      border-bottom-color: var(--auro-color-border-primary-on-dark);
-      color: var(--auro-color-text-primary-on-dark);
+      border-bottom-color: var(--ds-color-border-primary-inverse, $ds-color-border-primary-inverse);
+      color: var(--ds-color-text-primary-inverse, $ds-color-text-primary-inverse);
     }
 
     td {
-      border-bottom-color: var(--auro-color-border-primary-on-dark);
-      font-weight: var(--auro-text-body-default-weight);
+      border-bottom-color: var(--ds-color-border-primary-inverse, $ds-color-border-primary-inverse);
+      font-weight: var(--ds-text-body-default-weight, $ds-text-body-default-weight);
     }
   }
 }
@@ -43,30 +43,30 @@
 
 .tableListing {
   width: 100%;
-  margin-bottom: var(--auro-size-xxl);
+  margin-bottom: var(--ds-size-600, $ds-size-600);
   border-collapse: collapse;
 
   tbody {
-    font-size: var(--auro-text-body-size-sm);
-    font-weight: var(--auro-text-heading-display-weight);
+    font-size: var(--ds-text-body-size-sm, $ds-text-body-size-sm);
+    font-weight: var(--ds-text-heading-display-weight, $ds-text-heading-display-weight);
   }
 
   th {
-    padding: 0 0 var(--auro-size-sm);
-    border-bottom: var(--auro-size-xxxs) solid var(--auro-color-border-primary-on-light);
+    padding: 0 0 var(--ds-size-150, $ds-size-150);
+    border-bottom: var(--ds-size-25, $ds-size-25) solid var(--ds-color-border-primary-default, $ds-color-border-primary-default);
     font-weight: unset;
     white-space: nowrap;
   }
 
   th,
   td {
-    padding-right: var(--auro-size-xxl);
+    padding-right: var(--ds-size-600, $ds-size-600);
   }
 
   td {
-    padding-top: var(--auro-size-md);
-    padding-bottom: var(--auro-size-sm);
-    border-bottom: 1px solid var(--auro-color-border-primary-on-light);
+    padding-top: var(--ds-size-200, $ds-size-200);
+    padding-bottom: var(--ds-size-150, $ds-size-150);
+    border-bottom: 1px solid var(--ds-color-border-primary-default, $ds-color-border-primary-default);
   }
 
   thead {
@@ -93,24 +93,24 @@
 
 .wcagInfoPopover {
   display: inline-grid;
-  color: var(--auro-color-text-primary-on-light);
-  font-size: var(--auro-text-body-size-sm);
-  font-weight: var(--auro-text-heading-display-weight);
+  color: var(--ds-color-text-primary-default, $ds-color-text-primary-default);
+  font-size: var(--ds-text-body-size-sm, $ds-text-body-size-sm);
+  font-weight: var(--ds-text-heading-display-weight, $ds-text-heading-display-weight);
   grid-template: 1fr 2fr / auto auto auto auto;
   white-space: normal;
 }
 
 .infoHeader {
-  padding-bottom: var(--auro-size-xs);
-  border-bottom: var(--auro-size-xxxs) solid var(--auro-color-border-primary-on-light);
-  margin-bottom: var(--auro-size-xs);
-  font-weight: var(--auro-text-heading-default-weight);
+  padding-bottom: var(--ds-size-100, $ds-size-100);
+  border-bottom: var(--ds-size-xxxs) solid var(--ds-color-border-primary-default, $ds-color-border-primary-default);
+  margin-bottom: var(--ds-size-100, $ds-size-100);
+  font-weight: var(--ds-text-heading-default-weight, $ds-text-heading-default-weight);
   grid-column: 1/-1;
 }
 
 .ratingType {
-  padding-right: var(--auro-size-sm);
-  font-weight: var(--auro-text-heading-default-weight);
+  padding-right: var(--ds-size-150, $ds-size-150);
+  font-weight: var(--ds-text-heading-default-weight, $ds-text-heading-default-weight);
   grid-column: 1;
 }
 
@@ -121,7 +121,7 @@
   justify-content: space-between;
 
   :first-child {
-    margin-right: var(--auro-size-xxs);
+    margin-right: var(--ds-size-50, $ds-size-50);
   }
 }
 
@@ -129,43 +129,43 @@
 .wcagPass {
   display: inline-flex;
   align-items: center;
-  padding: var(--auro-size-xs) var(--auro-size-sm);
-  border-radius: var(--auro-size-xxs);
-  color: var(--auro-color-text-primary-on-dark);
+  padding: var(--ds-size-100, $ds-size-100) var(--ds-size-150, $ds-size-150);
+  border-radius: var(--ds-size-50, $ds-size-50);
+  color: var(--ds-color-text-primary-inverse, $ds-color-text-primary-inverse);
 }
 
 .wcagFail {
-  background-color: var(--auro-color-alert-error-on-light);
+  background-color: var(--ds-color-alert-error-default, $ds-color-alert-error-default);
 }
 
 .wcagPass {
-  background-color: var(--auro-color-alert-success-on-light);
+  background-color: var(--ds-color-alert-success-default, $ds-color-alert-success-default);
 }
 
 :host([onDark]) {
   .wcagFail,
   .wcagPass {
-    color: var(--auro-color-text-primary-on-light);
+    color: var(--ds-color-text-primary-default, $ds-color-text-primary-default);
   }
 
   .wcagFail {
-    background-color: var(--auro-color-alert-error-on-dark);
+    background-color: var(--ds-color-alert-error-on-dark, #ff999b); // deprecated token with no replacement
   }
 
   .wcagPass {
-    background-color: var(--auro-color-alert-success-on-dark);
+    background-color: var(--ds-color-alert-success-on-dark, #69cf96); // deprecated token with no replacement
   }
 }
 
 .wcagText {
   display: inline-flex;
   flex-direction: column;
-  font-weight: var(--auro-text-heading-default-weight);
+  font-weight: var(--ds-text-heading-default-weight, $ds-text-heading-default-weight);
   line-height: 1.125rem;
 }
 
 .wcagRating {
-  font-size: var(--auro-text-body-height-xs);
+  font-size: var(--ds-text-body-height-xs, $ds-text-body-height-xs);
 }
 
 .wcagType {

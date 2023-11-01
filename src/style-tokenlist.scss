@@ -4,16 +4,16 @@
 // ---------------------------------------------------------------------
 
 // Import Auro tokens
-@import './../node_modules/@alaskaairux/design-tokens/dist/tokens/SCSSVariables';
-@import './../node_modules/@alaskaairux/design-tokens/dist/tokens/SassCustomProperties';
+@import './../node_modules/@aurodesignsystem/design-tokens/dist/tokens/SCSSVariables';
+@import './../node_modules/@aurodesignsystem/design-tokens/dist/tokens/SassCustomProperties';
 
-@import './../node_modules/@alaskaairux/webcorestylesheets/dist/breakpoints';
-@import './../node_modules/@alaskaairux/webcorestylesheets/dist/core';
+@import './../node_modules/@aurodesignsystem/webcorestylesheets/src/breakpoints';
+@import './../node_modules/@aurodesignsystem/webcorestylesheets/src/core';
 
 /* stylelint-disable font-weight-notation */
 table {
   width: 100%;
-  margin-bottom: var(--auro-size-xxl);
+  margin-bottom: var(--ds-size-600, $ds-size-600);
   border-collapse: collapse;
 }
 
@@ -22,32 +22,32 @@ thead {
 }
 
 tbody {
-  font-size: var(--auro-text-body-size-sm);
-  font-weight: var(--auro-text-heading-display-weight);
+  font-size: var(--ds-text-body-size-sm, $ds-text-body-size-sm);
+  font-weight: var(--ds-text-heading-display-weight, $ds-text-heading-display-weight);
 }
 
 th,
 td {
-  padding: var(--auro-size-md) var(--auro-size-xxl) var(--auro-size-sm) var(--auro-size-sm);
+  padding: var(--ds-size-200, $ds-size-200) var(--ds-size-600, $ds-size-600) var(--ds-size-150, $ds-size-150) var(--ds-size-150, $ds-size-150);
   white-space: nowrap;
 }
 
 th {
-  border-bottom: 1px solid var(--auro-color-border-primary-on-light);
+  border-bottom: 1px solid var(--ds-color-border-primary-default, $ds-color-border-primary-default);
   font-weight: unset;
   white-space: nowrap;
 }
 
 td {
   &:first-child {
-    line-height: var(--auro-unitless-scale-200);
+    line-height: var(--ds-unitless-scale-200, $ds-unitless-scale-200);
   }
 }
 
 .deprecated {
   th,
   td {
-    padding-right: var(--auro-size-xxl);
+    padding-right: var(--ds-size-600, $ds-size-600);
   }
 }
 
@@ -62,7 +62,7 @@ td {
 
 tr {
   &:nth-child(even) {
-    background-color: var(--auro-color-base-gray-100);
+    background-color: var(--ds-color-brand-gray-100, $ds-color-brand-gray-100);
   }
 }
 
@@ -80,8 +80,8 @@ tr {
     width: 8rem;
     height: 1rem;
     margin: 0 auto;
-    outline: 1px solid var(--auro-color-base-neutral-400);
-    outline-offset: var(--auro-size-xxs);
+    outline: 1px solid var(--ds-color-brand-neutral-400, $ds-color-brand-neutral-400);
+    outline-offset: var(--ds-size-50, $ds-size-50);
   }
 
   &--circle {
