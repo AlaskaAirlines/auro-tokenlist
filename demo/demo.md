@@ -25,6 +25,24 @@ The first element is the `<auro-tokenlist>` default element. the listing of a to
   ```
 </auro-accordion>
 
+<div class="exampleWrapper">
+  <auro-tokenlist unit="rem" componentData='[
+    { "tokenvalue": "1", "token": "ds-grid-gutter-sm" }
+  ]'></auro-tokenlist>
+</div>
+
+Use the `unit` attribute to add additional context to the unit if one is not given by default.
+
+<auro-accordion alignRight>
+  <span slot="trigger">See code</span>
+
+  ```html
+    <auro-tokenlist unit="rem" componentData='[
+    { "tokenvalue": "1", "token": "ds-grid-gutter-sm" }
+    ]'></auro-tokenlist>
+  ```
+</auro-accordion>
+
 The following example illustrates the `swatchType="rectangle"` feature that includes a sample swatch of the token's color value.
 
 <div class="exampleWrapper">

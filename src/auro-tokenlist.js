@@ -14,6 +14,7 @@ import styleCss from "./style-tokenlist-css.js";
  * @attr {String} type - Selects tokens-list `type`. Allowed options are `current` and `deprecated` for displaying deprecated tokens and their current equivalents. If given value is not allowed or set, defaults to `current`.
  * @attr {String} version - Displays the current token `version` number in a deprecated type tokens list.
  * @attr {Boolean} swatchType - Sets the swatch display type for a current type tokens list. Allowed options are `rectangle` or `circle`. If given value is not allowed or set, defaults to none.
+ * @attr {String} unit - Add context to a value if unit is not output by default.
  */
 
 // build the component class
@@ -25,7 +26,8 @@ class AuroTokenList extends LitElement {
       componentData:    { type: Array },
       type:             { type: String },
       swatchType:       { type: String},
-      version:          { type: Boolean }
+      version:          { type: Boolean },
+      unit:             { type: String }
     };
   }
 
@@ -129,7 +131,7 @@ class AuroTokenList extends LitElement {
             ${varName(index.token, 'css')}
           </td>
           <td>
-            ${index.tokenvalue}${this.size(index.token)}
+            ${index.tokenvalue}${this.size(index.token)}${this.unit}
           </td>
           <td>
     ${this.swatchType === "circle" || this.swatchType === "rectangle"
@@ -150,7 +152,6 @@ class AuroTokenList extends LitElement {
   }
 }
 
-/* istanbul ignore else */
 // define the name of the custom component
 if (!customElements.get("auro-tokenlist")) {
   customElements.define("auro-tokenlist", AuroTokenList);
