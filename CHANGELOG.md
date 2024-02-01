@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+# [1.2.0](https://github.com/AlaskaAirlines/auro-tokenlist/compare/v1.1.3...v1.2.0) (2024-02-01)
+
+
+### Features
+
+* add support for new unit feature ([0b8986c](https://github.com/AlaskaAirlines/auro-tokenlist/commit/0b8986ce862d3594dbeda3570a8299a62f77aead))
+
 ## [1.1.3](https://github.com/AlaskaAirlines/auro-tokenlist/compare/v1.1.2...v1.1.3) (2023-11-01)
 
 
