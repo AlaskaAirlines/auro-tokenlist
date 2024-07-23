@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.2.1](https://github.com/AlaskaAirlines/auro-tokenlist/compare/v1.2.0...v1.2.1) (2024-07-23)
+
+
+### Performance Improvements
+
+* update to current token prefix ([99ab63e](https://github.com/AlaskaAirlines/auro-tokenlist/commit/99ab63e1825537d93a4cd8297ce68828e6b2a359))
+
 # [1.2.0](https://github.com/AlaskaAirlines/auro-tokenlist/compare/v1.1.3...v1.2.0) (2024-02-01)
 
 
