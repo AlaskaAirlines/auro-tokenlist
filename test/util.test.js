@@ -4,7 +4,7 @@ import { varName } from '../src/util.js';
 describe('utility - varName', () => {
 
   it('varname for ds token', async () => {
-    expect(varName('some-color', 'ds')).to.equal("var(--auro-some-color)");
+    expect(varName('some-color', 'ds')).to.equal("var(--ds-some-color)");
   });
 
   it('varname for deprecated token', async () => {

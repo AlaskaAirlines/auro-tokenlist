@@ -10,7 +10,7 @@ export const varName = (name, type) => {
 
   switch (type) {
     case 'ds':
-      return `var(--auro-${name})`;
+      return `var(--ds-${name})`;
     case 'deprecated':
       return `var(--${name})`;
     case 'css':
