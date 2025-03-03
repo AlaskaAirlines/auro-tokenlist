@@ -1,5 +1,19 @@
 # Semantic Release Automated Changelog
 
+# [1.3.0](https://github.com/AlaskaAirlines/auro-tokenlist/compare/v1.2.1...v1.3.0) (2025-03-03)
+
+
+### Features
+
+* update design tokens to v5 ([0449251](https://github.com/AlaskaAirlines/auro-tokenlist/commit/04492517e3cf3c0a12309c3dd5b2abddc4d87408))
+* update node & design tokens ([47383a6](https://github.com/AlaskaAirlines/auro-tokenlist/commit/47383a68a0473a2cceb225aec78865f82e6b7a03))
+
+
+### Performance Improvements
+
+* remove test for 16.x, update version ([0311715](https://github.com/AlaskaAirlines/auro-tokenlist/commit/0311715328e07b1a0668995680cac920f6b2cdfa))
+* update webcorestylesheets ([5cafb2b](https://github.com/AlaskaAirlines/auro-tokenlist/commit/5cafb2bcc602ef0c1c25701bd86cfa51ef8ecd55))
+
 ## [1.2.1](https://github.com/AlaskaAirlines/auro-tokenlist/compare/v1.2.0...v1.2.1) (2024-07-23)
 
 
