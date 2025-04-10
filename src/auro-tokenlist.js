@@ -60,10 +60,22 @@ class AuroTokenList extends LitElement {
   /**
    * @private
    * @param {string} arg Token.
+   * @param {string} value Token value.
    * @returns {string} Token size.
    */
-  size(arg) {
-    return arg.includes("size") ? 'rem' : '';
+  size(arg, value) {
+    // Only add 'rem' if it's a size token AND doesn't already have units
+    if (arg.includes("size")) {
+      const valueStr = String(value);
+      if (valueStr.includes('px') || valueStr.includes('rem') || valueStr.includes('em') || valueStr.includes('%')) {
+        // Already has units, don't add more
+        return '';
+      }
+      // Add rem unit
+      return 'rem';
+    }
+    // Not a size token
+    return '';
   }
 
   /**
@@ -131,7 +143,7 @@ class AuroTokenList extends LitElement {
             ${varName(index.token, 'css')}
           </td>
           <td>
-            ${index.tokenvalue}${this.size(index.token)}${this.unit}
+            ${index.tokenvalue}${this.size(index.token, index.tokenvalue)}${this.unit}
           </td>
           <td>
     ${this.swatchType === "circle" || this.swatchType === "rectangle"
