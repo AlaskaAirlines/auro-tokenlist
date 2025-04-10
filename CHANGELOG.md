@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+# [1.4.0](https://github.com/AlaskaAirlines/auro-tokenlist/compare/v1.3.0...v1.4.0) (2025-04-10)
+
+
+### Features
+
+* check if the value already has units before adding 'rem' ([ad8cc2c](https://github.com/AlaskaAirlines/auro-tokenlist/commit/ad8cc2c2943edb9e0fc99f455e61cff47522f732))
+
 # [1.3.0](https://github.com/AlaskaAirlines/auro-tokenlist/compare/v1.2.1...v1.3.0) (2025-03-03)
 
 
