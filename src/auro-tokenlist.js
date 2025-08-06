@@ -5,7 +5,7 @@
 import { LitElement, html, css } from "lit-element";
 import { varName } from "./util.js";
 import "focus-visible/dist/focus-visible.min.js";
-import styleCss from "./style-tokenlist-css.js";
+import styleCss from "./styles/style-tokenlist-css.js";
 
 /**
  * The auro-tokenlist element provides users a way to display a table of design token names and values.

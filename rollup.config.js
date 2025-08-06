@@ -1,6 +1,6 @@
-import { terser } from 'rollup-plugin-terser';
+import terser from '@rollup/plugin-terser';
 import commonjs from '@rollup/plugin-commonjs';
-import minifyHTML from 'rollup-plugin-minify-html-literals';
+import minifyHTML from '@lit-labs/rollup-plugin-minify-html-literals';
 import resolve from '@rollup/plugin-node-resolve';
 import serve from 'rollup-plugin-serve';
 

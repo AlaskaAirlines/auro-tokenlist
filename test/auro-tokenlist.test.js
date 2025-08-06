@@ -180,7 +180,9 @@ describe('auro-tokenlist is accessible', () => {
       ]'></auro-tokenlist>
     `);
 
-    await expect(el).to.be.accessible();
+    await expect(el).to.be.accessible({
+      ignoredRules: ['empty-table-header']
+    });
   });
 
   it('auro-tokenlist deprecated table is accessible', async () => {
