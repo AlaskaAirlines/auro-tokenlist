@@ -64,8 +64,10 @@ class AuroTokenList extends LitElement {
    * @returns {string} Token size.
    */
   size(arg, value) {
+    // Supports Auro Classic tokens only & provided for backwards compatibility
     // Only add 'rem' if it's a size token AND doesn't already have units
-    if (arg.includes("size")) {
+    // Check for "ds-size" or "-size-" patterns in ds tokens
+    if (arg.match(/ds-size|ds-.*-size-/iu)) {
       const valueStr = String(value);
       if (valueStr.includes('px') || valueStr.includes('rem') || valueStr.includes('em') || valueStr.includes('%')) {
         // Already has units, don't add more
