@@ -1,0 +1,94 @@
+// Copyright (c) 2021 Alaska Airlines. All right reserved. Licensed under the Apache-2.0 license
+// See LICENSE in the project root for license information.
+
+// ---------------------------------------------------------------------
+
+// Import Auro tokens
+@use "@aurodesignsystem/design-tokens/dist/legacy/auro-classic/SCSSVariables" as vac;
+@use "@aurodesignsystem/design-tokens/dist/legacy/auro-classic/SassCustomProperties" as vacp;
+
+@use "@aurodesignsystem/webcorestylesheets/src/breakpoints";
+@use "@aurodesignsystem/webcorestylesheets/src/core";
+
+/* stylelint-disable font-weight-notation */
+table {
+  width: 100%;
+  margin-bottom: var(--ds-size-600, vac.$ds-size-600);
+  border-collapse: collapse;
+}
+
+thead {
+  text-align: left;
+}
+
+tbody {
+  font-size: var(--ds-text-body-size-sm, vac.$ds-text-body-size-sm);
+  font-weight: var(--ds-text-heading-display-weight, vac.$ds-text-heading-display-weight);
+}
+
+th,
+td {
+  padding: var(--ds-size-200, vac.$ds-size-200) var(--ds-size-600, vac.$ds-size-600) var(--ds-size-150, vac.$ds-size-150) var(--ds-size-150, vac.$ds-size-150);
+  white-space: nowrap;
+}
+
+th {
+  border-bottom: 1px solid var(--ds-color-border-primary-default, vac.$ds-color-border-primary-default);
+  font-weight: unset;
+  white-space: nowrap;
+}
+
+td {
+  &:first-child {
+    line-height: var(--ds-unitless-scale-200, vac.$ds-unitless-scale-200);
+  }
+}
+
+.deprecated {
+  th,
+  td {
+    padding-right: var(--ds-size-600, vac.$ds-size-600);
+  }
+}
+
+.current {
+  th,
+  td {
+    &:nth-child(odd) {
+      width: 50%;
+    }
+  }
+}
+
+tr {
+  &:nth-child(even) {
+    background-color: var(--ds-color-brand-gray-100, vac.$ds-color-brand-gray-100);
+  }
+}
+
+/* stylelint-disable declaration-no-important */
+.noPadding {
+  padding-right: 0 !important;
+}
+
+.center {
+  text-align: center;
+}
+
+.swatch {
+  &--rectangle {
+    width: 8rem;
+    height: 1rem;
+    margin: 0 auto;
+    outline: 1px solid var(--ds-color-brand-neutral-400, vac.$ds-color-brand-neutral-400);
+    outline-offset: var(--ds-size-50, vac.$ds-size-50);
+  }
+
+  &--circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 0 auto;
+    outline: none;
+  }
+}

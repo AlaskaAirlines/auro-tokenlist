@@ -1,0 +1,129 @@
+// Copyright (c) 2021 Alaska Airlines. All right reserved. Licensed under the Apache-2.0 license
+// See LICENSE in the project root for license information.
+
+// ---------------------------------------------------------------------
+
+// Import Auro tokens
+@use "@aurodesignsystem/design-tokens/dist/legacy/auro-classic/SCSSVariables" as vac;
+@use "@aurodesignsystem/design-tokens/dist/legacy/auro-classic/SassCustomProperties" as vacp;
+
+@use "@aurodesignsystem/webcorestylesheets/src/breakpoints";
+@use "@aurodesignsystem/webcorestylesheets/src/core";
+
+/* stylelint-disable selector-max-combinators,
+  no-descending-specificity,
+  declaration-no-important,
+  selector-max-compound-selectors,
+  selector-class-pattern
+*/
+
+:host {
+  > * {
+    --size-icon-square-lg: 3rem;
+  }
+
+  display: flex;
+  align-items: center;
+  padding: var(--ds-size-150, vac.$ds-size-150) 0;
+}
+
+:host([ondark]) {
+  .avatar {
+    background-color: var(--ds-color-background-darker, vac.$ds-color-background-darker);
+  }
+
+  .alertBox {
+    background-color: transparent;
+  }
+
+  .avatar--color {
+    box-shadow: inset 0 0 var(--ds-size-25, vac.$ds-size-25) var(--ds-size-100, vac.$ds-size-100, vac.$ds-size-100, vac.$ds-size-100) var(--ds-color-background-darker, vac.$ds-color-background-darker);
+  }
+
+  .uiBox {
+    &:after {
+      background-color: var(--ds-color-background-darker, vac.$ds-color-background-darker);
+    }
+  }
+}
+
+p {
+  margin: 0;
+}
+
+.avatarWrapper {
+  margin-right: var(--ds-size-200, vac.$ds-size-200);
+}
+
+.avatarToken {
+  font-weight: var(--ds-text-heading-display-weight, vac.$ds-size-200);
+}
+
+.avatar {
+  position: relative;
+  display: flex;
+  width: 5rem;
+  height: 5rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: var(--ds-color-background-lighter, vac.$ds-size-200);
+  clip-path: circle(2.5rem at center);
+  font-size: var(--ds-size-400, vac.$ds-size-400);
+
+  &:before {
+    position: absolute;
+    z-index: 100;
+    width: calc(5rem - 2px);
+    height: calc(5rem - 2px);
+    border: 1px solid var(--ds-color-border-primary-default, vac.$ds-color-border-primary-default);
+    border-radius: 50%;
+    content: '';
+  }
+}
+
+.icon {
+  width: 80%;
+  height: var(--ds-size-100, vac.$ds-size-100);
+  border-radius: var(--ds-size-50, vac.$ds-size-50);
+  margin-right: -40%;
+}
+
+.uiBox,
+.alertBox {
+  position: relative;
+  height: 40px;
+  background-color: inherit;
+
+  // inset image
+  &:after {
+    position: absolute;
+    top: calc(50% - var(--ds-size-50, vac.$ds-size-50));
+    left: 40%;
+    width: 80%;
+    height: var(--ds-size-100, vac.$ds-size-100);
+    border-radius: var(--ds-size-50, vac.$ds-size-50);
+    background-color: var(--ds-color-background-lighter, vac.$ds-size-200);
+    content: '';
+  }
+}
+
+.alertBox {
+  height: 30px;
+  border-width: 1px 0 1px var(--ds-size-50, vac.$ds-size-50);
+  border-style: solid;
+  background-color: var(--ds-color-base-white);
+
+  // inset image
+  &:after {
+    top: calc(50% - var(--ds-size-100, vac.$ds-size-100));
+    left: 15%;
+    width: var(--ds-size-150, vac.$ds-size-150);
+    height: var(--ds-size-150, vac.$ds-size-150);
+    border-width: 1px;
+    border-style: solid;
+    border-color: inherit;
+    border-radius: 50%;
+    background-color: inherit;
+  }
+}

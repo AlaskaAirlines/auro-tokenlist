@@ -50,7 +50,19 @@ beforeEach(() => {
 
 afterEach(()=> {
   window.fetch.restore(); // remove stub
-})
+});
+
+// Helper function to wait for component to be fully initialized with WCAG data
+async function waitForWCAGData(element) {
+  // Wait for firstUpdated to complete and WCAG data to be fetched
+  await elementUpdated(element);
+  
+  // Wait a bit more for async operations to complete
+  await new Promise(resolve => setTimeout(resolve, 100));
+  
+  // Wait for any additional re-renders after WCAG data is loaded
+  await elementUpdated(element);
+}
 
 describe('auro-tokendisplay', () => {
   it('auro-tokendisplay standard is accessible', async () => {
@@ -62,8 +74,7 @@ describe('auro-tokendisplay', () => {
   });
 
   it('auro-tokendisplay custom element is defined', async () => {
-    const el = await Boolean(customElements.get("auro-tokendisplay"));
-    await elementUpdated(el);
+    const el = Boolean(customElements.get("auro-tokendisplay"));
     await expect(el).to.be.true;
   });
 
@@ -91,15 +102,13 @@ describe('auro-tokendisplay', () => {
       <auro-tokendisplay componentData=${componentData}></auro-tokendisplay>
     `);
 
+    // Wait for WCAG data to be fetched and rendered
+    await waitForWCAGData(el);
+
     const tableBodyRowRatio1 = el.shadowRoot.querySelector(".tableListing > tbody tr:nth-of-type(1) td:nth-of-type(5)");
     const tableBodyRowRatio2 = el.shadowRoot.querySelector(".tableListing > tbody tr:nth-of-type(2) td:nth-of-type(5)");
     const tableBodyRowRatio3 = el.shadowRoot.querySelector(".tableListing > tbody tr:nth-of-type(3) td:nth-of-type(5)");
     const tableBodyRowRatio4 = el.shadowRoot.querySelector(".tableListing > tbody tr:nth-of-type(4) td:nth-of-type(5)");
-
-    await elementUpdated(tableBodyRowRatio1);
-    await elementUpdated(tableBodyRowRatio2);
-    await elementUpdated(tableBodyRowRatio3);
-    await elementUpdated(tableBodyRowRatio4);
 
     await expect(tableBodyRowRatio1).to.contain.text("2.14:1");
     await expect(tableBodyRowRatio2).to.contain.text("3.28:1");
@@ -111,10 +120,12 @@ describe('auro-tokendisplay', () => {
     const el = await fixture(html`
       <auro-tokendisplay componentData=${componentDataWithWCAG}></auro-tokendisplay>
     `);
+    
+    // Wait for WCAG data to be fetched and rendered
+    await waitForWCAGData(el);
+    
     const tableBodyRowRatio1 = el.shadowRoot.querySelector(".tableListing > tbody tr:nth-of-type(1) td:nth-of-type(5)");
     const tableBodyRowRatio2 = el.shadowRoot.querySelector(".tableListing > tbody tr:nth-of-type(2) td:nth-of-type(5)");
-    await elementUpdated(tableBodyRowRatio1);
-    await elementUpdated(tableBodyRowRatio2);
 
     await expect(tableBodyRowRatio1).to.contain.text("2.14:1");
     await expect(tableBodyRowRatio2).to.contain.text("3.28:1");
@@ -124,17 +135,15 @@ describe('auro-tokendisplay', () => {
     const el = await fixture(html`
       <auro-tokendisplay componentData=${componentData}></auro-tokendisplay>
     `);
+    
+    // Wait for WCAG data to be fetched and rendered
+    await waitForWCAGData(el);
+    
     const tableBodyRowRatings1 = el.shadowRoot.querySelector(".tableListing > tbody tr:nth-of-type(1) td:nth-of-type(6)");
     const tableBodyRowRatings2 = el.shadowRoot.querySelector(".tableListing > tbody tr:nth-of-type(2) td:nth-of-type(6)");
     const tableBodyRowRatings3 = el.shadowRoot.querySelector(".tableListing > tbody tr:nth-of-type(3) td:nth-of-type(6)");
     const tableBodyRowRatings4 = el.shadowRoot.querySelector(".tableListing > tbody tr:nth-of-type(4) td:nth-of-type(6)");
     const tableBodyRowRatings5 = el.shadowRoot.querySelector(".tableListing > tbody tr:nth-of-type(5) td:nth-of-type(6)");
-
-    await elementUpdated(tableBodyRowRatings1);
-    await elementUpdated(tableBodyRowRatings2);
-    await elementUpdated(tableBodyRowRatings3);
-    await elementUpdated(tableBodyRowRatings4);
-    await elementUpdated(tableBodyRowRatings5);
 
     await expect(tableBodyRowRatings1.innerHTML).to.contain(`FAIL`);
     await expect(tableBodyRowRatings1.innerHTML).to.contain(`normal`);
@@ -167,15 +176,14 @@ describe('auro-tokendisplay', () => {
     const el = await fixture(html`
       <auro-tokendisplay componentData=${componentDataWithRgbaAndInvalidColor}></auro-tokendisplay>
     `);
+    
+    // Wait for WCAG data to be fetched and rendered
+    await waitForWCAGData(el);
+    
     const tableBodyRowRatio1 = el.shadowRoot.querySelector(".tableListing > tbody tr:nth-of-type(1) td:nth-of-type(5)");
     const tableBodyRowRatio2 = el.shadowRoot.querySelector(".tableListing > tbody tr:nth-of-type(2) td:nth-of-type(5)");
     const tableBodyRowRatings1 = el.shadowRoot.querySelector(".tableListing > tbody tr:nth-of-type(1) td:nth-of-type(6)");
     const tableBodyRowRatings2 = el.shadowRoot.querySelector(".tableListing > tbody tr:nth-of-type(2) td:nth-of-type(6)");
-
-    await elementUpdated(tableBodyRowRatio1);
-    await elementUpdated(tableBodyRowRatio2);
-    await elementUpdated(tableBodyRowRatings1);
-    await elementUpdated(tableBodyRowRatings2);
 
     await expect(tableBodyRowRatio1.innerHTML).to.contain(`n/a`);
     await expect(tableBodyRowRatings1.innerHTML).to.contain(`FAIL`);
