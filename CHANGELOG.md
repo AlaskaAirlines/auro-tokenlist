@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.4.1](https://github.com/AlaskaAirlines/auro-tokenlist/compare/v1.4.0...v1.4.1) (2025-08-07)
+
+
+### Bug Fixes
+
+* only add 'rem' to ds-size tokens (auro classic) ([54607c4](https://github.com/AlaskaAirlines/auro-tokenlist/commit/54607c4591f11cde1a365fe0bb0f30c3488d99a6))
+
 # [1.4.0](https://github.com/AlaskaAirlines/auro-tokenlist/compare/v1.3.0...v1.4.0) (2025-04-10)
 
 
