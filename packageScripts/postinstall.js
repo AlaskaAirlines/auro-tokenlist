@@ -1,9 +1,13 @@
 'use strict';
 
-const chalk = require('chalk');
-const pjson = require('../package.json');
+import fs from 'fs';
 
-console.log(chalk.hex('#f26135')(`
+const pjson = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
+
+(async () => {
+  const chalk = await import('chalk');
+
+  console.log(chalk.default.hex('#f26135')(`
 
  _______                   __           __ __
 |     __|.---.-.--.--.    |  |--.-----.|  |  |.-----.
@@ -19,8 +23,9 @@ console.log(chalk.hex('#f26135')(`
 ╭ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ──────────────────────────────╮
 
         Thanks for installing the latest version
-                of `) + chalk.hex('#ffd200').bold(`auro-tokenlist v${pjson.version}.`) + chalk.hex('#f26135')(`
+                of `) + chalk.default.hex('#ffd200').bold(`auro-tokenlist v${pjson.version}.`) + chalk.default.hex('#f26135')(`
 
 ╰─────────────────────────────── ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─╯
 `)
-);
+  );
+})();

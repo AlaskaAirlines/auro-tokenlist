@@ -5,7 +5,7 @@
 
 import { html, css, LitElement } from "lit-element";
 import "focus-visible/dist/focus-visible.min.js";
-import styleCss from "./style-tokenavatar-css.js";
+import styleCss from "./styles/style-tokenavatar-css.js";
 import { varName } from "./util.js";
 
 /**

@@ -4,7 +4,7 @@
 // ---------------------------------------------------------------------
 import { html, css, LitElement } from "lit-element";
 import "focus-visible/dist/focus-visible.min.js";
-import styleCss from "./style-tokendisplay-css.js";
+import styleCss from "./styles/style-tokendisplay-css.js";
 import { varName } from "./util";
 import cacheFetch from "./cacheFetch";
 

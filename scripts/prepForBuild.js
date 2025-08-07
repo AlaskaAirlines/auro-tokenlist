@@ -1,4 +1,4 @@
-const fs = require('fs');
+import fs from 'fs';
 const bundle = 'auro-tokenlist__bundled.js';
 const indexFile = './build/index.html';
 
