@@ -1,5 +1,14 @@
 # Semantic Release Automated Changelog
 
+## [1.4.2](https://github.com/AlaskaAirlines/auro-tokenlist/compare/v1.4.1...v1.4.2) (2025-09-29)
+
+
+### Performance Improvements
+
+* update packages ([0333701](https://github.com/AlaskaAirlines/auro-tokenlist/commit/0333701a0d9b5eb87023ab71c306b5ec4b92ec1b))
+* update packages & repo structure ([8640624](https://github.com/AlaskaAirlines/auro-tokenlist/commit/864062453b4704a218b6060f9faf6c5f8ec630eb))
+* update sweep command ([d8b5da8](https://github.com/AlaskaAirlines/auro-tokenlist/commit/d8b5da882a62787af73b67040aa9c5df311588b6))
+
 ## [1.4.1](https://github.com/AlaskaAirlines/auro-tokenlist/compare/v1.4.0...v1.4.1) (2025-08-07)
 
 
