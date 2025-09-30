@@ -10,6 +10,12 @@
 @use "@aurodesignsystem/webcorestylesheets/src/breakpoints";
 @use "@aurodesignsystem/webcorestylesheets/src/core";
 
+$rectangle-swatch-width: 8rem !default;
+$rectangle-swatch-height: 1rem !default;
+
+$circle-swatch-width: 40px !default;
+$circle-swatch-height: 40px !default;
+
 /* stylelint-disable font-weight-notation */
 table {
   width: 100%;
@@ -60,6 +66,13 @@ td {
   }
 }
 
+// Gradient strings are long, so allow them to wrap
+.value {
+  &.is-gradient {
+    white-space: pre-wrap;
+  }
+}
+
 tr {
   &:nth-child(even) {
     background-color: var(--ds-color-brand-gray-100, vac.$ds-color-brand-gray-100);
@@ -77,18 +90,28 @@ tr {
 
 .swatch {
   &--rectangle {
-    width: 8rem;
-    height: 1rem;
+    width: $rectangle-swatch-width;
+    height: $rectangle-swatch-height;
     margin: 0 auto;
     outline: 1px solid var(--ds-color-brand-neutral-400, vac.$ds-color-brand-neutral-400);
     outline-offset: var(--ds-size-50, vac.$ds-size-50);
+    
+    // If the swatch is a gradient, give it height
+    &.is-gradient {
+      height: $rectangle-swatch-width;
+    }
   }
 
   &--circle {
-    width: 40px;
-    height: 40px;
+    width: $circle-swatch-width;
+    height: $circle-swatch-height;
     border-radius: 50%;
     margin: 0 auto;
     outline: none;
+
+    // If the swatch is a gradient, give it height
+    &.is-gradient {
+      height: $circle-swatch-width;
+    }
   }
 }
