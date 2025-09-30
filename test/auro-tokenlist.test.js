@@ -57,11 +57,15 @@ describe('auro-tokenlist', () => {
 
     await expect(tableBodyRow1.querySelector("td:nth-of-type(1)")).to.contain.text("var(--ds-color-brand-atlas-100)");
     await expect(tableBodyRow1.querySelector("td:nth-of-type(2)")).to.contain.text("#cde6ff");
-    await expect(tableBodyRow1.querySelector("td:nth-of-type(3)")).to.contain.html(`<div class="swatch--rectangle" style="background-color: var(--ds-color-brand-atlas-100)">`);
+    const swatch1 = tableBodyRow1.querySelector("td:nth-of-type(3) div.swatch--rectangle");
+    await expect(swatch1).to.exist;
+    await expect(swatch1.style.background).to.equal("var(--ds-color-brand-atlas-100)");
 
     await expect(tableBodyRow2.querySelector("td:nth-of-type(1)")).to.contain.text("var(--ds-color-brand-atlas-200)");
     await expect(tableBodyRow2.querySelector("td:nth-of-type(2)")).to.contain.text("#6bb7fb");
-    await expect(tableBodyRow2.querySelector("td:nth-of-type(3)")).to.contain.html(`<div class="swatch--rectangle" style="background-color: var(--ds-color-brand-atlas-200)">`);
+    const swatch2 = tableBodyRow2.querySelector("td:nth-of-type(3) div.swatch--rectangle");
+    await expect(swatch2).to.exist;
+    await expect(swatch2.style.background).to.equal("var(--ds-color-brand-atlas-200)");
 
   });
 
@@ -77,11 +81,58 @@ describe('auro-tokenlist', () => {
 
     await expect(tableBodyRow1.querySelector("td:nth-of-type(1)")).to.contain.text("var(--ds-color-brand-canyon-300)");
     await expect(tableBodyRow1.querySelector("td:nth-of-type(2)")).to.contain.text("#f26135");
-    await expect(tableBodyRow1.querySelector("td:nth-of-type(3)")).to.contain.html(`<div class="swatch--circle" style="background-color: var(--ds-color-brand-canyon-300)">`);
+    const swatch1 = tableBodyRow1.querySelector("td:nth-of-type(3) div.swatch--circle");
+    await expect(swatch1).to.exist;
+    await expect(swatch1.style.background).to.equal("var(--ds-color-brand-canyon-300)");
 
     await expect(tableBodyRow2.querySelector("td:nth-of-type(1)")).to.contain.text("var(--ds-color-brand-breeze-100)");
     await expect(tableBodyRow2.querySelector("td:nth-of-type(2)")).to.contain.text("#c0f7ff");
-    await expect(tableBodyRow2.querySelector("td:nth-of-type(3)")).to.contain.html(`<div class="swatch--circle" style="background-color: var(--ds-color-brand-breeze-100)">`);
+    const swatch2 = tableBodyRow2.querySelector("td:nth-of-type(3) div.swatch--circle");
+    await expect(swatch2).to.exist;
+    await expect(swatch2.style.background).to.equal("var(--ds-color-brand-breeze-100)");
+
+  });
+
+  it('auro-tokenlist current table with gradient swatch displays gradient background', async () => {
+    const el = await fixture(html`
+      <auro-tokenlist swatchType="rectangle" .componentData=${[]}></auro-tokenlist>
+    `);
+    
+    // Set componentData programmatically to pass an object
+    el.componentData = [{
+      "tokenvalue": {
+        "gradientType": "composite",
+        "layers": [
+          {
+            "gradientType": "linear",
+            "direction": "180deg",
+            "stops": [
+              {"color": "#262043", "alpha": 0.65, "position": "0%"},
+              {"color": "#262043", "alpha": 0, "position": "65%"}
+            ]
+          },
+          {
+            "gradientType": "linear",
+            "direction": "90deg",
+            "stops": [
+              {"color": "#463c8f", "position": "25.8%"},
+              {"color": "#ce0c88", "position": "100%"}
+            ]
+          }
+        ]
+      },
+      "token": "ds-advanced-color-expanded-widget-background"
+    }];
+    
+    await el.updateComplete;
+    await el.updateComplete; // Wait one more cycle to ensure render is complete
+    
+    const tableBodyRow1 = el.shadowRoot.querySelector("tbody tr:nth-of-type(1)");
+
+    await expect(tableBodyRow1.querySelector("td:nth-of-type(1)")).to.contain.text("var(--ds-advanced-color-expanded-widget-background)");
+    await expect(tableBodyRow1.querySelector("td:nth-of-type(2) span.is-gradient")).to.contain.text("linear-gradient(180deg, rgba(38, 32, 67, 0.65) 0%, rgba(38, 32, 67, 0) 65%), linear-gradient(90deg, #463c8f 25.8%, #ce0c88 100%)");
+    await expect(tableBodyRow1.querySelector("td:nth-of-type(3) div.swatch--rectangle")).to.have.class("is-gradient");
+    await expect(tableBodyRow1.querySelector("td:nth-of-type(3)")).to.contain.html(`<div class="swatch--rectangle is-gradient" style="background: var(--ds-advanced-color-expanded-widget-background)">`);
 
   });
 

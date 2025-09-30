@@ -82,6 +82,68 @@ class AuroTokenList extends LitElement {
 
   /**
    * @private
+   * @param {string} value Token value.
+   * @returns {boolean} Whether the value is a gradient.
+   */
+  isGradient(value) {
+    // Check if value is an object with gradientType property
+    if (typeof value === 'object' && value !== null && value.gradientType) {
+      return true;
+    }
+    
+    // Fallback: check if string contains 'gradient'
+    const valueStr = String(value).toLowerCase();
+    return valueStr.includes('gradient');
+  }
+
+  /**
+   * @private
+   * @param {Object} gradientObj Gradient object.
+   * @returns {string} CSS gradient string.
+   */
+  formatGradientValue(gradientObj) {
+    if (!gradientObj || typeof gradientObj !== 'object') {
+      return gradientObj;
+    }
+
+    if (gradientObj.gradientType === 'composite' && gradientObj.layers) {
+      // Composite gradient - join all layers
+      return gradientObj.layers.map(layer => this.formatSingleGradient(layer)).join(', ');
+    }
+    
+    return this.formatSingleGradient(gradientObj);
+  }
+
+  /**
+   * @private
+   * @param {Object} gradient Single gradient layer.
+   * @returns {string} CSS gradient string.
+   */
+  formatSingleGradient(gradient) {
+    const stops = gradient.stops.map(stop => {
+      const color = stop.alpha !== undefined 
+        ? `rgba(${this.hexToRgb(stop.color)}, ${stop.alpha})`
+        : stop.color;
+      return `${color} ${stop.position}`;
+    }).join(', ');
+    
+    return `linear-gradient(${gradient.direction}, ${stops})`;
+  }
+
+  /**
+   * @private
+   * @param {string} hex Hex color.
+   * @returns {string} RGB values.
+   */
+  hexToRgb(hex) {
+    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result 
+      ? `${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)}`
+      : '0, 0, 0';
+  }
+
+  /**
+   * @private
    * @param {string} value Type of.
    * @returns {string} Token size.
    */
@@ -145,17 +207,20 @@ class AuroTokenList extends LitElement {
             ${varName(index.token, 'css')}
           </td>
           <td>
-            ${index.tokenvalue}${this.size(index.token, index.tokenvalue)}${this.unit}
+            <span class="value ${this.isGradient(index.tokenvalue) ? 'is-gradient' : ''}">${typeof index.tokenvalue === 'object' 
+              ? this.formatGradientValue(index.tokenvalue)
+              : index.tokenvalue}${this.size(index.token, index.tokenvalue)}${this.unit}</span>
           </td>
           <td>
     ${this.swatchType === "circle" || this.swatchType === "rectangle"
-    ? html`
-            <div
-              class="swatch--${this.swatchType}"
-              style="background-color: ${varName(index.token, 'css')}">
-            </div>
-    `
-    : html``}
+? html`
+    <div
+      class="swatch--${this.swatchType} ${this.isGradient(index.tokenvalue) ? 'is-gradient' : ''}"
+      style="background: ${varName(index.token, 'css')}">
+    </div>
+`
+: html``}
+
           </td>
             `}
         </tr>
