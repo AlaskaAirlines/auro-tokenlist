@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+# [1.5.0](https://github.com/AlaskaAirlines/auro-tokenlist/compare/v1.4.2...v1.5.0) (2025-10-01)
+
+
+### Features
+
+* add support for gradient tokens ([e762695](https://github.com/AlaskaAirlines/auro-tokenlist/commit/e7626955ad83c7da3f0b9aafbdb1ecfae5d9f2b4))
+
 ## [1.4.2](https://github.com/AlaskaAirlines/auro-tokenlist/compare/v1.4.1...v1.4.2) (2025-09-29)
 
 
