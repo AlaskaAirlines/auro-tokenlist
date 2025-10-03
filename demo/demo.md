@@ -161,10 +161,10 @@ The following example illustrates the standard token display table.
   ```
 </auro-accordion>
 
-This example illustrates the `ondark` token display table.
+This example illustrates the `appearance="inverse"` token display table.
 
 <div class="exampleWrapper">
-  <auro-tokendisplay ondark componentData='[
+  <auro-tokendisplay appearance="inverse" componentData='[
     { "backgroundcolor": "#6bb7fb", "colorname": "color-brand-atlas-200", "usage": "Notification color on light backgrounds" },
     { "backgroundcolor": "#2492eb", "colorname": "color-brand-atlas-300", "usage": "Notification color on light backgrounds" },
     { "backgroundcolor": "#0074cb", "colorname": "color-brand-atlas-400", "usage": "Notification color on light backgrounds" },
@@ -176,7 +176,7 @@ This example illustrates the `ondark` token display table.
   <span slot="trigger">See code</span>
 
   ```html
-  <auro-tokendisplay ondark componentData='[
+  <auro-tokendisplay appearance="inverse" componentData='[
     { "backgroundcolor": "#6bb7fb", "colorname": "color-brand-atlas-200", "usage": "Notification color on light backgrounds" },
     { "backgroundcolor": "#2492eb", "colorname": "color-brand-atlas-300", "usage": "Notification color on light backgrounds" },
     { "backgroundcolor": "#0074cb", "colorname": "color-brand-atlas-400", "usage": "Notification color on light backgrounds" },
@@ -193,11 +193,11 @@ The `<auro-tokenavatar>` custom element is a great UI option for when users may:
 * Use illustrative avatar to display color listing
 * Need to illustrate between text, border, alert, interactive or icon uses
 
-The following example illustrates the auro token avatar with the `avatartype="font"` attribute in standard and ondark modes.
+The following example illustrates the auro token avatar with the `avatartype="font"` attribute in standard with `appearance="inverse"`.
 
 <div class="exampleWrapper">
   <auro-tokenavatar avatartype="font" colorname="ds-color-text-primary-default"></auro-tokenavatar>
-  <auro-tokenavatar avatartype="font" ondark colorname="ds-color-text-primary-inverse"></auro-tokenavatar>
+  <auro-tokenavatar avatartype="font" appearance="inverse" colorname="ds-color-text-primary-inverse"></auro-tokenavatar>
 </div>
 
 <auro-accordion alignRight>
@@ -205,11 +205,11 @@ The following example illustrates the auro token avatar with the `avatartype="fo
 
   ```html
     <auro-tokenavatar avatartype="font" colorname="ds-color-text-primary-default"></auro-tokenavatar>
-    <auro-tokenavatar avatartype="font" ondark colorname="ds-color-text-primary-inverse"></auro-tokenavatar>
+    <auro-tokenavatar avatartype="font" appearance="inverse" colorname="ds-color-text-primary-inverse"></auro-tokenavatar>
   ```
 </auro-accordion>
 
-The following example illustrates the auro token avatar with `avatartype="border"` attribute in standard and ondark modes.
+The following example illustrates the auro token avatar with `avatartype="border"` attribute in standard with `appearance="inverse"`.
 
 <div class="exampleWrapper">
   <auro-tokenavatar avatartype="border" colorname="ds-color-border-error-default"></auro-tokenavatar>
@@ -223,7 +223,7 @@ The following example illustrates the auro token avatar with `avatartype="border
   ```
 </auro-accordion>
 
-The following example illustrates the auro token avatar with `avatartype="alert"` attribute in standard and ondark modes.
+The following example illustrates the auro token avatar with `avatartype="alert"` attribute in standard with `appearance="inverse"`.
 
 <div class="exampleWrapper">
   <auro-tokenavatar avatartype="alert" colorname="ds-color-alert-success-default"></auro-tokenavatar>
@@ -237,11 +237,11 @@ The following example illustrates the auro token avatar with `avatartype="alert"
   ```
 </auro-accordion>
 
-The following example illustrates the auro token avatar with `avatartype="ui"` attribute in standard and ondark modes.
+The following example illustrates the auro token avatar with `avatartype="ui"` attribute in standard with `appearance="inverse"`.
 
 <div class="exampleWrapper">
   <auro-tokenavatar avatartype="ui" colorname="ds-color-ui-default-default"></auro-tokenavatar>
-  <auro-tokenavatar avatartype="ui" ondark colorname="ds-color-ui-default-inverse"></auro-tokenavatar>
+  <auro-tokenavatar avatartype="ui" appearance="inverse" colorname="ds-color-ui-default-inverse"></auro-tokenavatar>
 </div>
 
 <auro-accordion alignRight>
@@ -249,15 +249,15 @@ The following example illustrates the auro token avatar with `avatartype="ui"` a
 
   ```html
   <auro-tokenavatar avatartype="ui" colorname="ds-color-ui-primary-default"></auro-tokenavatar>
-  <auro-tokenavatar avatartype="ui" ondark colorname="ds-color-ui-primary-inverse"></auro-tokenavatar>
+  <auro-tokenavatar avatartype="ui" appearance="inverse" colorname="ds-color-ui-primary-inverse"></auro-tokenavatar>
   ```
 </auro-accordion>
 
-The following example illustrates the auro token avatar with `avatartype="icon"` attribute in standard and ondark modes.
+The following example illustrates the auro token avatar with `avatartype="icon"` attribute in standard with `appearance="inverse"`.
 
 <div class="exampleWrapper">
   <auro-tokenavatar avatartype="icon" colorname='ds-color-ui-default-default'></auro-tokenavatar>
-  <auro-tokenavatar avatartype="icon" ondark colorname='ds-color-ui-default-inverse'></auro-tokenavatar>
+  <auro-tokenavatar avatartype="icon" appearance="inverse" colorname='ds-color-ui-default-inverse'></auro-tokenavatar>
 </div>
 
 <auro-accordion alignRight>
@@ -265,6 +265,6 @@ The following example illustrates the auro token avatar with `avatartype="icon"`
 
   ```html
   <auro-tokenavatar avatartype="icon" colorname='ds-color-ui-default-default'></auro-tokenavatar>
-  <auro-tokenavatar avatartype="icon" ondark colorname='ds-color-ui-default-inverse'></auro-tokenavatar>
+  <auro-tokenavatar avatartype="icon" appearance="inverse" colorname='ds-color-ui-default-inverse'></auro-tokenavatar>
   ```
 </auro-accordion>

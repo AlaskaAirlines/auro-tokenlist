@@ -4,16 +4,17 @@ The auro-tokenavatar element provides users a way to illustrate design token col
 
 ## Attributes
 
-| Attribute | Type      | Description                             |
-|-----------|-----------|-----------------------------------------|
-| `ondark`  | `Boolean` | Defines if color state is to be on-dark |
+| Attribute | Type      | Description                            |
+|-----------|-----------|----------------------------------------|
+| `ondark`  | `Boolean` | DEPRECATED - use `appearance` instead. |
 
 ## Properties
 
-| Property     | Attribute    | Type     | Description                                      |
-|--------------|--------------|----------|--------------------------------------------------|
-| `avatartype` | `avatartype` | `String` | Pass in `font`, `border`, `alert`, `ui`, `icon` string to illustrate preferred avatar type |
-| `colorname`  | `colorname`  | `String` | Pass in `-`(dash) to delimitated name of color token |
+| Property     | Attribute    | Type     | Default     | Description                                      |
+|--------------|--------------|----------|-------------|--------------------------------------------------|
+| `appearance` | `appearance` | `string` | "'default'" | Defines whether this component should be light colored for use on dark backgrounds. |
+| `avatartype` | `avatartype` | `string` |             | Pass in `font`, `border`, `alert`, `ui`, `icon` string to illustrate preferred avatar type. |
+| `colorname`  | `colorname`  | `string` |             | Pass in `-`(dash) to delimitated name of color token. |
 
 
 # auro-tokendisplay
@@ -22,10 +23,11 @@ The auro-tokendisplay element provides users a way to illustrate design token co
 
 ## Properties
 
-| Property        | Attribute       | Type      | Description                                      |
-|-----------------|-----------------|-----------|--------------------------------------------------|
-| `componentData` | `componentData` | `Array`   | Pass in `backgroundcolor`, `colorname` & `usage` |
-| `ondark`        | `ondark`        | `Boolean` | Defines if color state is to be on-dark          |
+| Property        | Attribute       | Type      | Default     | Description                                      |
+|-----------------|-----------------|-----------|-------------|--------------------------------------------------|
+| `appearance`    | `appearance`    | `string`  | "'default'" | Defines whether this component should be light colored for use on dark backgrounds. |
+| `componentData` | `componentData` | `array`   |             | Pass in `backgroundcolor`, `colorname` & `usage`. |
+| `ondark`        | `ondark`        | `boolean` |             | DEPRECATED - use `appearance` instead.           |
 
 
 # auro-tokenlist

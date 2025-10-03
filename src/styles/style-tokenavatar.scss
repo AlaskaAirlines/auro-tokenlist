@@ -27,7 +27,8 @@
   padding: var(--ds-size-150, vac.$ds-size-150) 0;
 }
 
-:host([ondark]) {
+:host([ondark]),
+:host([appearance="inverse"]) {
   .avatar {
     background-color: var(--ds-color-background-darker, vac.$ds-color-background-darker);
   }
