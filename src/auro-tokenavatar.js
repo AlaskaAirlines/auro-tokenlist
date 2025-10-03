@@ -11,18 +11,40 @@ import { varName } from "./util.js";
 /**
  * The auro-tokenavatar element provides users a way to illustrate design token colors and their related data for text, border, alert, interactive or icon uses.
  *
- * @attr {String} avatartype - Pass in `font`, `border`, `alert`, `ui`, `icon` string to illustrate preferred avatar type
- * @attr {String} colorname - Pass in `-`(dash) to delimitated name of color token
- * @attr {Boolean} ondark - Defines if color state is to be on-dark
+ * @attr {Boolean} ondark - DEPRECATED - use `appearance` instead.
  */
 
 // build the component class
 class AuroTokenAvatar extends LitElement {
 
+  constructor() {
+    super();
+
+    this.appearance = "default";
+  }
+
   // function to define props used within the scope of this component
   static get properties() {
     return {
+
+      /**
+       * Defines whether this component should be light colored for use on dark backgrounds.
+       * @property {'default', 'inverse'}
+       * @default 'default'
+       */
+      appearance: {
+        type: String,
+        reflect: true
+      },
+
+      /**
+       * Pass in `font`, `border`, `alert`, `ui`, `icon` string to illustrate preferred avatar type.
+       */
       avatartype:   { type: String },
+
+      /**
+       * Pass in `-`(dash) to delimitated name of color token.
+       */
       colorname:    { type: String }
     };
   }

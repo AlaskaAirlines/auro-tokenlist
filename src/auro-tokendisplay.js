@@ -13,15 +13,31 @@ import cacheFetch from "./cacheFetch";
 /**
  * The auro-tokendisplay element provides users a way to illustrate design token colors and their related data and usage in a table.
  *
- * @attr {Array} componentData - Pass in `backgroundcolor`, `colorname` & `usage`
- * @attr {Boolean} ondark - Defines if color state is to be on-dark
  */
 
 class AuroTokenDisplay extends LitElement {
   // function to define props used within the scope of this component
   static get properties() {
     return {
+
+      /**
+       * Defines whether this component should be light colored for use on dark backgrounds.
+       * @property {'default', 'inverse'}
+       * @default 'default'
+       */
+      appearance: {
+        type: String,
+        reflect: true
+      },
+
+      /**
+       * Pass in `backgroundcolor`, `colorname` & `usage`.
+       */
       componentData:   { type: Array },
+
+      /**
+       * DEPRECATED - use `appearance` instead.
+       */
       ondark:          { type: Boolean }
     };
   }
@@ -43,7 +59,7 @@ class AuroTokenDisplay extends LitElement {
       auroDarkestBackground = auroDarkestBackground.substring(1);
     }
 
-    const backgroundColor = this.ondark ? auroDarkestBackground : "#FFFFFF";
+    const backgroundColor = this.appearance === 'inverse' || this.ondark ? auroDarkestBackground : "#FFFFFF";
     const dataWithWCAG = await Promise.all(this.componentData.map(async(index) => {
       // empty out any existing 'wcag' value input by the user (for backwards compatibility).
       index.wcag = undefined;
@@ -173,6 +189,7 @@ class AuroTokenDisplay extends LitElement {
                 <auro-icon
                   emphasis
                   ?ondark="${this.ondark}"
+                  appearance="${this.appearance}"
                   id="ratioInfoIcon"
                   category="alert"
                   name="information-stroke"

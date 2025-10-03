@@ -26,7 +26,7 @@
     "sinon": "^21.0.0"
   },
   "peerDependencies": {
-    "@alaskaairux/auro-icon": "^3.0.0",
+    "@aurodesignsystem-dev/auro-icon": "0.0.0-pr211.2",
     "@alaskaairux/auro-popover": "^2.2.0",
     "@webcomponents/webcomponentsjs": "^2.5.0",
     "focus-visible": "^5.2.0"
