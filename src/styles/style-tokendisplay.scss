@@ -17,7 +17,8 @@
   font-weight-notation
 */
 
-:host([ondark]) {
+:host([ondark]),
+:host([appearance="inverse"]) {
   padding: var(--ds-size-100, vac.$ds-size-100);
 
   .tableListing {
@@ -142,7 +143,8 @@
   background-color: var(--ds-color-alert-success-default, vac.$ds-color-alert-success-default);
 }
 
-:host([onDark]) {
+:host([onDark]),
+:host([appearance="inverse"]) {
   .wcagFail,
   .wcagPass {
     color: var(--ds-color-text-primary-default, vac.$ds-color-text-primary-default);
