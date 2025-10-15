@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.5.1](https://github.com/AlaskaAirlines/auro-tokenlist/compare/v1.5.0...v1.5.1) (2025-10-15)
+
+
+### Performance Improvements
+
+* use `appearance` on icon [#30](https://github.com/AlaskaAirlines/auro-tokenlist/issues/30) ([4e4b002](https://github.com/AlaskaAirlines/auro-tokenlist/commit/4e4b0020b2106924ea5df5083fd49a877bfee250))
+
 # [1.5.0](https://github.com/AlaskaAirlines/auro-tokenlist/compare/v1.4.2...v1.5.0) (2025-10-01)
 
 
