@@ -1,5 +1,6 @@
 .DS_Store
 node_modules/
+docTemplates/
 .cache/
 
 ## Demo support files
@@ -17,5 +18,11 @@ src/**/*.css.map
 dist/
 build/
 
-## Karma code coverage reports
+## Code coverage reports
 coverage/
+
+## Added by Auro CLI migration (github-config-and-gitignore-changes)
+demo/*.md
+demo/*.min.js
+
+custom-elements.json
