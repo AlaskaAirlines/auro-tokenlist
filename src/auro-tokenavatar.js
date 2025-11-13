@@ -3,7 +3,7 @@
 
 // ---------------------------------------------------------------------
 
-import { html, css, LitElement } from "lit-element";
+import { css, html, LitElement } from "lit-element";
 import "focus-visible/dist/focus-visible.min.js";
 import styleCss from "./styles/style-tokenavatar-css.js";
 import { varName } from "./util.js";
@@ -16,7 +16,6 @@ import { varName } from "./util.js";
 
 // build the component class
 class AuroTokenAvatar extends LitElement {
-
   constructor() {
     super();
 
@@ -26,7 +25,6 @@ class AuroTokenAvatar extends LitElement {
   // function to define props used within the scope of this component
   static get properties() {
     return {
-
       /**
        * Defines whether this component should be light colored for use on dark backgrounds.
        * @property {'default', 'inverse'}
@@ -34,18 +32,18 @@ class AuroTokenAvatar extends LitElement {
        */
       appearance: {
         type: String,
-        reflect: true
+        reflect: true,
       },
 
       /**
        * Pass in `font`, `border`, `alert`, `ui`, `icon` string to illustrate preferred avatar type.
        */
-      avatartype:   { type: String },
+      avatartype: { type: String },
 
       /**
        * Pass in `-`(dash) to delimitated name of color token.
        */
-      colorname:    { type: String }
+      colorname: { type: String },
     };
   }
 
@@ -59,47 +57,59 @@ class AuroTokenAvatar extends LitElement {
   render() {
     return html`
       <div class="avatarWrapper">
-        ${this.avatartype
-    ? html``
-    : html`
-          <div class="avatar avatar--color" style="background-color: ${varName(this.colorname, 'css')}"></div>
-        `}
+        ${
+          this.avatartype
+            ? html``
+            : html`
+          <div class="avatar avatar--color" style="background-color: ${varName(this.colorname, "css")}"></div>
+        `
+        }
 
-        ${this.avatartype === 'alert'
-    ? html`
+        ${
+          this.avatartype === "alert"
+            ? html`
           <div class="avatar">
-            <div class="alertBox icon" style="border-color: ${varName(this.colorname, 'css')}"></div>
+            <div class="alertBox icon" style="border-color: ${varName(this.colorname, "css")}"></div>
           </div>
         `
-    : html``}
-        ${this.avatartype === 'ui'
-    ? html`
+            : html``
+        }
+        ${
+          this.avatartype === "ui"
+            ? html`
           <div class="avatar">
-            <div class="uiBox icon" style="background-color: ${varName(this.colorname, 'css')}"></div>
+            <div class="uiBox icon" style="background-color: ${varName(this.colorname, "css")}"></div>
           </div>
           `
-    : html``}
-        ${this.avatartype === 'border'
-    ? html`
+            : html``
+        }
+        ${
+          this.avatartype === "border"
+            ? html`
           <div class="avatar">
-            <div class="icon" style="background-color: ${varName(this.colorname, 'css')}"></div>
+            <div class="icon" style="background-color: ${varName(this.colorname, "css")}"></div>
           </div>
       `
-    : html``}
-        ${this.avatartype === 'font'
-    ? html`
-          <div class="avatar" style="color: ${varName(this.colorname, 'css')}">
+            : html``
+        }
+        ${
+          this.avatartype === "font"
+            ? html`
+          <div class="avatar" style="color: ${varName(this.colorname, "css")}">
             Aa
           </div>
           `
-    : html``}
-        ${this.avatartype === 'icon'
-    ? html`
+            : html``
+        }
+        ${
+          this.avatartype === "icon"
+            ? html`
           <div class="avatar">
-            <auro-icon category="interface" name="location-filled" customColor style="color: ${varName(this.colorname, 'css')}"></auro-icon>
+            <auro-icon category="interface" name="location-filled" customColor style="color: ${varName(this.colorname, "css")}"></auro-icon>
           </div>
           `
-    : html``}
+            : html``
+        }
       </div>
       <div class="contentWrapper">
         <p class="avatarToken">${this.colorname}</p>

@@ -2,7 +2,7 @@
 // See LICENSE in the project root for license information.
 
 // ---------------------------------------------------------------------
-import { LitElement, html, css } from "lit-element";
+import { css, html, LitElement } from "lit-element";
 import { varName } from "./util.js";
 import "focus-visible/dist/focus-visible.min.js";
 import styleCss from "./styles/style-tokenlist-css.js";
@@ -19,15 +19,14 @@ import styleCss from "./styles/style-tokenlist-css.js";
 
 // build the component class
 class AuroTokenList extends LitElement {
-
   // function to define props used within the scope of this component
   static get properties() {
     return {
-      componentData:    { type: Array },
-      type:             { type: String },
-      swatchType:       { type: String},
-      version:          { type: Boolean },
-      unit:             { type: String }
+      componentData: { type: Array },
+      type: { type: String },
+      swatchType: { type: String },
+      version: { type: Boolean },
+      unit: { type: String },
     };
   }
 
@@ -37,10 +36,7 @@ class AuroTokenList extends LitElement {
    */
   getTableHeaders() {
     if (this.type === "deprecated") {
-      const headers = [
-        "Deprecated token",
-        "Current token"
-      ];
+      const headers = ["Deprecated token", "Current token"];
 
       if (this.version === true) {
         headers.push("Version");
@@ -50,11 +46,7 @@ class AuroTokenList extends LitElement {
       return headers;
     }
 
-    return [
-      "Token name",
-      "Value",
-      ""
-    ];
+    return ["Token name", "Value", ""];
   }
 
   /**
@@ -69,15 +61,20 @@ class AuroTokenList extends LitElement {
     // Check for "ds-size" or "-size-" patterns in ds tokens
     if (arg.match(/ds-size|ds-.*-size-/iu)) {
       const valueStr = String(value);
-      if (valueStr.includes('px') || valueStr.includes('rem') || valueStr.includes('em') || valueStr.includes('%')) {
+      if (
+        valueStr.includes("px") ||
+        valueStr.includes("rem") ||
+        valueStr.includes("em") ||
+        valueStr.includes("%")
+      ) {
         // Already has units, don't add more
-        return '';
+        return "";
       }
       // Add rem unit
-      return 'rem';
+      return "rem";
     }
     // Not a size token
-    return '';
+    return "";
   }
 
   /**
@@ -87,13 +84,13 @@ class AuroTokenList extends LitElement {
    */
   isGradient(value) {
     // Check if value is an object with gradientType property
-    if (typeof value === 'object' && value !== null && value.gradientType) {
+    if (typeof value === "object" && value !== null && value.gradientType) {
       return true;
     }
-    
+
     // Fallback: check if string contains 'gradient'
     const valueStr = String(value).toLowerCase();
-    return valueStr.includes('gradient');
+    return valueStr.includes("gradient");
   }
 
   /**
@@ -102,15 +99,17 @@ class AuroTokenList extends LitElement {
    * @returns {string} CSS gradient string.
    */
   formatGradientValue(gradientObj) {
-    if (!gradientObj || typeof gradientObj !== 'object') {
+    if (!gradientObj || typeof gradientObj !== "object") {
       return gradientObj;
     }
 
-    if (gradientObj.gradientType === 'composite' && gradientObj.layers) {
+    if (gradientObj.gradientType === "composite" && gradientObj.layers) {
       // Composite gradient - join all layers
-      return gradientObj.layers.map(layer => this.formatSingleGradient(layer)).join(', ');
+      return gradientObj.layers
+        .map((layer) => this.formatSingleGradient(layer))
+        .join(", ");
     }
-    
+
     return this.formatSingleGradient(gradientObj);
   }
 
@@ -120,13 +119,16 @@ class AuroTokenList extends LitElement {
    * @returns {string} CSS gradient string.
    */
   formatSingleGradient(gradient) {
-    const stops = gradient.stops.map(stop => {
-      const color = stop.alpha !== undefined 
-        ? `rgba(${this.hexToRgb(stop.color)}, ${stop.alpha})`
-        : stop.color;
-      return `${color} ${stop.position}`;
-    }).join(', ');
-    
+    const stops = gradient.stops
+      .map((stop) => {
+        const color =
+          stop.alpha !== undefined
+            ? `rgba(${this.hexToRgb(stop.color)}, ${stop.alpha})`
+            : stop.color;
+        return `${color} ${stop.position}`;
+      })
+      .join(", ");
+
     return `linear-gradient(${gradient.direction}, ${stops})`;
   }
 
@@ -137,9 +139,9 @@ class AuroTokenList extends LitElement {
    */
   hexToRgb(hex) {
     const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-    return result 
-      ? `${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)}`
-      : '0, 0, 0';
+    return result
+      ? `${Number.parseInt(result[1], 16)}, ${Number.parseInt(result[2], 16)}, ${Number.parseInt(result[3], 16)}`
+      : "0, 0, 0";
   }
 
   /**
@@ -148,7 +150,7 @@ class AuroTokenList extends LitElement {
    * @returns {string} Token size.
    */
   deprecatedType(value) {
-    return value ? `ds` : `deprecated`;
+    return value ? "ds" : "deprecated";
   }
 
   /**
@@ -157,15 +159,14 @@ class AuroTokenList extends LitElement {
    * @returns {string} Name of current token.
    */
   currentToken(reference) {
-
-    if (reference === 'n/a') {
+    if (reference === "n/a") {
       return reference;
     }
     if (reference) {
       return `var(--ds-${reference})`;
     }
 
-    return '';
+    return "";
   }
 
   static get styles() {
@@ -180,51 +181,63 @@ class AuroTokenList extends LitElement {
       <table class="${this.type === "deprecated" ? "deprecated" : "current"}">
       <thead>
         <tr>
-    ${this.getTableHeaders().map((item) => html`
+    ${this.getTableHeaders().map(
+      (item) => html`
           <th>${item}</th>
-    `)}
+    `,
+    )}
         </tr>
       </thead>
       <tbody>
-    ${this.componentData.map((index) => html`
+    ${this.componentData.map(
+      (index) => html`
         <tr>
-    ${this.type === "deprecated"
-    ? html`
+    ${
+      this.type === "deprecated"
+        ? html`
           <td>
             ${varName(index.token, this.deprecatedType(index.version))}
           </td>
           <td>
             ${this.currentToken(index.reference)}
           </td>
-    ${this.version
-    ? html`
+    ${
+      this.version
+        ? html`
           <td>${index.version}</td>`
-    : html``}
+        : html``
+    }
           <td>${index.tokenvalue}</td>
     `
-    : html`
+        : html`
           <td>
-            ${varName(index.token, 'css')}
+            ${varName(index.token, "css")}
           </td>
           <td>
-            <span class="value ${this.isGradient(index.tokenvalue) ? 'is-gradient' : ''}">${typeof index.tokenvalue === 'object' 
-              ? this.formatGradientValue(index.tokenvalue)
-              : index.tokenvalue}${this.size(index.token, index.tokenvalue)}${this.unit}</span>
+            <span class="value ${this.isGradient(index.tokenvalue) ? "is-gradient" : ""}">${
+              typeof index.tokenvalue === "object"
+                ? this.formatGradientValue(index.tokenvalue)
+                : index.tokenvalue
+            }${this.size(index.token, index.tokenvalue)}${this.unit}</span>
           </td>
           <td>
-    ${this.swatchType === "circle" || this.swatchType === "rectangle"
-? html`
+    ${
+      this.swatchType === "circle" || this.swatchType === "rectangle"
+        ? html`
     <div
-      class="swatch--${this.swatchType} ${this.isGradient(index.tokenvalue) ? 'is-gradient' : ''}"
-      style="background: ${varName(index.token, 'css')}">
+      class="swatch--${this.swatchType} ${this.isGradient(index.tokenvalue) ? "is-gradient" : ""}"
+      style="background: ${varName(index.token, "css")}">
     </div>
 `
-: html``}
+        : html``
+    }
 
           </td>
-            `}
+            `
+    }
         </tr>
-    `)}
+    `,
+    )}
       </tbody>
     </table>
     `;

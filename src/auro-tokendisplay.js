@@ -2,11 +2,11 @@
 // See LICENSE in the project root for license information.
 
 // ---------------------------------------------------------------------
-import { html, css, LitElement } from "lit-element";
+import { css, html, LitElement } from "lit-element";
 import "focus-visible/dist/focus-visible.min.js";
+import cacheFetch from "./cacheFetch";
 import styleCss from "./styles/style-tokendisplay-css.js";
 import { varName } from "./util";
-import cacheFetch from "./cacheFetch";
 
 /* eslint-disable one-var, no-magic-numbers, max-statements*/
 
@@ -19,7 +19,6 @@ class AuroTokenDisplay extends LitElement {
   // function to define props used within the scope of this component
   static get properties() {
     return {
-
       /**
        * Defines whether this component should be light colored for use on dark backgrounds.
        * @property {'default', 'inverse'}
@@ -27,18 +26,18 @@ class AuroTokenDisplay extends LitElement {
        */
       appearance: {
         type: String,
-        reflect: true
+        reflect: true,
       },
 
       /**
        * Pass in `backgroundcolor`, `colorname` & `usage`.
        */
-      componentData:   { type: Array },
+      componentData: { type: Array },
 
       /**
        * DEPRECATED - use `appearance` instead.
        */
-      ondark:          { type: Boolean }
+      ondark: { type: Boolean },
     };
   }
 
@@ -51,26 +50,37 @@ class AuroTokenDisplay extends LitElement {
   // Lifecycle function currently in use to load wcag ratings from webaim.org
   // re-uses or creates wcag object for each item for backwards compatibility
   async firstUpdated() {
-    const computedDarkestBackground = getComputedStyle(document.documentElement).getPropertyValue('--auro-color-background-darkest');
-    let auroDarkestBackground = computedDarkestBackground !== "" ? computedDarkestBackground : " #00274a";
+    const computedDarkestBackground = getComputedStyle(
+      document.documentElement,
+    ).getPropertyValue("--auro-color-background-darkest");
+    let auroDarkestBackground =
+      computedDarkestBackground !== "" ? computedDarkestBackground : " #00274a";
 
     // Note: getPropertyValue inconsistently returns the color value beginning with a space.
-    if (auroDarkestBackground.indexOf(' ') >= 0) {
+    if (auroDarkestBackground.indexOf(" ") >= 0) {
       auroDarkestBackground = auroDarkestBackground.substring(1);
     }
 
-    const backgroundColor = this.appearance === 'inverse' || this.ondark ? auroDarkestBackground : "#FFFFFF";
-    const dataWithWCAG = await Promise.all(this.componentData.map(async(index) => {
-      // empty out any existing 'wcag' value input by the user (for backwards compatibility).
-      index.wcag = undefined;
-      const itemWCAG = await this.fetchWCAG(index.backgroundcolor, backgroundColor);
+    const backgroundColor =
+      this.appearance === "inverse" || this.ondark
+        ? auroDarkestBackground
+        : "#FFFFFF";
+    const dataWithWCAG = await Promise.all(
+      this.componentData.map(async (index) => {
+        // empty out any existing 'wcag' value input by the user (for backwards compatibility).
+        index.wcag = undefined;
+        const itemWCAG = await this.fetchWCAG(
+          index.backgroundcolor,
+          backgroundColor,
+        );
 
-      if (itemWCAG) {
-        index.wcag = itemWCAG;
-      }
+        if (itemWCAG) {
+          index.wcag = itemWCAG;
+        }
 
-      return index;
-    }));
+        return index;
+      }),
+    );
 
     if (dataWithWCAG) {
       this.componentData = dataWithWCAG;
@@ -87,29 +97,30 @@ class AuroTokenDisplay extends LitElement {
 
   async fetchWCAG(colorValue, backgroundColor) {
     const hexRegex = /#(?:[0-9A-Fa-f]{3}){1,2}\b/u;
-    const rgbaRegex = /rgba\(\s*(?<rValue>-?\d+|-?\d*\.\d+(?=%))(?<percentMatch>%?)\s*,\s*(?<gValue>-?\d+|-?\d*\.\d+(?=%))(?<percentMatch2>\2)\s*,\s*(?<bValue>-?\d+|-?\d*\.\d+(?=%))(?<percentMatch3>\2)\s*,\s*(?<aValue>-?\d+|-?\d*.\d+)\s*\)/u;
+    const rgbaRegex =
+      /rgba\(\s*(?<rValue>-?\d+|-?\d*\.\d+(?=%))(?<percentMatch>%?)\s*,\s*(?<gValue>-?\d+|-?\d*\.\d+(?=%))(?<percentMatch2>\2)\s*,\s*(?<bValue>-?\d+|-?\d*\.\d+(?=%))(?<percentMatch3>\2)\s*,\s*(?<aValue>-?\d+|-?\d*.\d+)\s*\)/u;
 
     // Automatically fail contrast ratio for rgba colors.
     if (colorValue.match(rgbaRegex)) {
       return {
-        "ratio": "n/a",
-        "AA":"fail",
-        "AALarge":"fail",
-        "AAA":"fail",
-        "AAALarge":"fail"
+        ratio: "n/a",
+        AA: "fail",
+        AALarge: "fail",
+        AAA: "fail",
+        AAALarge: "fail",
       };
-    } else if (colorValue.match(hexRegex) && backgroundColor.match(hexRegex)) {
+    }
+    if (colorValue.match(hexRegex) && backgroundColor.match(hexRegex)) {
       const hashlessColor = colorValue.substring(1);
       const hashlessBackgroundColor = backgroundColor.substring(1);
 
       try {
         const wcag = await cacheFetch(
           `https://webaim.org/resources/contrastchecker/?fcolor=${hashlessColor}&bcolor=${hashlessBackgroundColor}&api`,
-          {responseParser: (res) => res.json()}
+          { responseParser: (res) => res.json() },
         );
 
         if (wcag) {
-
           // not all ratios come back with :1 appended
           if (!wcag.ratio.includes(":1")) {
             wcag.ratio += ":1";
@@ -117,8 +128,7 @@ class AuroTokenDisplay extends LitElement {
 
           return wcag;
         }
-      } catch (el) {
-
+      } catch (_el) {
         return undefined;
       }
     }
@@ -137,31 +147,31 @@ class AuroTokenDisplay extends LitElement {
     const result = [];
 
     // normal text rating result
-    let normalLabel = 'FAIL';
+    let normalLabel = "FAIL";
 
-    if (wcag.AAA === 'pass') {
-      normalLabel = 'AAA';
-    } else if (wcag.AA === 'pass') {
-      normalLabel = 'AA';
+    if (wcag.AAA === "pass") {
+      normalLabel = "AAA";
+    } else if (wcag.AA === "pass") {
+      normalLabel = "AA";
     }
 
     result.push({
-      'type': 'normal',
-      'label': normalLabel
+      type: "normal",
+      label: normalLabel,
     });
 
     // large text rating result
-    let largeLabel = 'FAIL';
+    let largeLabel = "FAIL";
 
-    if (wcag.AAALarge === 'pass') {
-      largeLabel = 'AAA';
-    } else if (wcag.AALarge === 'pass') {
-      largeLabel = 'AA';
+    if (wcag.AAALarge === "pass") {
+      largeLabel = "AAA";
+    } else if (wcag.AALarge === "pass") {
+      largeLabel = "AA";
     }
 
     result.push({
-      'type': 'Large',
-      'label': largeLabel
+      type: "Large",
+      label: largeLabel,
     });
 
     return result;
@@ -188,7 +198,7 @@ class AuroTokenDisplay extends LitElement {
                 </div>
                 <auro-icon
                   emphasis
-                  appearance="${this.ondark ? 'inverse' : this.appearance}"
+                  appearance="${this.ondark ? "inverse" : this.appearance}"
                   id="ratioInfoIcon"
                   category="alert"
                   name="information-stroke"
@@ -201,10 +211,11 @@ class AuroTokenDisplay extends LitElement {
           </tr>
         </thead>
         <tbody>
-          ${this.componentData.map((index) => html`
+          ${this.componentData.map(
+            (index) => html`
             <tr>
               <td class="noWrap">
-                ${varName(index.colorname, 'css')}
+                ${varName(index.colorname, "css")}
               </td>
               <td>${index.usage}</td>
               <td class="noWrap">${index.backgroundcolor}</td>
@@ -216,23 +227,28 @@ class AuroTokenDisplay extends LitElement {
               </td>
               <td class="noPadding">
                 <div class="wcagRatings">
-                  ${index.wcag ? this.validateRatings(index.wcag).map((item) => html`
-                    <div class="${item.label === 'FAIL' ? 'wcagFail' : 'wcagPass'}">
+                  ${
+                    index.wcag
+                      ? this.validateRatings(index.wcag).map(
+                          (item) => html`
+                    <div class="${item.label === "FAIL" ? "wcagFail" : "wcagPass"}">
                       <div class="wcagText">
                         <div class= "wcagRating">${item.label}</div>
                         <div class= "wcagType">${item.type}</div>
                       </div>
-                    </div>`)
-                  : undefined}
+                    </div>`,
+                        )
+                      : undefined
+                  }
                 </div>
               </td>
             </tr>
-          `)}
+          `,
+          )}
         </tbody>
       </table>
     `;
   }
-
 }
 
 /* istanbul ignore else */

@@ -1,1 +1,1 @@
-export * from './dist/auro-tokenlist';
+export * from "./dist/auro-tokenlist";

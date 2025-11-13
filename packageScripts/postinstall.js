@@ -1,13 +1,12 @@
-'use strict';
+import fs from "node:fs";
 
-import fs from 'fs';
-
-const pjson = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
+const pjson = JSON.parse(fs.readFileSync("./package.json", "utf8"));
 
 (async () => {
-  const chalk = await import('chalk');
+  const chalk = await import("chalk");
 
-  console.log(chalk.default.hex('#f26135')(`
+  console.log(
+    chalk.default.hex("#f26135")(`
 
  _______                   __           __ __
 |     __|.---.-.--.--.    |  |--.-----.|  |  |.-----.
@@ -23,9 +22,11 @@ const pjson = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
 ╭ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ──────────────────────────────╮
 
         Thanks for installing the latest version
-                of `) + chalk.default.hex('#ffd200').bold(`auro-tokenlist v${pjson.version}.`) + chalk.default.hex('#f26135')(`
+                of `) +
+      chalk.default.hex("#ffd200").bold(`auro-tokenlist v${pjson.version}.`) +
+      chalk.default.hex("#f26135")(`
 
 ╰─────────────────────────────── ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─╯
-`)
+`),
   );
 })();

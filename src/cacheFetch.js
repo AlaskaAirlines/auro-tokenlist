@@ -18,7 +18,8 @@ const fetchMap = new Map();
  */
 
 const cacheFetch = (uri, options = {}) => {
-  const responseParser = options.responseParser || ((response) => response.text());
+  const responseParser =
+    options.responseParser || ((response) => response.text());
   if (!fetchMap.has(uri)) {
     fetchMap.set(uri, fetch(uri).then(responseParser));
   }
