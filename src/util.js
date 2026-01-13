@@ -7,13 +7,12 @@
  */
 
 export const varName = (name, type) => {
-
   switch (type) {
-    case 'ds':
+    case "ds":
       return `var(--ds-${name})`;
-    case 'deprecated':
+    case "deprecated":
       return `var(--${name})`;
-    case 'css':
+    case "css":
       return `var(--${name})`;
     default:
       return `{${name.replace(/-/gu, ".")}.value}`;
