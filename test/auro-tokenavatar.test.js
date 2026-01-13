@@ -1,5 +1,5 @@
 import { expect, fixture, html } from "@open-wc/testing";
-import "../src/auro-tokenavatar.js";
+import "../src/registered.js";
 
 describe("auro-tokenavatar", () => {
   it("auro-tokenavatar custom element is defined", async () => {

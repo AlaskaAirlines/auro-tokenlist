@@ -1,6 +1,6 @@
 import { elementUpdated, expect, fixture, html } from "@open-wc/testing";
 import sinon from "sinon";
-import "../src/auro-tokendisplay.js";
+import "../src/registered.js";
 
 const mockFetchResponse = (body = "") =>
   new window.Response(JSON.stringify(body), {

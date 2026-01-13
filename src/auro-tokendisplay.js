@@ -2,26 +2,27 @@
 // See LICENSE in the project root for license information.
 
 // ---------------------------------------------------------------------
-import { css, html, LitElement } from "lit-element";
+import { html, LitElement } from "lit-element";
 import "focus-visible/dist/focus-visible.min.js";
 import cacheFetch from "./cacheFetch";
-import styleCss from "./styles/style-tokendisplay-css.js";
+import styleCss from "./styles/style-tokendisplay.scss";
 import { varName } from "./util";
+import * as RuntimeUtils from "@aurodesignsystem/auro-library/scripts/utils/runtimeUtils.mjs";
 
 /* eslint-disable one-var, no-magic-numbers, max-statements*/
 
 /**
  * The auro-tokendisplay element provides users a way to illustrate design token colors and their related data and usage in a table.
- *
+ *  @customElement auro-tokendisplay
  */
 
-class AuroTokenDisplay extends LitElement {
+export class AuroTokenDisplay extends LitElement {
   // function to define props used within the scope of this component
   static get properties() {
     return {
       /**
        * Defines whether this component should be light colored for use on dark backgrounds.
-       * @property {'default', 'inverse'}
+       * @type {'default'|'inverse'|string}
        * @default 'default'
        */
       appearance: {
@@ -31,20 +32,20 @@ class AuroTokenDisplay extends LitElement {
 
       /**
        * Pass in `backgroundcolor`, `colorname` & `usage`.
+       * @type { 'backgroundcolor'|'colorname'|'usage'|array }
        */
       componentData: { type: Array },
 
       /**
        * DEPRECATED - use `appearance` instead.
+       * @deprecated
        */
       ondark: { type: Boolean },
     };
   }
 
   static get styles() {
-    return css`
-      ${styleCss}
-    `;
+    return [styleCss];
   }
 
   // Lifecycle function currently in use to load wcag ratings from webaim.org
@@ -177,6 +178,18 @@ class AuroTokenDisplay extends LitElement {
     return result;
   }
 
+  /**
+   * This will register this element with the browser.
+   * @param {string} [name="auro-tokendisplay"] - The name of element that you want to register to.
+   *
+   * @example
+   * AuroTokenDisplay.register("custom-tokendisplay") // this will register this element to <custom-tokendisplay/>
+   *
+   */
+  static register(name = "auro-tokendisplay") {
+    RuntimeUtils.default.prototype.registerComponent(name, AuroTokenDisplay);
+  }
+
   // function that renders the HTML and CSS into  the scope of the component
   render() {
     return html`
@@ -249,10 +262,4 @@ class AuroTokenDisplay extends LitElement {
       </table>
     `;
   }
-}
-
-/* istanbul ignore else */
-// define the name of the custom component
-if (!customElements.get("auro-tokendisplay")) {
-  customElements.define("auro-tokendisplay", AuroTokenDisplay);
 }

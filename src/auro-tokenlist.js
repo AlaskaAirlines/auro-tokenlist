@@ -2,30 +2,45 @@
 // See LICENSE in the project root for license information.
 
 // ---------------------------------------------------------------------
-import { css, html, LitElement } from "lit-element";
+import { html, LitElement } from "lit-element";
 import { varName } from "./util.js";
 import "focus-visible/dist/focus-visible.min.js";
-import styleCss from "./styles/style-tokenlist-css.js";
+import styleCss from "./styles/style-tokenlist.scss";
+import * as RuntimeUtils from "@aurodesignsystem/auro-library/scripts/utils/runtimeUtils.mjs";
 
 /**
  * The auro-tokenlist element provides users a way to display a table of design token names and values.
+ * @customElement auro-tokenlist
  *
- * @attr {Array} componentData - Pass in `tokenvalue`, `token`. Include a new `reference` and `version` number with a deprecated token table as applicable.
- * @attr {String} type - Selects tokens-list `type`. Allowed options are `current` and `deprecated` for displaying deprecated tokens and their current equivalents. If given value is not allowed or set, defaults to `current`.
- * @attr {String} version - Displays the current token `version` number in a deprecated type tokens list.
- * @attr {Boolean} swatchType - Sets the swatch display type for a current type tokens list. Allowed options are `rectangle` or `circle`. If given value is not allowed or set, defaults to none.
- * @attr {String} unit - Add context to a value if unit is not output by default.
  */
 
 // build the component class
-class AuroTokenList extends LitElement {
+export class AuroTokenList extends LitElement {
   // function to define props used within the scope of this component
   static get properties() {
     return {
+      /**
+       * Pass in `backgroundcolor`, `colorname` & `usage`.
+       * @type { 'backgroundcolor'|'colorname'|'usage'|array }
+       */
       componentData: { type: Array },
+      /**
+       * Selects tokens-list `type`. Allowed options are `current` and `deprecated` for displaying deprecated tokens and their current equivalents. If given value is not allowed or set, defaults to `current`.
+       * @type {'current'|'deprecated'|string}
+       */
       type: { type: String },
+      /**
+       * Sets the swatch display type for a current type tokens list. Allowed options are `rectangle` or `circle`. If given value is not allowed or set, defaults to none.
+       * @type {'rectangle'|'circle'|string}
+       */
       swatchType: { type: String },
+      /**
+       * Displays the current token `version` number in a deprecated type tokens list.
+       */
       version: { type: Boolean },
+      /**
+       * Add context to a value if unit is not output by default.
+       */
       unit: { type: String },
     };
   }
@@ -170,9 +185,19 @@ class AuroTokenList extends LitElement {
   }
 
   static get styles() {
-    return css`
-    ${styleCss}
-  `;
+    return [styleCss];
+  }
+
+  /**
+   * This will register this element with the browser.
+   * @param {string} [name="auro-tokenlist"] - The name of element that you want to register to.
+   *
+   * @example
+   * AuroTokenList.register("custom-tokenlist") // this will register this element to <custom-tokenlist/>
+   *
+   */
+  static register(name = "auro-tokenlist") {
+    RuntimeUtils.default.prototype.registerComponent(name, AuroTokenList);
   }
 
   // function that renders the HTML and CSS into the scope of the component
@@ -242,9 +267,4 @@ class AuroTokenList extends LitElement {
     </table>
     `;
   }
-}
-
-// define the name of the custom component
-if (!customElements.get("auro-tokenlist")) {
-  customElements.define("auro-tokenlist", AuroTokenList);
 }

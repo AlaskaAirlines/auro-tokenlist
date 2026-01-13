@@ -1,5 +1,5 @@
 import { expect, fixture, html } from "@open-wc/testing";
-import "../src/auro-tokenlist.js";
+import "../src/registered.js";
 
 describe("auro-tokenlist", () => {
   it("auro-tokenlist custom element is defined", async () => {
